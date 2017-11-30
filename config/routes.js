@@ -6,7 +6,7 @@ module.exports = function(app,fs,xml2js,os) {
             var xml = fs.readFileSync('xml/window-settings.xml');
             var parser = new xml2js.Parser();
             parser.parseString(xml, function(err,result){
-            res.send(result['currtheme'])
+            res.send(result.currtheme)
         });
     });
 
@@ -15,7 +15,7 @@ module.exports = function(app,fs,xml2js,os) {
         var parser = new xml2js.Parser();
         parser.parseString(xml, function(err,result) {
             if (req.query.theme>0 && req.query.theme<=10) {
-                result['currtheme'] = req.query.theme;
+                result.currtheme = req.query.theme;
                 var builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
                 fs.writeFile('xml/window-settings.xml', xml);
@@ -33,7 +33,7 @@ module.exports = function(app,fs,xml2js,os) {
         parser.parseString(xml, function(err,result) {
             if (req.query.path!=null && req.query.path!="") {
                 var newPath = {ip:"localhost", username:os.userInfo().username, folder:req.query.path};
-                result['pathlist']['path'].push(newPath);
+                result.pathlist.path.push(newPath);
                 var builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
                 fs.writeFile('xml/paths.xml', xml);
@@ -95,10 +95,36 @@ module.exports = function(app,fs,xml2js,os) {
         var xml = fs.readFileSync('xml/paths.xml');
         var parser = new xml2js.Parser();
         parser.parseString(xml, function(err,result) {
-            result['pathlist']['path'].forEach(function (element) {
+            result.pathlist.path.forEach(function (element) {
                 paths.push(element)
             });
             res.send(JSON.stringify(paths));
          });
+    });
+
+    app.get('/deletePath', function(req, res) {
+        var xml = fs.readFileSync('xml/paths.xml');
+        var parser = new xml2js.Parser();
+        var trovato="0";
+        if (req.query.path==null || req.query.path=="") {
+            res.send(trovato);
+        }
+        else {
+            parser.parseString(xml, function (err, result) {
+                for(k in result.pathlist.path){
+                    if (result.pathlist.path[k].folder == req.query.path) {
+                        trovato="1";
+                        delete result.pathlist.path[k];
+                    }
+                }
+                if(trovato=="1")
+                {
+                    var builder = new xml2js.Builder();
+                    xml = builder.buildObject(result);
+                    fs.writeFile('xml/paths.xml', xml);
+                }
+                res.send(trovato);
+            });
+        }
     });
 };
