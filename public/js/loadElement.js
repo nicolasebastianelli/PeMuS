@@ -1,6 +1,7 @@
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
 var ip ="192.168.1.72";
+var table = $('#pathTable').DataTable();
 
 function updateTheme() {
     var xmlhttp = new XMLHttpRequest();
@@ -87,7 +88,7 @@ function addPath() {
 
 function updateFolderTable() {
     var xmlhttp = new XMLHttpRequest();
-    var table = $('#data-table').DataTable();
+    table.clear().draw();
     xmlhttp.open("GET","http://"+ip+":8080/getFolderList", true);
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -96,7 +97,7 @@ function updateFolderTable() {
                 table.row.add( [element.ip.toString(),
                     element.username.toString(),
                     element.folder.toString(),
-                    "<i class='zmdi zmdi-delete zmdi-hc-lg' onclick='deleteFolder(this)' folder="+element.folder.toString()+"></i>"]).draw();
+                    "<i class='zmdi zmdi-delete zmdi-hc-lg' onclick='deleteFolder(this)' folder="+element.folder+"></i>"]).draw();
             });
         }
     }
