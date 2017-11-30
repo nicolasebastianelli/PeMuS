@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="css/app.min.css">
     </head>
 
-    <body data-sa-theme="1" onload="loadElem()">
+    <body data-sa-theme="1" onload="updateUser();updateTheme();">
         <main class="main">
             <div class="page-loader">
                 <div class="page-loader__spinner">
@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="logo hidden-sm-down">
-                    <h1><a href="index-2.html">PeMuS</a></h1>
+                    <h1><a href="video.html">PeMuS</a></h1>
                 </div>
 
                 <form class="search">
@@ -355,8 +355,8 @@
                         <div class="user__info" data-toggle="dropdown">
                             <img class="user__img" src="demo/img/profile-pics/8.jpg" alt="">
                             <div>
-                                <div class="user__name" id="User">User</div>
-                                <div class="user__email" id="Ip">IP</div>
+                                <div class="user__name" id="user">---</div>
+                                <div class="user__email" id="ip">---</div>
                             </div>
                         </div>
 
@@ -368,7 +368,7 @@
                     </div>
 
                     <ul class="navigation">
-                        <li class="navigation__active"><a href="index-2.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+                        <li class="navigation__active"><a href="video.html"><i class="zmdi zmdi-home"></i> Home</a></li>
 
                         <li class="navigation__sub @@variantsactive">
                             <a href="#"><i class="zmdi zmdi-view-week"></i> Variants</a>
@@ -985,11 +985,11 @@
         <script src="demo/js/other-charts.js"></script>
         <script src="demo/js/jqvmap.js"></script>
 
-        <!-- Personal JS functions -->
-        <script src="js/loadElement.js"></script>
-
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
+
+        <!-- Personal JS functions -->
+        <script src="js/loadElement.js"></script>
     </body>
 
 <!-- Mirrored from byrushan.com/projects/super-admin/app/2.0/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Nov 2017 20:34:14 GMT -->
