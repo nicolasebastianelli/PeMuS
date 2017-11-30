@@ -1,6 +1,6 @@
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
-var ip ="192.168.1.72";
+var ip ="localhost";
 var table = $('#pathTable').DataTable();
 
 function updateTheme() {
@@ -53,7 +53,7 @@ function addPath() {
                 if (resp == 0) {
                     swal({
                         title: 'Ops',
-                        text: 'Sembra che il path inserito non esista nel tuo sistema.',
+                        text: 'Sembra che il path inserito non esista nel sistema.',
                         type: 'error',
                         buttonsStyling: false,
                         confirmButtonClass: 'btn btn-sm btn-light',
@@ -105,5 +105,26 @@ function updateFolderTable() {
 }
 
 function deleteFolder(e) {
-    alert(e.getAttribute("folder")+": mi cancello")
+    swal({
+        title: 'Attenzione',
+        text: 'Sei sicuro di voler smettere di condividere la cartella: '+e.getAttribute("folder")+' ?',
+        type: 'warning',
+        showCancelButton: true,
+        buttonsStyling: false,
+        confirmButtonClass: 'btn btn-danger',
+        confirmButtonText: 'Si, Elimina!',
+        cancelButtonText: 'Annulla',
+        cancelButtonClass: 'btn btn-light',
+        background: 'rgba(0, 0, 0, 0.96)'
+    }).then(function(){
+        swal({
+            title: 'Successo',
+            text: 'La cartella è stata eliminata',
+            type: 'success',
+            buttonsStyling: false,
+            confirmButtonClass: 'btn btn-light',
+            background: 'rgba(0, 0, 0, 0.96)'
+        });
+    });
+
 }

@@ -32,7 +32,7 @@ module.exports = function(app,fs,xml2js,os) {
         var parser = new xml2js.Parser();
         parser.parseString(xml, function(err,result) {
             if (req.query.path!=null && req.query.path!="") {
-                var newPath = {ip:"Localhost", username:os.userInfo().username, folder:req.query.path};
+                var newPath = {ip:"localhost", username:os.userInfo().username, folder:req.query.path};
                 result['pathlist']['path'].push(newPath);
                 var builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
@@ -63,13 +63,7 @@ module.exports = function(app,fs,xml2js,os) {
     });
 
     app.get('/stream', function(req, res) {
-        var path
-        var xml = fs.readFileSync('xml/paths.xml');
-        var parser = new xml2js.Parser();
-        parser.parseString(xml, function(err,result){
-            path = result['path']['folder'];
-        });
-        path+="/"+req.query.source;
+        var path = req.query.path+"/"+req.query.source;
         var stat = fs.statSync(path);
         var total = stat.size;
 

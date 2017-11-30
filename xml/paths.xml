@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <pathlist>
   <path>
-    <ip>Localhost</ip>
+    <ip>localhost</ip>
     <username>Nicola</username>
     <folder>/Users/Nicola/Downloads</folder>
-  </path>
-  <path>
-    <ip>Localhost</ip>
-    <username>Nicola</username>
-    <folder>/Users/Nicola/Documents</folder>
   </path>
 </pathlist>
