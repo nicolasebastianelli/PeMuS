@@ -30,14 +30,34 @@ module.exports = function(app,fs,xml2js,os) {
     app.get('/addPath', function(req, res) {
         var xml = fs.readFileSync('xml/paths.xml');
         var parser = new xml2js.Parser();
+        var trovato="0";
         parser.parseString(xml, function(err,result) {
-            if (req.query.path!=null && req.query.path!="") {
-                var newPath = {ip:"localhost", username:os.userInfo().username, folder:req.query.path};
-                result.pathlist.path.push(newPath);
-                var builder = new xml2js.Builder();
-                xml = builder.buildObject(result);
-                fs.writeFile('xml/paths.xml', xml);
-                res.send("1");
+            if (req.query.path!=null && req.query.path!="" && fs.existsSync(req.query.path)) {
+                for(k in result.pathlist.path){
+                    if (result.pathlist.path[k].folder == req.query.path) {
+                        trovato="1";
+                    }
+                }
+                if(trovato=="1")
+                {
+                    res.send("2");
+                }
+                else
+                {
+                    var newPath;
+                    if(result.pathlist.length==0)
+                    {
+                        newPath = { path:[{ip: "localhost", username: os.userInfo().username, folder: req.query.path}]};
+                        result.pathlist=newPath;
+                    }else {
+                        newPath = {ip: "localhost", username: os.userInfo().username, folder: req.query.path};
+                        result.pathlist.path.push(newPath);
+                    }
+                    var builder = new xml2js.Builder();
+                    xml = builder.buildObject(result);
+                    fs.writeFile('xml/paths.xml', xml);
+                    res.send("1");
+                }
             }
             else{
                 res.send("0");
@@ -95,10 +115,13 @@ module.exports = function(app,fs,xml2js,os) {
         var xml = fs.readFileSync('xml/paths.xml');
         var parser = new xml2js.Parser();
         parser.parseString(xml, function(err,result) {
-            result.pathlist.path.forEach(function (element) {
-                paths.push(element)
-            });
-            res.send(JSON.stringify(paths));
+            if(result.pathlist.length!=0)
+            {
+                result.pathlist.path.forEach(function (element) {
+                    paths.push(element)
+                });
+            }
+                res.send(JSON.stringify(paths));
          });
     });
 

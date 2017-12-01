@@ -6,7 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.js" afterPath="$PROJECT_DIR$/config/routes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/loadElement.js" afterPath="$PROJECT_DIR$/public/js/loadElement.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/paths.xml" afterPath="$PROJECT_DIR$/xml/paths.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/window-settings.xml" afterPath="$PROJECT_DIR$/xml/window-settings.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,28 +22,28 @@
       <file leaf-file-name="loadElement.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/loadElement.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="807">
-              <caret line="100" column="122" lean-forward="false" selection-start-line="100" selection-start-column="122" selection-end-line="100" selection-end-column="122" />
+            <state relative-caret-position="768">
+              <caret line="73" column="35" lean-forward="false" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/routes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="97" column="28" lean-forward="false" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+            <state relative-caret-position="340">
+              <caret line="59" column="17" lean-forward="true" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paths.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="paths.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xml/paths.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="15">
+              <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -53,7 +52,7 @@
       <file leaf-file-name="video.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/video.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
+            <state relative-caret-position="7755">
               <caret line="517" column="48" lean-forward="false" selection-start-line="517" selection-start-column="48" selection-end-line="517" selection-end-column="48" />
               <folding>
                 <marker date="1512001115317" expanded="true" signature="28250:29291" ph="..." />
@@ -97,6 +96,8 @@
       <find>fol</find>
       <find>folder</find>
       <find>getfolder</find>
+      <find>jq</find>
+      <find>lengt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -116,9 +117,9 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/video.html" />
         <option value="$PROJECT_DIR$/public/vendors/bower_components/sweetalert2/dist/sweetalert2.all.js" />
-        <option value="$PROJECT_DIR$/config/routes.js" />
-        <option value="$PROJECT_DIR$/xml/paths.xml" />
         <option value="$PROJECT_DIR$/public/js/loadElement.js" />
+        <option value="$PROJECT_DIR$/xml/paths.xml" />
+        <option value="$PROJECT_DIR$/config/routes.js" />
       </list>
     </option>
   </component>
@@ -152,7 +153,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -216,6 +216,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -264,14 +265,15 @@
       <workItem from="1511969660179" duration="19175000" />
       <workItem from="1512049255978" duration="1613000" />
       <workItem from="1512071140206" duration="4528000" />
+      <workItem from="1512125107584" duration="5612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49011000" />
+    <option name="totallyTimeSpent" value="54623000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="701" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="704" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -305,6 +307,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/xml/paths.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -624,23 +634,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12120">
           <caret line="808" column="19" lean-forward="false" selection-start-line="789" selection-start-column="16" selection-end-line="808" selection-end-column="19" />
-          <folding>
-            <marker date="1511969727804" expanded="true" signature="37328:38753" ph="..." />
-            <marker date="1511969727804" expanded="true" signature="37583:38674" ph="..." />
-            <marker date="1511969727804" expanded="true" signature="37647:37747" ph="..." />
-            <marker date="1511969727804" expanded="true" signature="37825:37926" ph="..." />
-            <marker date="1511969727804" expanded="true" signature="37983:38082" ph="..." />
-            <marker date="1511969727804" expanded="true" signature="38161:38261" ph="..." />
-            <marker date="1511969727804" expanded="true" signature="38352:38450" ph="..." />
-            <marker date="1511969727804" expanded="true" signature="38551:38647" ph="..." />
-            <marker date="1511969727804" expanded="true" signature="41527:41537" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/video.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
+        <state relative-caret-position="7755">
           <caret line="517" column="48" lean-forward="false" selection-start-line="517" selection-start-column="48" selection-end-line="517" selection-end-column="48" />
           <folding>
             <marker date="1512001115317" expanded="true" signature="28250:29291" ph="..." />
@@ -655,26 +654,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="97" column="28" lean-forward="false" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/loadElement.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
-          <caret line="100" column="122" lean-forward="false" selection-start-line="100" selection-start-column="122" selection-end-line="100" selection-end-column="122" />
+        <state relative-caret-position="768">
+          <caret line="73" column="35" lean-forward="false" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/xml/paths.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="15">
+          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="59" column="17" lean-forward="true" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="17" />
           <folding />
         </state>
       </provider>

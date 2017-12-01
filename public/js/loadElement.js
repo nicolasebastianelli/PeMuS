@@ -59,13 +59,24 @@ function addPath() {
                         confirmButtonClass: 'btn btn-sm btn-light',
                         background: 'rgba(0, 0, 0, 0.96)'
                     })
-                } else {
+                } else if(resp == 1){
                     document.getElementById("path").value="";
                     updateFolderTable();
                     swal({
                         title: 'Alla Grande',
                         text: 'La cartella è stata aggiunta con successo.',
                         type: 'success',
+                        buttonsStyling: false,
+                        confirmButtonClass: 'btn btn-sm btn-light',
+                        background: 'rgba(0, 0, 0, 0.96)'
+                    })
+                }
+                else if(resp == 2){
+                    updateFolderTable();
+                    swal({
+                        title: 'Attenzione',
+                        text: 'La cartella selezionata è già presente.',
+                        type: 'warning',
                         buttonsStyling: false,
                         confirmButtonClass: 'btn btn-sm btn-light',
                         background: 'rgba(0, 0, 0, 0.96)'
