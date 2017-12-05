@@ -1,5 +1,5 @@
 
-module.exports = function(app,fs,xml2js,os) {
+module.exports = function(app,fs,xml2js,os,uniqid) {
 
 
     app.get('/getTheme', function(req, res) {
@@ -32,7 +32,7 @@ module.exports = function(app,fs,xml2js,os) {
         var parser = new xml2js.Parser();
         var trovato="0";
         parser.parseString(xml, function(err,result) {
-            if (req.query.path!=null && req.query.path!="" && fs.existsSync(req.query.path)) {
+            if (fs.existsSync(req.query.path) && fs.lstatSync(req.query.path).isDirectory()){
                 for(k in result.pathlist.path){
                     if (result.pathlist.path[k].folder == req.query.path) {
                         trovato="1";
@@ -47,7 +47,7 @@ module.exports = function(app,fs,xml2js,os) {
                     var newPath;
                     if(result.pathlist.length==0)
                     {
-                        newPath = { path:[{ip: "localhost", username: os.userInfo().username, folder: req.query.path}]};
+                        newPath = { path:[{idPath: uniqid(),ip: "localhost", username: os.userInfo().username, folder: req.query.path}]};
                         result.pathlist=newPath;
                     }else {
                         newPath = {ip: "localhost", username: os.userInfo().username, folder: req.query.path};
@@ -129,13 +129,13 @@ module.exports = function(app,fs,xml2js,os) {
         var xml = fs.readFileSync('xml/paths.xml');
         var parser = new xml2js.Parser();
         var trovato="0";
-        if (req.query.path==null || req.query.path=="") {
+        if (req.query.idPath==null || req.query.idPath=="") {
             res.send(trovato);
         }
         else {
             parser.parseString(xml, function (err, result) {
                 for(k in result.pathlist.path){
-                    if (result.pathlist.path[k].folder == req.query.path) {
+                    if (result.pathlist.path[k].idPath == req.query.idPath) {
                         trovato="1";
                         delete result.pathlist.path[k];
                     }
