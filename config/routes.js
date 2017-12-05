@@ -47,7 +47,7 @@ module.exports = function(app,fs,xml2js,os,uniqid) {
                     var newPath;
                     if(result.pathlist.length==0)
                     {
-                        newPath = { path:[{idPath: uniqid(),ip: "localhost", username: os.userInfo().username, folder: req.query.path}]};
+                        newPath = { path:[{idPath: uniqid('folder-'),ip: "localhost", username: os.userInfo().username, folder: req.query.path}]};
                         result.pathlist=newPath;
                     }else {
                         newPath = {ip: "localhost", username: os.userInfo().username, folder: req.query.path};

@@ -2,65 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46575ed0-a898-48f6-9d6f-a8f6c0b14e1f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/load.js" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/video.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/videoList.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/js/loadElement.js" afterPath="$PROJECT_DIR$/public/js/index.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/video.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.js" afterPath="$PROJECT_DIR$/config/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/alerts.html" afterPath="$PROJECT_DIR$/public/alerts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/badges.html" afterPath="$PROJECT_DIR$/public/badges.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/boxed-layout.html" afterPath="$PROJECT_DIR$/public/boxed-layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/breadcrumbs.html" afterPath="$PROJECT_DIR$/public/breadcrumbs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/buttons.html" afterPath="$PROJECT_DIR$/public/buttons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/calendar.html" afterPath="$PROJECT_DIR$/public/calendar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/cards.html" afterPath="$PROJECT_DIR$/public/cards.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/carousel.html" afterPath="$PROJECT_DIR$/public/carousel.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/collapse.html" afterPath="$PROJECT_DIR$/public/collapse.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/colors.html" afterPath="$PROJECT_DIR$/public/colors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/contacts.html" afterPath="$PROJECT_DIR$/public/contacts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css-animations.html" afterPath="$PROJECT_DIR$/public/css-animations.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/data-table.html" afterPath="$PROJECT_DIR$/public/data-table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/dropdowns.html" afterPath="$PROJECT_DIR$/public/dropdowns.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/empty.html" afterPath="$PROJECT_DIR$/public/empty.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/flot-charts.html" afterPath="$PROJECT_DIR$/public/flot-charts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/form-components.html" afterPath="$PROJECT_DIR$/public/form-components.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/form-elements.html" afterPath="$PROJECT_DIR$/public/form-elements.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/form-validation.html" afterPath="$PROJECT_DIR$/public/form-validation.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/groups.html" afterPath="$PROJECT_DIR$/public/groups.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/hidden-sidebar-boxed-layout.html" afterPath="$PROJECT_DIR$/public/hidden-sidebar-boxed-layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/hidden-sidebar.html" afterPath="$PROJECT_DIR$/public/hidden-sidebar.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html-table.html" afterPath="$PROJECT_DIR$/public/html-table.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/icons.html" afterPath="$PROJECT_DIR$/public/icons.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/invoice.html" afterPath="$PROJECT_DIR$/public/invoice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/jumbotron.html" afterPath="$PROJECT_DIR$/public/jumbotron.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/listview.html" afterPath="$PROJECT_DIR$/public/listview.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/lockscreen.html" afterPath="$PROJECT_DIR$/public/lockscreen.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/login.html" afterPath="$PROJECT_DIR$/public/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/messages.html" afterPath="$PROJECT_DIR$/public/messages.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modals.html" afterPath="$PROJECT_DIR$/public/modals.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/navs.html" afterPath="$PROJECT_DIR$/public/navs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/notes.html" afterPath="$PROJECT_DIR$/public/notes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/notifications-alerts.html" afterPath="$PROJECT_DIR$/public/notifications-alerts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/other-charts.html" afterPath="$PROJECT_DIR$/public/other-charts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pagination.html" afterPath="$PROJECT_DIR$/public/pagination.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/photo-gallery.html" afterPath="$PROJECT_DIR$/public/photo-gallery.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/popover.html" afterPath="$PROJECT_DIR$/public/popover.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/pricing-tables.html" afterPath="$PROJECT_DIR$/public/pricing-tables.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/profile-about.html" afterPath="$PROJECT_DIR$/public/profile-about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/profile-contacts.html" afterPath="$PROJECT_DIR$/public/profile-contacts.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/profile-photos.html" afterPath="$PROJECT_DIR$/public/profile-photos.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/progress.html" afterPath="$PROJECT_DIR$/public/progress.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/tabs.html" afterPath="$PROJECT_DIR$/public/tabs.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/todo-lists.html" afterPath="$PROJECT_DIR$/public/todo-lists.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/toolbars.html" afterPath="$PROJECT_DIR$/public/toolbars.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/tooltips.html" afterPath="$PROJECT_DIR$/public/tooltips.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/typography.html" afterPath="$PROJECT_DIR$/public/typography.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/widgets.html" afterPath="$PROJECT_DIR$/public/widgets.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/window-settings.xml" afterPath="$PROJECT_DIR$/xml/window-settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xml/paths.xml" afterPath="$PROJECT_DIR$/xml/paths.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -77,57 +24,62 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
+            <state relative-caret-position="-6038">
               <caret line="19" column="58" lean-forward="false" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
               <folding>
-                <marker date="1512479759095" expanded="true" signature="21882:22923" ph="..." />
-                <marker date="1512479759095" expanded="true" signature="22089:22876" ph="..." />
-                <marker date="1512479759095" expanded="true" signature="22137:22205" ph="..." />
-                <marker date="1512479759095" expanded="true" signature="22267:22336" ph="..." />
-                <marker date="1512479759095" expanded="true" signature="22377:22444" ph="..." />
-                <marker date="1512479759095" expanded="true" signature="22507:22575" ph="..." />
-                <marker date="1512479759095" expanded="true" signature="22650:22716" ph="..." />
-                <marker date="1512479759095" expanded="true" signature="22801:22865" ph="..." />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#0;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#1;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#2;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#3;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#4;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#3;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#4;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#5;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#6;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#7;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#8;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#9;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1512482764447" expanded="true" signature="21882:22923" ph="..." />
+                <marker date="1512482764447" expanded="true" signature="22089:22876" ph="..." />
+                <marker date="1512482764447" expanded="true" signature="22137:22205" ph="..." />
+                <marker date="1512482764447" expanded="true" signature="22267:22336" ph="..." />
+                <marker date="1512482764447" expanded="true" signature="22377:22444" ph="..." />
+                <marker date="1512482764447" expanded="true" signature="22507:22575" ph="..." />
+                <marker date="1512482764447" expanded="true" signature="22650:22716" ph="..." />
+                <marker date="1512482764447" expanded="true" signature="22801:22865" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/video.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="40" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="90" lean-forward="true" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paths.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="paths.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xml/paths.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+            <state relative-caret-position="105">
+              <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="49" column="66" lean-forward="false" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="load.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/load.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="593">
+              <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -144,10 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>radio</find>
-      <find>col-s</find>
-      <find>mt-4</find>
-      <find>swal</find>
       <find>swee</find>
       <find>butto</find>
       <find>fir</find>
@@ -174,6 +122,10 @@
       <find>tool</find>
       <find>update</find>
       <find>get</find>
+      <find>upda</find>
+      <find>main</find>
+      <find>up</find>
+      <find>upstr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,13 +150,13 @@
         <option value="$PROJECT_DIR$/my-app/src/App.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/public/js/loadElement.js" />
-        <option value="$PROJECT_DIR$/xml/paths.xml" />
         <option value="$PROJECT_DIR$/public/js/index.js" />
         <option value="$PROJECT_DIR$/public/js/video.js" />
         <option value="$PROJECT_DIR$/public/js/load.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/videoList.html" />
+        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/config/routes.js" />
+        <option value="$PROJECT_DIR$/xml/paths.xml" />
       </list>
     </option>
   </component>
@@ -261,11 +213,6 @@
               <item name="PeMuS" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PeMuS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PeMuS" type="462c0819:PsiDirectoryNode" />
-              <item name="xml" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -329,25 +276,26 @@
       <workItem from="1512479683698" duration="215000" />
       <workItem from="1512480073563" duration="88000" />
       <workItem from="1512480255110" duration="447000" />
+      <workItem from="1512481949879" duration="1568000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68550000" />
+    <option name="totallyTimeSpent" value="70118000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="701" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="704" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -569,50 +517,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xml/paths.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="11" lean-forward="false" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/video.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/video.js" />
     <entry file="file://$PROJECT_DIR$/public/videoList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="381" column="39" lean-forward="false" selection-start-line="381" selection-start-column="39" selection-end-line="381" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="58" lean-forward="false" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
-          <folding>
-            <marker date="1512479759095" expanded="true" signature="21882:22923" ph="..." />
-            <marker date="1512479759095" expanded="true" signature="22089:22876" ph="..." />
-            <marker date="1512479759095" expanded="true" signature="22137:22205" ph="..." />
-            <marker date="1512479759095" expanded="true" signature="22267:22336" ph="..." />
-            <marker date="1512479759095" expanded="true" signature="22377:22444" ph="..." />
-            <marker date="1512479759095" expanded="true" signature="22507:22575" ph="..." />
-            <marker date="1512479759095" expanded="true" signature="22650:22716" ph="..." />
-            <marker date="1512479759095" expanded="true" signature="22801:22865" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -631,10 +540,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6038">
+          <caret line="19" column="58" lean-forward="false" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#0;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#1;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#2;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#3;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#4;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#3;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#4;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#5;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#6;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#7;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#8;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#9;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1512482764447" expanded="true" signature="21882:22923" ph="..." />
+            <marker date="1512482764447" expanded="true" signature="22089:22876" ph="..." />
+            <marker date="1512482764447" expanded="true" signature="22137:22205" ph="..." />
+            <marker date="1512482764447" expanded="true" signature="22267:22336" ph="..." />
+            <marker date="1512482764447" expanded="true" signature="22377:22444" ph="..." />
+            <marker date="1512482764447" expanded="true" signature="22507:22575" ph="..." />
+            <marker date="1512482764447" expanded="true" signature="22650:22716" ph="..." />
+            <marker date="1512482764447" expanded="true" signature="22801:22865" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="90" lean-forward="true" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
+        <state relative-caret-position="209">
+          <caret line="49" column="66" lean-forward="false" selection-start-line="49" selection-start-column="66" selection-end-line="49" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/load.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xml/paths.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="9" lean-forward="false" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
           <folding />
         </state>
       </provider>
