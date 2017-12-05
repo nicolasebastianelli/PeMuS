@@ -4,7 +4,7 @@ var table = $('#pathTable').DataTable();
 
 function addPath() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET","http://"+ip+":8080/addPath?path="+document.getElementById("path").value, true);
+    xmlhttp.open("GET","http://"+ip+":"+port+"/addPath?path="+document.getElementById("path").value, true);
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4) {
             if (xmlhttp.status == 200)
@@ -61,7 +61,7 @@ function addPath() {
 function updateFolderTable() {
     var xmlhttp = new XMLHttpRequest();
     table.clear().draw();
-    xmlhttp.open("GET","http://"+ip+":8080/getFolderList", true);
+    xmlhttp.open("GET","http://"+ip+":"+port+"/getFolderList", true);
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
             var resp=JSON.parse(xmlhttp.responseText);
@@ -90,7 +90,7 @@ function deletePath(e) {
         background: 'rgba(0, 0, 0, 0.96)'
     }).then(function(){
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET","http://"+ip+":8080/deletePath?idPath="+e.getAttribute("idPath"), true);
+        xmlhttp.open("GET","http://"+ip+":"+port+"/deletePath?idPath="+e.getAttribute("idPath"), true);
         xmlhttp.onreadystatechange=function(){
             if (xmlhttp.readyState==4) {
                 if (xmlhttp.status == 200) {

@@ -15,9 +15,10 @@
 
     <!-- App styles -->
     <link rel="stylesheet" href="css/app.min.css">
+    <link rel="stylesheet" href="css/load.css">
 </head>
 
-<body data-sa-theme="1" onload="updateUser();updateTheme();">
+<body data-sa-theme="1" onload="scanLan();updateUser();updateTheme();">
 <main class="main">
     <div class="page-loader">
         <div class="page-loader__spinner">
@@ -377,9 +378,13 @@
 
     <section class="content">
 
-        <div class="toolbar" onclick="updateCurrFolder()">
+        <div class="toolbar">
             <div class="toolbar__nav">
-                <label id="currFolder"></label>
+                <nav aria-label="breadcrumb" role="navigation">
+                    <ol class="breadcrumb card-title">
+                        <li class="breadcrumb-item active">Home</li>
+                    </ol>
+                </nav>
             </div>
 
             <div class="actions">
@@ -400,58 +405,28 @@
             </div>
         </div>
 
-        <footer class="footer hidden-xs-down">
-            <p>© Super Admin Responsive. All rights reserved.</p>
 
-            <ul class="nav footer__nav">
-                <a class="nav-link" href="#">Homepage</a>
 
-                <a class="nav-link" href="#">Company</a>
+        <div class="contacts row">
+            <div class="col-xl-3 col-lg-4 col-sm-5 col-4">
+                <div class="contacts__item">
+                    <a href="#" >
+                        <img src="img/Folder-icon.png"  class="folder__img">
+                    </a>
 
-                <a class="nav-link" href="#">Support</a>
+                    <div class="contacts__info">
+                        <strong>Cathy Shelton</strong>
+                        <small>cathy.shelton31@example.com</small>
+                    </div>
 
-                <a class="nav-link" href="#">News</a>
+                    <button class="contacts__btn">Following</button>
+                </div>
+            </div>
 
-                <a class="nav-link" href="#">Contacts</a>
-            </ul>
-        </footer>
+
+        </div>
     </section>
 </main>
-
-<!-- Older IE warning message -->
-<!--[if IE]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade to any of the following web browsers to access this website.</p>
-
-    <div class="ie-warning__downloads">
-        <a href="http://www.google.com/chrome">
-            <img src="img/browsers/chrome.png" alt="">
-        </a>
-
-        <a href="https://www.mozilla.org/en-US/firefox/new">
-            <img src="img/browsers/firefox.png" alt="">
-        </a>
-
-        <a href="http://www.opera.com">
-            <img src="img/browsers/opera.png" alt="">
-        </a>
-
-        <a href="https://support.apple.com/downloads/safari">
-            <img src="img/browsers/safari.png" alt="">
-        </a>
-
-        <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">
-            <img src="img/browsers/edge.png" alt="">
-        </a>
-
-        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-            <img src="img/browsers/ie.png" alt="">
-        </a>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
 
 <!-- Javascript -->
 <!-- Vendors -->

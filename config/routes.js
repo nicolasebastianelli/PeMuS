@@ -1,7 +1,6 @@
 
 module.exports = function(app,fs,xml2js,os,uniqid) {
 
-
     app.get('/getTheme', function(req, res) {
             var xml = fs.readFileSync('xml/window-settings.xml');
             var parser = new xml2js.Parser();

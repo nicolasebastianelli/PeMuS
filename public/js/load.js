@@ -1,9 +1,10 @@
 
 var ip ="localhost";
+var port="4242"
 
 function updateTheme() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET","http://"+ip+":8080/getTheme", true);
+    xmlhttp.open("GET","http://"+ip+":"+port+"/getTheme", true);
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
             var resp = xmlhttp.responseText;
@@ -18,7 +19,7 @@ function updateTheme() {
 
 function setTheme(id) {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET","http://localhost:8080/setTheme?theme="+document.getElementById(id).getAttribute("value"), true);
+    xmlhttp.open("GET","http://localhost:"+port+"/setTheme?theme="+document.getElementById(id).getAttribute("value"), true);
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
             var resp = xmlhttp.responseText;
@@ -29,7 +30,7 @@ function setTheme(id) {
 
 function updateUser() {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET","http://"+ip+":8080/getUserInfo", true);
+    xmlhttp.open("GET","http://"+ip+":"+port+"/getUserInfo", true);
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState==4 && xmlhttp.status==200){
             var resp=JSON.parse(xmlhttp.responseText);
