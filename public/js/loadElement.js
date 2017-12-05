@@ -109,7 +109,7 @@ function updateFolderTable() {
                 table.row.add( [element.ip.toString(),
                     element.username.toString(),
                     element.folder.toString(),
-                    "<i class='zmdi zmdi-delete zmdi-hc-lg' onclick='deletePath(this)' idPath='"+element.idPath.toString()+"' folder='"+element.folder.toString()+"'></i>"]).draw();
+                    "<i class='zmdi zmdi-delete zmdi-hc-lg' onclick='deletePath(this)' folder='"+element.folder.toString()+"'></i>"]).draw();
             });
         }
     }
@@ -130,7 +130,7 @@ function deletePath(e) {
         background: 'rgba(0, 0, 0, 0.96)'
     }).then(function(){
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("GET","http://"+ip+":8080/deletePath?idPath="+e.getAttribute("idPath"), true);
+        xmlhttp.open("GET","http://"+ip+":8080/deletePath?path="+e.getAttribute("folder"), true);
         xmlhttp.onreadystatechange=function(){
             if (xmlhttp.readyState==4) {
                 if (xmlhttp.status == 200) {
