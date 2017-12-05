@@ -50,7 +50,7 @@ module.exports = function(app,fs,xml2js,os,uniqid) {
                         newPath = { path:[{idPath: uniqid('folder-'),ip: "localhost", username: os.userInfo().username, folder: req.query.path}]};
                         result.pathlist=newPath;
                     }else {
-                        newPath = {ip: "localhost", username: os.userInfo().username, folder: req.query.path};
+                        newPath = {idPath: uniqid('folder-'),ip: "localhost", username: os.userInfo().username, folder: req.query.path};
                         result.pathlist.path.push(newPath);
                     }
                     var builder = new xml2js.Builder();
