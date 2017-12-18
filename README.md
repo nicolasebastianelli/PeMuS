@@ -1,3 +1,3 @@
-#PeMuS
+# PeMuS
 
-Personal Multimedia Server
+### Personal Multimedia Server
