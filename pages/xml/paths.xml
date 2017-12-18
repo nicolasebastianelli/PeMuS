@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pathlist>
+  <path>
+    <idPath>folder-2pqjg6qhjawtf22u</idPath>
+    <ip>localhost</ip>
+    <username>Nicola</username>
+    <folder>/Users/Nicola/Downloads</folder>
+  </path>
+  <path>
+    <idPath>folder-2pqjg6utjawtzjtn</idPath>
+    <ip>localhost</ip>
+    <username>Nicola</username>
+    <folder>/Users/Nicola</folder>
+  </path>
+  <path>
+    <idPath>folder-2pqjg6xkjawugy9z</idPath>
+    <ip>localhost</ip>
+    <username>Nicola</username>
+    <folder>/Users</folder>
+  </path>
+  <path>
+    <idPath>folder-2pqjg4gmjb3n46ri</idPath>
+    <ip>localhost</ip>
+    <username>Nicola</username>
+    <folder>/Users/Nicola/Documents</folder>
+  </path>
+</pathlist>
