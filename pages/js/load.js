@@ -3,7 +3,7 @@ var xml2js = require('xml2js');
 var os = require('os');
 
 function updateTheme() {
-    var xml = fs.readFileSync('pages/xml/window-settings.xml');
+    var xml = fs.readFileSync('pages/xml/settings.xml');
     var parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
         document.getElementsByTagName("body")[0].setAttribute("data-sa-theme", result.currtheme);
@@ -14,7 +14,7 @@ function updateTheme() {
 }
 
 function setTheme(id) {
-    var xml = fs.readFileSync('pages/xml/window-settings.xml');
+    var xml = fs.readFileSync('pages/xml/settings.xml');
     var parser = new xml2js.Parser();
     parser.parseString(xml, function(err,result) {
         if (document.getElementById(id).getAttribute("value")>0 && document.getElementById(id).getAttribute("value")<=10) {
@@ -25,7 +25,7 @@ function setTheme(id) {
         }
         var builder = new xml2js.Builder();
         xml = builder.buildObject(result);
-        fs.writeFile('pages/xml/window-settings.xml', xml,(error) =>{});
+        fs.writeFileSync('pages/xml/settings.xml', xml);
     });
 }
 
