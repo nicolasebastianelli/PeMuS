@@ -65,12 +65,11 @@ function addPathMessage() {
                             deletePath(result.pathlist.path[k].idPath.toString());
                         }
                     }
-                    addPath(result);
-
+                    addPath();
                 });
             }
             else {
-                addPath(result);
+                addPath();
                 swal({
                     title: 'Alla Grande',
                     text: 'La cartella è stata aggiunta con successo.',
@@ -94,32 +93,36 @@ function addPathMessage() {
     });
 }
 
-function addPath(result){
-    var newPath;
-    if (result.pathlist.length == 0) {
-        newPath = {
-            path: [{
+function addPath(){
+    var xml = fs.readFileSync('pages/xml/paths.xml');
+    var parser = new xml2js.Parser();
+    parser.parseString(xml, function (err, result) {
+        var newPath;
+        if (result.pathlist.length == 0) {
+            newPath = {
+                path: [{
+                    idPath: uniqid('folder-'),
+                    ip: "localhost",
+                    username: os.userInfo().username,
+                    folder: document.getElementById("path").value
+                }]
+            };
+            result.pathlist = newPath;
+        } else {
+            newPath = {
                 idPath: uniqid('folder-'),
                 ip: "localhost",
                 username: os.userInfo().username,
                 folder: document.getElementById("path").value
-            }]
-        };
-        result.pathlist = newPath;
-    } else {
-        newPath = {
-            idPath: uniqid('folder-'),
-            ip: "localhost",
-            username: os.userInfo().username,
-            folder: document.getElementById("path").value
-        };
-        result.pathlist.path.push(newPath);
-    }
-    var builder = new xml2js.Builder();
-    xml = builder.buildObject(result);
-    fs.writeFileSync('pages/xml/paths.xml', xml);
-    document.getElementById("path").value = "";
-    updateFolderTable();
+            };
+            result.pathlist.path.push(newPath);
+        }
+        var builder = new xml2js.Builder();
+        xml = builder.buildObject(result);
+        fs.writeFileSync('pages/xml/paths.xml', xml);
+        document.getElementById("path").value = "";
+        updateFolderTable();
+    });
 }
 
 function deletePathMessage(e) {
