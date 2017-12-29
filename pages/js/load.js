@@ -29,7 +29,7 @@ function setTheme(id) {
     });
 }
 
-function updateUser() {
+function getUserInfo() {
     var interfaces = os.networkInterfaces();
     var addresses = [];
     addresses.push(os.userInfo().username);
@@ -43,6 +43,11 @@ function updateUser() {
     }
     if(addresses[1]==undefined)
         addresses.push("Non connesso ad internet")
+    return addresses;
+}
+
+function updateUser() {
+    var addresses = getUserInfo();
     document.getElementById("ip").innerHTML=addresses[1];
     document.getElementById("user").innerHTML=addresses[0];
 

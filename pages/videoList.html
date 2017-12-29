@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/video.css">
 </head>
 
-<body data-sa-theme="1" onload="scanLan();updateUser();updateTheme();">
+<body data-sa-theme="1" onload="updateSharedFiles();updateUser();updateTheme();">
 <main class="main">
     <div class="page-loader">
         <div class="page-loader__spinner">
@@ -407,22 +407,7 @@
 
 
 
-        <div class="contacts row">
-            <div class="col-xl-3 col-lg-4 col-sm-5 col-4">
-                <div class="contacts__item">
-                    <a href="#" >
-                        <img src="img/Folder-icon.png"  class="folder__img">
-                    </a>
-
-                    <div class="contacts__info">
-                        <strong>Cathy Shelton</strong>
-                        <small>cathy.shelton31@example.com</small>
-                    </div>
-
-                    <button class="contacts__btn">Following</button>
-                </div>
-            </div>
-
+        <div class="contacts row" id="folderList">
 
         </div>
     </section>

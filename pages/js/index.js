@@ -102,8 +102,6 @@ function addPath(){
             newPath = {
                 path: [{
                     idPath: uniqid('folder-'),
-                    ip: "localhost",
-                    username: os.userInfo().username,
                     folder: document.getElementById("path").value
                 }]
             };
@@ -111,8 +109,6 @@ function addPath(){
         } else {
             newPath = {
                 idPath: uniqid('folder-'),
-                ip: "localhost",
-                username: os.userInfo().username,
                 folder: document.getElementById("path").value
             };
             result.pathlist.path.push(newPath);
@@ -190,8 +186,7 @@ function updateFolderTable() {
     parser.parseString(xml, function (err, result) {
         if (result.pathlist.length != 0) {
             result.pathlist.path.forEach(function (element) {
-                table.row.add([element.ip.toString(),
-                    element.username.toString(),
+                table.row.add([
                     element.folder.toString(),
                     "<i class='zmdi zmdi-delete zmdi-hc-lg' onclick='deletePathMessage(this)' idPath='" + element.idPath.toString() + "' folder='" + element.folder.toString() + "'></i>"]).draw();
             });
