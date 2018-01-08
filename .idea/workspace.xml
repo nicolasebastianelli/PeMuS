@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="46575ed0-a898-48f6-9d6f-a8f6c0b14e1f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change beforePath="$PROJECT_DIR$/pages/js/video.js" afterPath="$PROJECT_DIR$/pages/js/video.js" />
       <change beforePath="$PROJECT_DIR$/pages/videoList.html" afterPath="$PROJECT_DIR$/pages/videoList.html" />
       <change beforePath="$PROJECT_DIR$/pages/xml/paths.xml" afterPath="$PROJECT_DIR$/pages/xml/paths.xml" />
@@ -22,8 +23,8 @@
       <file leaf-file-name="videoList.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/videoList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="384" column="0" lean-forward="false" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
+            <state relative-caret-position="328">
+              <caret line="394" column="50" lean-forward="false" selection-start-line="394" selection-start-column="39" selection-end-line="394" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -32,8 +33,8 @@
       <file leaf-file-name="video.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/js/video.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="85" column="173" lean-forward="false" selection-start-line="85" selection-start-column="173" selection-end-line="85" selection-end-column="173" />
+            <state relative-caret-position="207">
+              <caret line="117" column="48" lean-forward="false" selection-start-line="117" selection-start-column="48" selection-end-line="117" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -62,7 +63,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>video</find>
       <find>toolbar</find>
       <find>curr</find>
       <find>updateUser</find>
@@ -92,6 +92,7 @@
       <find>&quot;</find>
       <find>css</find>
       <find>tool</find>
+      <find>drop</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -122,7 +123,6 @@
         <option value="$PROJECT_DIR$/public/js/load.js" />
         <option value="$PROJECT_DIR$/public/videoList.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/config/routes.js" />
         <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -131,6 +131,7 @@
         <option value="$PROJECT_DIR$/pages/index.html" />
         <option value="$PROJECT_DIR$/pages/js/index.js" />
         <option value="$PROJECT_DIR$/pages/js/sharedFiles.js" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/pages/videoList.html" />
         <option value="$PROJECT_DIR$/pages/js/video.js" />
       </list>
@@ -276,12 +277,12 @@
       <workItem from="1514477139389" duration="797000" />
       <workItem from="1514558771325" duration="9336000" />
       <workItem from="1514570120905" duration="62000" />
-      <workItem from="1515405009610" duration="11865000" />
+      <workItem from="1515405009610" duration="14743000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118132000" />
+    <option name="totallyTimeSpent" value="121010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="6" />
@@ -468,13 +469,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/xml/settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -514,6 +508,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/js/sharedFiles.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -524,16 +526,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/videoList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="384" column="0" lean-forward="false" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
+        <state relative-caret-position="328">
+          <caret line="394" column="50" lean-forward="false" selection-start-line="394" selection-start-column="39" selection-end-line="394" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/js/video.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="85" column="173" lean-forward="false" selection-start-line="85" selection-start-column="173" selection-end-line="85" selection-end-column="173" />
+        <state relative-caret-position="207">
+          <caret line="117" column="48" lean-forward="false" selection-start-line="117" selection-start-column="48" selection-end-line="117" selection-end-column="48" />
           <folding />
         </state>
       </provider>

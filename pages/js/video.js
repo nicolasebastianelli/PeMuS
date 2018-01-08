@@ -2,6 +2,7 @@ var fs = require('fs');
 var xml2js = require('xml2js');
 var os = require('os');
 var path = require('path');
+var currFolder="/";
 $.getScript("js/sharedFiles.js", function() {});
 
 function updateSharedFiles(){
@@ -22,7 +23,7 @@ function updateSharedFiles(){
             }
         }
         fileList.users.push(myUsr);
-        updateFolderList("/")
+        updateFolderList();
 }
 
 function findVideos() {
@@ -41,17 +42,23 @@ function fromDir(startPath,res){
     var files=fs.readdirSync(startPath);
     for(var i=0;i<files.length;i++){
         var filename=path.join(startPath,files[i]);
-        var stat = fs.lstatSync(filename);
-        if (stat.isDirectory()){
-            fromDir(filename,res);
+        try {
+            var stat = fs.lstatSync(filename);
+            if (stat.isDirectory()) {
+                fromDir(filename, res);
+            }
+            else if (filename.indexOf(".txt") >= 0) {
+                res.push(filename);
+            }
         }
-        else if (filename.indexOf(".txt")>=0) {
-            res.push(filename);
-        }
+        catch (err){ console.log("Errore navigazione path: "+err);}
     }
 }
 
-function updateFolderList(currFolder) {
+function updateFolderList(folder) {
+    if(folder!=undefined){
+        currFolder=folder;
+    }
     if(currFolder=="/"){
         document.getElementById("folderList").innerHTML="";
         document.getElementById("navBar").innerHTML=
@@ -104,6 +111,23 @@ function updateFolderList(currFolder) {
     }
 }
 
+function searchFolder() {
+    for (k in fileList.users) {
+        var element = "";
+        for (j in fileList.users[k].videos) {
+            var file =fileList.users[k].videos[j].split("/");
+            if(file[file.length-1].indexOf(document.getElementById("searchInput").value)!==-1){
+                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\")>" +
+                    "<div class=\"contacts__item\">" +
+                    "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>"+
+                    "<div class=\"contacts__info\">" +
+                    "<strong>" + file[file.length-1] + "</strong>"+
+                    "<small>"+fileList.users[k].ip+"</small></div></div></div>";
+            }
+        }
+    }
+    document.getElementById("folderList").innerHTML = element;
+}
 /*
 app.get('/stream', function(req, res) {
     var path = req.query.path+"/"+req.query.source;

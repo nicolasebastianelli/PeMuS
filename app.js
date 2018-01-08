@@ -12,6 +12,7 @@ let win
 function createWindow() {
     // Creazione della GUI, non ancora visibile
     win = new BrowserWindow({
+        backgroundColor: '#000000',
         width: 800,
         height: 600,
         show: false

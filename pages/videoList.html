@@ -389,19 +389,11 @@
 
             <div class="actions">
                 <i class="actions__item zmdi zmdi-search" data-sa-action="toolbar-search-open"></i>
-                <div class="dropdown actions__item hidden-xs-down">
-                    <i class="zmdi zmdi-sort" data-toggle="dropdown"></i>
-
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#" class="dropdown-item">Nome</a>
-                        <a href="#" class="dropdown-item">Tipo</a>
-                    </div>
-                </div>
             </div>
 
             <div class="toolbar__search">
-                <input type="text" placeholder="Cerca...">
-                <i class="toolbar__search__close zmdi zmdi-long-arrow-left" data-sa-action="toolbar-search-close"></i>
+                <input type="text" id="searchInput" placeholder="Cerca..." onchange="searchFolder();" onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+                <i class="toolbar__search__close zmdi zmdi-long-arrow-left" onclick="updateFolderList()" data-sa-action="toolbar-search-close"></i>
             </div>
         </div>
 
