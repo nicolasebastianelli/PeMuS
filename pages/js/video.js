@@ -80,7 +80,7 @@ function updateFolderList(folder) {
         var nav ="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
         for (i in path) {
             folderPath+=path[i]+"/";
-            nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + JSON.stringify(folderPath).replace(/"/g, "&quot;") + ")>" + path[i] + "</a></li>";
+            nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + JSON.stringify(folderPath).replace(/"/g, "&quot;") + ")>" + (function(){if(path[i]=="localhost"){return "Questo PC";} else{return path[i];}}()); + "</a></li>";
         }
         document.getElementById("navBar").innerHTML=nav;
 
