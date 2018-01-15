@@ -2,12 +2,23 @@
 const {app,BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
-
+var childProcess = require('child_process');
 
 // Mantiene la referenza globale dell'oggetto window, in caso contrario
 // la finestra verrà chiusa automaticamente quando l'oggetto JavaScript
 // verrà deallocato dal garbage collector.
 let win
+
+
+let createProc = () => {
+    let sp = childProcess.fork('./routes.js');
+    sp.unref();
+    sp.on('error', (err) => {
+        console.log('failed to start process',err);
+    });
+}
+
+createProc()
 
 function createWindow() {
     // Creazione della GUI, non ancora visibile
@@ -31,7 +42,7 @@ function createWindow() {
 
     // Indichiamo quale file HTML deve essere renderizzato
     win.loadURL(url.format({
-        pathname: path.join(__dirname,'pages/index.html'),
+        pathname: path.join(__dirname,'client/index.html'),
         protocol: 'file',
         slashes: true
 

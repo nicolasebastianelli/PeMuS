@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "main": "app.js",
   "dependencies": {
+    "express": "^4.16.2",
     "uniqid": "^4.1.1",
     "xml2js": "^0.4.19"
   }
