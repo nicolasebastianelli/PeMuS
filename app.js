@@ -10,18 +10,9 @@ var childProcess = require('child_process');
 let win
 
 
-let createProc = () => {
-    let sp = childProcess.fork('./routes.js');
-    sp.unref();
-    sp.on('error', (err) => {
-        console.log('failed to start process',err);
-    });
-}
-
-createProc()
-
 function createWindow() {
     // Creazione della GUI, non ancora visibile
+    app.server = require(__dirname + '/routes.js');
     win = new BrowserWindow({
         backgroundColor: '#000000',
         width: 800,

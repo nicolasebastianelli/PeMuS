@@ -47,7 +47,7 @@ function fromDir(startPath,res){
             if (stat.isDirectory()) {
                 fromDir(filename, res);
             }
-            else if (filename.indexOf(".txt") >= 0) {
+            else if (filename.indexOf(".mp4") >= 0) {
                 res.push(filename);
             }
         }
@@ -55,55 +55,77 @@ function fromDir(startPath,res){
     }
 }
 
+
 function updateFolderList(folder) {
     if(folder!=undefined){
         currFolder=folder;
     }
-    if(currFolder=="/"){
-        document.getElementById("folderList").innerHTML="";
-        document.getElementById("navBar").innerHTML=
-            "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
-        for (k in fileList.users){
-            document.getElementById("folderList").innerHTML+=
-                "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList("+JSON.stringify(fileList.users[k].ip).replace(/"/g,"&quot;")+")>"+
-                "<div class=\"contacts__item\">"+
-                "<a href=\"#\" ><img src=\"img/Default-user.png\"  class=\"folder__img\"></a>"+
-                "<div class=\"contacts__info\">"+
-                "<strong>"+fileList.users[k].name+"</strong>"+
-                "<small>"+(function(){if(fileList.users[k].ip=="localhost"){return "Questo PC";} else{return fileList.users[k].ip;}}());+"</small></div></div></div>";
-        }
+    document.getElementById("folderList").innerHTML = "";
+    if(currFolder.endsWith(".mp4")){
+        document.getElementById("videoContent").style.display="block";
     }
-    else{
-        document.getElementById("folderList").innerHTML="";
-        var path = currFolder.split("/").filter(function(entry) { return /\S/.test(entry); });
-        var folderPath="";
-        var nav ="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
+    else {
+        document.getElementById("videoContent").innerHTML = "";
+        var path = currFolder.split("/").filter(function (entry) {
+            return /\S/.test(entry);
+        });
+        var folderPath = "";
+        var nav = "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
         for (i in path) {
-            folderPath+=path[i]+"/";
-            nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + JSON.stringify(folderPath).replace(/"/g, "&quot;") + ")>" + (function(){if(path[i]=="localhost"){return "Questo PC";} else{return path[i];}}()); + "</a></li>";
+            folderPath += path[i] + "/";
+            nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + JSON.stringify(folderPath).replace(/"/g, "&quot;") + ")>" + (function () {
+                if (path[i] == "localhost") {
+                    return "Questo PC";
+                } else {
+                    return path[i];
+                }
+            }());
+            +"</a></li>";
         }
-        document.getElementById("navBar").innerHTML=nav;
+        document.getElementById("navBar").innerHTML = nav;
 
-        for (k in fileList.users){
-            if(fileList.users[k].ip==path[0]) {
-                var element="";
-                var addedFolder = [];
-                for (j in fileList.users[k].videos) {
-                    var videoPath=fileList.users[k].videos[j].split("/").filter(function(entry) { return /\S/.test(entry); });
-                    if( $.inArray(videoPath[path.length - 1], addedFolder) == -1 && fileList.users[k].videos[j].toString().startsWith(folderPath.replace(fileList.users[k].ip, ""))) {
-                        if (videoPath[path.length] != undefined)
-                            element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(folderPath  + videoPath[path.length - 1]).replace(/"/g, "&quot;") + ")>" +
-                                "<div class=\"contacts__item\">" +
-                                "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>";
-                        else {
-                            element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\")>" +
-                                "<div class=\"contacts__item\">" +
-                                "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>";
+        if (currFolder == "/") {
+            for (k in fileList.users) {
+                document.getElementById("folderList").innerHTML +=
+                    "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
+                    "<div class=\"contacts__item\">" +
+                    "<a href=\"#\" ><img src=\"img/Default-user.png\"  class=\"folder__img\"></a>" +
+                    "<div class=\"contacts__info\">" +
+                    "<strong>" + fileList.users[k].name + "</strong>" +
+                    "<small>" + (function () {
+                        if (fileList.users[k].ip == "localhost") {
+                            return "This PC";
+                        } else {
+                            return fileList.users[k].ip;
                         }
-                        element += "<div class=\"contacts__info\">" +
-                            "<strong>" + videoPath[path.length - 1] + "</strong></div></div></div>";
-                        document.getElementById("folderList").innerHTML = element;
-                        addedFolder.push(videoPath[path.length - 1]);
+                    }());
+                +"</small></div></div></div>";
+            }
+        }
+        else {
+            for (k in fileList.users) {
+                if (fileList.users[k].ip == path[0]) {
+                    var element = "";
+                    var addedFolder = [];
+                    for (j in fileList.users[k].videos) {
+                        var videoPath = fileList.users[k].videos[j].split("/").filter(function (entry) {
+                            return /\S/.test(entry);
+                        });
+                        if ($.inArray(videoPath[path.length - 1], addedFolder) == -1 && fileList.users[k].videos[j].toString().startsWith(folderPath.replace(fileList.users[k].ip, ""))) {
+                            if (videoPath[path.length] != undefined)
+                                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(folderPath + videoPath[path.length - 1]).replace(/"/g, "&quot;") + ")>" +
+                                    "<div class=\"contacts__item\">" +
+                                    "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>";
+                            else {
+                                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(fileList.users[k].videos[j]).replace(/"/g, "&quot;") + ")>" +
+                                    "<div class=\"contacts__item\">" +
+                                    "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>";
+                            }
+                            element += "<div class=\"contacts__info\">" +
+                                "<strong>" + videoPath[path.length - 1] + "</strong></div></div></div>";
+                            document.getElementById("folderList").innerHTML = element;
+                            addedFolder.push(videoPath[path.length - 1]);
+                        }
                     }
                 }
             }
@@ -112,49 +134,44 @@ function updateFolderList(folder) {
 }
 
 function searchFolder() {
+    document.getElementById("videoContent").style.display="none";
     for (k in fileList.users) {
         var element = "";
         for (j in fileList.users[k].videos) {
             var file =fileList.users[k].videos[j].split("/");
-            if(file[file.length-1].indexOf(document.getElementById("searchInput").value)!==-1){
-                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\")>" +
-                    "<div class=\"contacts__item\">" +
-                    "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>"+
-                    "<div class=\"contacts__info\">" +
-                    "<strong>" + file[file.length-1] + "</strong>"+
-                    "<small>"+fileList.users[k].ip+"</small></div></div></div>";
+            if(document.getElementById("searchInput").value!=""&&document.getElementById("searchInput").value!=undefined&document.getElementById("searchInput").value!=null) {
+                if (file[file.length - 1].indexOf(document.getElementById("searchInput").value) !== -1) {
+                    element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\")>" +
+                        "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(fileList.users[k].videos[j]).replace(/"/g, "&quot;") + ")>" +
+                        "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
+                        "<div class=\"contacts__info\">" +
+                        "<strong>" + file[file.length - 1] + "</strong>" +
+                        "<small>" + fileList.users[k].ip + "</small></div></div></div>";
+                }
             }
         }
     }
     document.getElementById("folderList").innerHTML = element;
 }
-/*
-app.get('/stream', function(req, res) {
-    var path = req.query.path+"/"+req.query.source;
-    var stat = fs.statSync(path);
-    var total = stat.size;
 
-    if (req.headers.range) {   // meaning client (browser) has moved the forward/back slider
-        // which has sent this request back to this server logic ... cool
-        var range = req.headers.range;
-        var parts = range.replace(/bytes=/, "").split("-");
-        var partialstart = parts[0];
-        var partialend = parts[1];
-
-        var start = parseInt(partialstart, 10);
-        var end = partialend ? parseInt(partialend, 10) : total-1;
-        var chunksize = (end-start)+1;
-        console.log('RANGE: ' + start + ' - ' + end + ' = ' + chunksize);
-
-        var file = fs.createReadStream(path, {start: start, end: end});
-        res.writeHead(206, { 'Content-Range': 'bytes ' + start + '-' + end + '/' + total, 'Accept-Ranges': 'bytes', 'Content-Length': chunksize, 'Content-Type': 'video/mp4' });
-        file.pipe(res);
-
-    } else {
-        console.log('ALL: ' + total);
-        res.writeHead(200, { 'Content-Length': total, 'Content-Type': 'video/mp4' });
-        fs.createReadStream(path).pipe(res);
+function videoPlayer(ip,source) {
+    if(ip!=undefined&&source!=undefined){
+        currFolder=ip+source;
     }
-});
+    document.getElementById("videoContent").style.display="block";
+    document.getElementById("folderList").innerHTML="";
+    document.getElementById("videoContent").innerHTML="";
+    var path = currFolder.split("/").filter(function(entry) { return /\S/.test(entry); });
+    var title =path.pop();
+    var folderPath="";
+    var nav ="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
+    for (i in path) {
+        folderPath+=path[i]+"/";
+        nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + JSON.stringify(folderPath).replace(/"/g, "&quot;") + ")>" + (function(){if(path[i]=="localhost"){return "Questo PC";} else{return path[i];}}()); + "</a></li>";
+    }
+    var url ="http://"+ip+":8080/stream?source="+source;
+    document.getElementById("navBar").innerHTML=nav;
+    document.getElementById("videoContent").innerHTML="<h2>"+title+"</h2><br><video style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay name=\"media\">"+
+        "<source src="+url+" type=\"video/mp4\"></video>";
 
-*/
+}
