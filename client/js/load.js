@@ -42,7 +42,7 @@ function getUserInfo() {
         }
     }
     if(addresses[1]==undefined)
-        addresses.push("Non connesso ad internet")
+        addresses.push("Not connected to internet")
     return addresses;
 }
 
