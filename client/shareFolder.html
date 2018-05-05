@@ -15,10 +15,9 @@
 
     <!-- App styles -->
     <link rel="stylesheet" href="css/app.min.css">
-    <link rel="stylesheet" href="css/video.css">
 </head>
 
-<body data-sa-theme="1" onload="updateSharedFiles();updateUser();updateTheme();">
+<body data-sa-theme="1" onload="updateFolderTable();updateUser();updateTheme();">
 <main class="main">
     <div class="page-loader">
         <div class="page-loader__spinner">
@@ -370,38 +369,48 @@
 
             <ul class="navigation">
                 <li class="@@indexactive"><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
-                <li class="@@sharefolderactive"><a href="shareFolder.html"><i class="zmdi zmdi-share"></i> Share</a></li>
-                <li class="navigation__active"><a href="videoList.html"><i class="zmdi zmdi-collection-video"></i> Video</a></li>
+                <li class="navigation__active"><a href="shareFolder.html"><i class="zmdi zmdi-share"></i> Share</a></li>
+                <li class="@@videolistactive"><a href="videoList.html"><i class="zmdi zmdi-collection-video"></i> Video</a></li>
             </ul>
         </div>
     </aside>
 
     <section class="content">
 
-        <div class="toolbar">
-            <div class="toolbar__nav" >
-                <nav aria-label="breadcrumb" role="navigation">
-                    <ol class="breadcrumb card-title" id = "navBar">
-
-                    </ol>
-                </nav>
+        <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Share Folders</h4>
+            <h6 class="card-subtitle">Insert the absolut path of the folder containing the multimedia file that you want to share.</h6>
+            <div class="form-group">
+                <input type="text" id="path" class="form-control form-control-lg" placeholder="e.g /Users/Name/Folder">
+                <i class="form-group__bar"></i>
             </div>
-
-            <div class="actions">
-                <i class="actions__item zmdi zmdi-search" data-sa-action="toolbar-search-open"></i>
-            </div>
-
-            <div class="toolbar__search">
-                <input type="text" id="searchInput" placeholder="Cerca..." onchange="searchFolder();" onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
-                <i class="toolbar__search__close zmdi zmdi-long-arrow-left" onclick="updateFolderList()" data-sa-action="toolbar-search-close"></i>
+            <div class="form-group">
+                <button class="btn btn-light btn--icon-text" onclick="addPathMessage()">
+                    Confirm  <i class="zmdi zmdi-arrow-forward"></i>
+                </button>
             </div>
         </div>
+        </div>
 
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">List of shared folder</h4>
+                <div class="table-responsive">
+                    <table id="pathTable" class="table">
+                        <thead>
+                        <tr>
+                            <th>Folder</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
-
-        <div class="contacts row" id="folderList"></div>
-        <div id="videoContent"></div>
-
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 
@@ -421,15 +430,19 @@
 <script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
 <script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
 
-
+<!-- Vendors: Data tables -->
+<script src="vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="vendors/bower_components/jszip/dist/jszip.min.js"></script>
+<script src="vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
 
 <!-- App functions and actions -->
 <script src="js/app.min.js"></script>
 
 <!-- Personal JS functions -->
 <script src="js/load.js"></script>
-<script src="js/video.js"></script>
-
+<script src="js/index.js"></script>
 
 </body>
 
