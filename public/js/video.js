@@ -1,60 +1,50 @@
-var fs = require('fs');
-var xml2js = require('xml2js');
-var os = require('os');
-var path = require('path');
 var currFolder="/";
+var fileList = {
+    users: []
+};
 
-$.getScript("js/sharedFiles.js", function() {});
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
 function updateSharedFiles(){
-        var myUsr={
-            ip: "localhost",
-            name: os.userInfo().username,
-            active: 1,
-            videos: [ ]
-        };
-        myUsr.videos=findVideos();
-        if (fileList.users.length != 0) {
-            for (j in fileList.users) {
-                if(fileList.users[j].ip=="localhost"){
-                    delete fileList.users[j];
-                    break;
+    fileList = {
+        users: []
+    };
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', "http://"+window.location.hostname.toString()+":8080/getUser", true);
+        xhr.onload = function (e) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    var myUsr={
+                        ip: window.location.hostname,
+                        name: xhr.responseText,
+                        active: 1,
+                        videos: [ ]
+                    };
+                    var xhr2 = new XMLHttpRequest();
+                    xhr2.open('GET', "http://"+window.location.hostname.toString()+":8080/getVideoList", true);
+                    xhr2.onload = function (e) {
+                        if (xhr2.readyState === 4) {
+                            if (xhr2.status === 200) {
+                                myUsr.videos=JSON.parse(xhr2.responseText);
+                                fileList.users.push(myUsr);
+                                updateFolderList();
+                            } else {
+                                console.error(xhr2.statusText);
+                            }
+                        }
+                    };
+                    xhr2.send();
+                } else {
+                    console.error(xhr.statusText);
                 }
-
             }
-        }
-        fileList.users.push(myUsr);
-        updateFolderList();
+        };
+        xhr.send();
+
 }
 
 function findVideos() {
-    var xml = fs.readFileSync('client/xml/paths.xml');
-    var parser = new xml2js.Parser();
-    var res =[];
-    parser.parseString(xml, function (err, result) {
-        for (k in result.pathlist.path) {
-            fromDir(result.pathlist.path[k].folder.toString(),res);
-        }
-    });
-    return res;
-}
 
-function fromDir(startPath,res){
-    var files=fs.readdirSync(startPath);
-    for(var i=0;i<files.length;i++){
-        var filename=path.join(startPath,files[i]);
-        try {
-            var stat = fs.lstatSync(filename);
-            if (stat.isDirectory()) {
-                fromDir(filename, res);
-            }
-            else if (filename.indexOf(".mp4") >= 0) {
-                res.push(filename);
-            }
-        }
-        catch (err){ console.log("Errore navigazione path: "+err);}
-    }
 }
 
 
