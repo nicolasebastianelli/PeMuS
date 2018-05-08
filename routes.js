@@ -10,7 +10,7 @@ var os = require('os');
 routes.use(express.static('public'));
 
 routes.get('/stream', function(req, res) {
-    var path  = Buffer.from(req.query.source.toString(), 'hex').toString('utf8').replace(/\s+/g, " ");
+    var path  = decodeURIComponent(req.query.source.toString()).replace(/\s+/g, " ");
     var stat = fs.statSync(path);
     var total = stat.size;
 
@@ -36,7 +36,7 @@ routes.get('/stream', function(req, res) {
 });
 
 routes.get('/available', function(req, res) {
-    var path  = Buffer.from(req.query.source.toString(), 'hex').toString('utf8').replace(/[^\u000A\u0020-\u007E]/g, ' ');
+    var path  = decodeURIComponent(req.query.source.toString()).replace(/\s+/g, " ");
     res.send(fs.existsSync(path));
 });
 

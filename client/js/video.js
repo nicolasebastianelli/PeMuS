@@ -177,10 +177,10 @@ function videoPlayer(ip,source) {
         clickFolder = JSON.stringify(folderPath);
         nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function(){if(path[i]=="localhost"){return "This PC";} else{return path[i];}}()); + "</a></li>";
     }
-    var hextext = new Buffer(source, 'utf-8').toString('hex');
-    var url ="http://"+ip+":8080/stream?source="+hextext;
+    var encodeText = encodeURIComponent(source);
+    var url ="http://"+ip+":8080/stream?source="+encodeText;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://"+ip+":8080/available?source="+hextext, false);
+    xhr.open('GET', "http://"+ip+":8080/available?source="+encodeText, false);
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
