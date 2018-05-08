@@ -78,7 +78,7 @@ function updateFolderList(folder) {
                 document.getElementById("folderList").innerHTML +=
                     "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
                     "<div class=\"contacts__item\">" +
-                    "<a href=\"#\" ><img src=\"img/Default-user.png\"  class=\"folder__img\"></a>" +
+                    "<a href=\"#\" ><img src=\"img/user.jpg\" onerror=\"if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';\"  class=\"folder__img\"></a>" +
                     "<div class=\"contacts__info\">" +
                     "<strong>" + fileList.users[k].name + "</strong>" +
                     "<small>" + (function () {
@@ -177,7 +177,7 @@ function videoPlayer(ip,source) {
                 }
                 else {
                     swal({
-                        title: 'Attention',
+                        title: 'Warning',
                         text: 'The selected video seems to not be available at the moment.',
                         type: 'warning',
                         buttonsStyling: false,

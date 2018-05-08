@@ -31,8 +31,8 @@ function addPathMessage() {
             }
             if (exist !== "0") {
                 swal({
-                    title: 'Attenzione',
-                    text: 'La cartella selezionata è già condivisa.',
+                    title: 'Warning',
+                    text: 'The selected folder is already shared.',
                     type: 'warning',
                     buttonsStyling: false,
                     confirmButtonClass: 'btn btn-sm btn-light',
@@ -40,8 +40,8 @@ function addPathMessage() {
                 })
             }else if (subf !== "0") {
                 swal({
-                    title: 'Attenzione',
-                    text: 'La cartella selezionata è una sottocartella della cartella '+subf+' già condivisa.',
+                    title: 'Warning',
+                    text: 'The selected folder is a sub-folder of the already shared folder: '+subf+'.',
                     type: 'warning',
                     buttonsStyling: false,
                     confirmButtonClass: 'btn btn-sm btn-light',
@@ -49,14 +49,14 @@ function addPathMessage() {
                 })
             } else if (fatherf !== "0") {
                 swal({
-                    title: 'Attenzione',
-                    text: 'La cartella selezionata contiente sottocartelle già condivise, le sottocartelle verranno sostituite con la cartella selezionata, procedere?',
+                    title: 'Warning',
+                    text: 'The selected folder has already shared subfolders, the subfolders will be replaced with the selected folder, proceed?',
                     type: 'warning',
                     showCancelButton: true,
                     buttonsStyling: false,
                     confirmButtonClass: 'btn btn-danger',
-                    confirmButtonText: 'Si, sostituisci!',
-                    cancelButtonText: 'Annulla',
+                    confirmButtonText: 'Yes, Replace it!',
+                    cancelButtonText: 'Cancel',
                     cancelButtonClass: 'btn btn-light',
                     background: 'rgba(0, 0, 0, 0.96)'
                 }).then(function () {
@@ -71,8 +71,8 @@ function addPathMessage() {
             else {
                 addPath();
                 swal({
-                    title: 'Alla Grande',
-                    text: 'La cartella è stata aggiunta con successo.',
+                    title: 'Great',
+                    text: 'The folder was successfully added.',
                     type: 'success',
                     buttonsStyling: false,
                     confirmButtonClass: 'btn btn-sm btn-light',
@@ -83,7 +83,7 @@ function addPathMessage() {
         else {
             swal({
                 title: 'Ops',
-                text: 'Sembra che il path inserito non esista nel sistema.',
+                text: 'It seems that the inserted path does not exist in your system.',
                 type: 'error',
                 buttonsStyling: false,
                 confirmButtonClass: 'btn btn-sm btn-light',
@@ -124,22 +124,22 @@ function addPath(){
 function deletePathMessage(e) {
     var trovato;
     swal({
-        title: 'Attenzione',
-        text: 'Sei sicuro di voler smettere di condividere la cartella: ' + e.getAttribute("folder") + ' ?',
+        title: 'Warning',
+        text: 'You are sure you want to stop sharing the folder: ' + e.getAttribute("folder") + ' ?',
         type: 'warning',
         showCancelButton: true,
         buttonsStyling: false,
         confirmButtonClass: 'btn btn-danger',
-        confirmButtonText: 'Si, Elimina!',
-        cancelButtonText: 'Annulla',
+        confirmButtonText: 'Yes, Delete it!',
+        cancelButtonText: 'Cancel',
         cancelButtonClass: 'btn btn-light',
         background: 'rgba(0, 0, 0, 0.96)'
     }).then(function () {
         trovato=deletePath(e.getAttribute("idPath"))
         if (trovato === "1") {
             swal({
-                title: 'Successo',
-                text: 'La cartella è stata eliminata',
+                title: 'Success',
+                text: 'The folder has been deleted.',
                 type: 'success',
                 buttonsStyling: false,
                 confirmButtonClass: 'btn btn-light',
@@ -148,8 +148,8 @@ function deletePathMessage(e) {
         }
         else{
             swal({
-                title: 'Attenzione',
-                text: 'Sembra che la cartella selezionata fosse già non presente',
+                title: 'Warning',
+                text: 'It seems that the selected folder was not present.',
                 type: 'warning',
                 buttonsStyling: false,
                 confirmButtonClass: 'btn btn-light',

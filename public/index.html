@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/app.min.css">
 </head>
 
-<body data-sa-theme="1" onload="updateFolderTable();updateUser();updateTheme();">
+<body data-sa-theme="1" onload="updateUser();updateTheme();">
 <main class="main">
     <div class="page-loader">
         <div class="page-loader__spinner">
@@ -353,7 +353,7 @@
 
             <div class="user">
                 <div class="user__info" data-toggle="dropdown">
-                    <img class="user__img" src="demo/img/profile-pics/8.jpg" alt="">
+                    <img class="user__img" src="img/user.jpg" onerror="if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';" alt="">
                     <div>
                         <div class="user__name" id="user">---</div>
                         <div class="user__email" id="ip">---</div>
@@ -378,10 +378,10 @@
 
         <div class="card">
         <div class="card-body">
-            <h1>You are connected to USER with the ip: IP</h1>
+            <h1 id="userMsg"></h1><h1 id="ipMsg"></h1>
             <br>
             <br>
-            <h4 class="card-title">You can start navigate and enjoy your streaming &#x1F609</h4>
+            <h3 >You can start navigate and enjoy your streaming &#x1F609</h3>
         </div>
         </div>
     </section>
@@ -415,7 +415,6 @@
 
 <!-- Personal JS functions -->
 <script src="js/load.js"></script>
-<script src="js/index.js"></script>
 
 </body>
 

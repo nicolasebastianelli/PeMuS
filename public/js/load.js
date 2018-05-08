@@ -23,6 +23,8 @@ function updateUser() {
             if (xhr.status === 200) {
                 document.getElementById("ip").innerHTML=window.location.hostname;
                 document.getElementById("user").innerHTML=xhr.responseText;
+                document.getElementById("ipMsg").innerHTML="at the ip: "+window.location.hostname;
+                document.getElementById("userMsg").innerHTML="You are connected to the user: "+xhr.responseText;
             } else {
                 console.error(xhr.statusText);
             }
