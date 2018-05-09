@@ -186,7 +186,7 @@ function videoPlayer(ip,source) {
             if (xhr.status === 200) {
                 if (xhr.responseText==="true") {
                     document.getElementById("navBar").innerHTML=nav;
-                    document.getElementById("videoContent").innerHTML="<h2>"+title+"</h2><br><video style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay name=\"media\">"+
+                    document.getElementById("videoContent").innerHTML="<h2>"+title+"</h2><br><video style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" name=\"media\">"+
                         "<source src="+url+" type=\"video/mp4\"></video>";
                 }
                 else {
