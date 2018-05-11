@@ -3,408 +3,382 @@
 
 <!-- Mirrored from byrushan.com/projects/super-admin/app/2.0/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Nov 2017 20:33:25 GMT -->
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>PeMuS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PeMuS</title>
 
-	<!-- Vendor styles -->
-	<link rel="stylesheet" href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
-	<link rel="stylesheet" href="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
-	<link rel="stylesheet" href="vendors/bower_components/sweetalert2/dist/sweetalert2.min.css">
-	<link rel="stylesheet" type="text/css" href="amplitudejs/resources/css/foundation.min.css"/>
-    <link rel="stylesheet" type="text/css" href="amplitudejs/css/styles.css"/>
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" href="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
+    <link rel="stylesheet" href="vendors/bower_components/sweetalert2/dist/sweetalert2.min.css">
 
-	<!--
-        Include Resource Javascript
-
-        NOTE: These are for handling things outside of the scope of AmplitudeJS
-    -->
-    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-    <script>
-        try {
-            $ = jQuery = module.exports;
-            // If you want module.exports to be empty, uncomment:
-            // module.exports = {};
-        } catch(e) {}
-    </script>
-	<script type="text/javascript" src="amplitudejs/resources/js/foundation.min.js"></script>
-
-	<!-- Include Amplitude JS -->
-	<script type="text/javascript" src="amplitudejs/dist/amplitude.js"></script>
-
-	<!--
-        Include UX functions JS
-
-        NOTE: These are for handling things outside of the scope of AmplitudeJS
-    -->
-	<script type="text/javascript" src="amplitudejs/js/functions.js"></script>
-
-	<!-- App styles -->
-	<link rel="stylesheet" href="css/app.min.css">
+    <!-- App styles -->
+    <link rel="stylesheet" href="css/app.min.css">
+    <link rel="stylesheet" href="css/video.css">
 </head>
 
-<body data-sa-theme="1" onload="updateFolderTable();updateUser();updateTheme();">
+<body data-sa-theme="1" onload="updateSharedFiles();updateUser();updateTheme();">
 <main class="main">
-	<div class="page-loader">
-		<div class="page-loader__spinner">
-			<svg viewBox="25 25 50 50">
-				<circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
-			</svg>
-		</div>
-	</div>
+    <div class="page-loader">
+        <div class="page-loader__spinner">
+            <svg viewBox="25 25 50 50">
+                <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
 
-	<header class="header">
-		<div class="navigation-trigger hidden-xl-up" data-sa-action="aside-open" data-sa-target=".sidebar">
-			<i class="zmdi zmdi-menu"></i>
-		</div>
+    <header class="header">
+        <div class="navigation-trigger hidden-xl-up" data-sa-action="aside-open" data-sa-target=".sidebar">
+            <i class="zmdi zmdi-menu"></i>
+        </div>
 
-		<div class="logo hidden-sm-down">
-			<h1><a href="index.html">PeMuS</a></h1>
-		</div>
+        <div class="logo hidden-sm-down">
+            <h1><a href="index.html">PeMuS</a></h1>
+        </div>
 
-		<form class="search">
-			<div class="search__inner">
-				<input type="text" class="search__text" placeholder="Search for people, files, documents...">
-				<i class="zmdi zmdi-search search__helper" data-sa-action="search-close"></i>
-			</div>
-		</form>
+        <form class="search">
+            <div class="search__inner">
+                <input type="text" class="search__text" placeholder="Search for people, files, documents...">
+                <i class="zmdi zmdi-search search__helper" data-sa-action="search-close"></i>
+            </div>
+        </form>
 
-		<ul class="top-nav">
-			<li class="hidden-xl-up"><a href="#" data-sa-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
+        <ul class="top-nav">
+            <li class="hidden-xl-up"><a href="#" data-sa-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
 
-			<li class="dropdown">
-				<a href="#" data-toggle="dropdown" class="top-nav__notify"><i class="zmdi zmdi-email"></i></a>
-				<div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
-					<div class="dropdown-header">
-						Messages
+            <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="top-nav__notify"><i class="zmdi zmdi-email"></i></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
+                    <div class="dropdown-header">
+                        Messages
 
-						<div class="actions">
-							<a href="messages.html" class="actions__item zmdi zmdi-plus"></a>
-						</div>
-					</div>
+                        <div class="actions">
+                            <a href="messages.html" class="actions__item zmdi zmdi-plus"></a>
+                        </div>
+                    </div>
 
-					<div class="listview listview--hover">
-						<a href="#" class="listview__item">
-							<img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
+                    <div class="listview listview--hover">
+                        <a href="#" class="listview__item">
+                            <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
 
-							<div class="listview__content">
-								<div class="listview__heading">
-									David Belle <small>12:01 PM</small>
-								</div>
-								<p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
-							</div>
-						</a>
+                            <div class="listview__content">
+                                <div class="listview__heading">
+                                    David Belle <small>12:01 PM</small>
+                                </div>
+                                <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                            </div>
+                        </a>
 
-						<a href="#" class="listview__item">
-							<img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
+                        <a href="#" class="listview__item">
+                            <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
 
-							<div class="listview__content">
-								<div class="listview__heading">
-									Jonathan Morris
-									<small>02:45 PM</small>
-								</div>
-								<p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-							</div>
-						</a>
+                            <div class="listview__content">
+                                <div class="listview__heading">
+                                    Jonathan Morris
+                                    <small>02:45 PM</small>
+                                </div>
+                                <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                            </div>
+                        </a>
 
-						<a href="#" class="listview__item">
-							<img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+                        <a href="#" class="listview__item">
+                            <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
 
-							<div class="listview__content">
-								<div class="listview__heading">
-									Fredric Mitchell Jr.
-									<small>08:21 PM</small>
-								</div>
-								<p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
-							</div>
-						</a>
+                            <div class="listview__content">
+                                <div class="listview__heading">
+                                    Fredric Mitchell Jr.
+                                    <small>08:21 PM</small>
+                                </div>
+                                <p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
+                            </div>
+                        </a>
 
-						<a href="#" class="listview__item">
-							<img src="demo/img/profile-pics/4.jpg" class="listview__img" alt="">
+                        <a href="#" class="listview__item">
+                            <img src="demo/img/profile-pics/4.jpg" class="listview__img" alt="">
 
-							<div class="listview__content">
-								<div class="listview__heading">
-									Glenn Jecobs
-									<small>08:43 PM</small>
-								</div>
-								<p>Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</p>
-							</div>
-						</a>
+                            <div class="listview__content">
+                                <div class="listview__heading">
+                                    Glenn Jecobs
+                                    <small>08:43 PM</small>
+                                </div>
+                                <p>Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</p>
+                            </div>
+                        </a>
 
-						<a href="#" class="listview__item">
-							<img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
+                        <a href="#" class="listview__item">
+                            <img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
 
-							<div class="listview__content">
-								<div class="listview__heading">
-									Bill Phillips
-									<small>11:32 PM</small>
-								</div>
-								<p>Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</p>
-							</div>
-						</a>
+                            <div class="listview__content">
+                                <div class="listview__heading">
+                                    Bill Phillips
+                                    <small>11:32 PM</small>
+                                </div>
+                                <p>Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</p>
+                            </div>
+                        </a>
 
-						<a href="#" class="view-more">View all messages</a>
-					</div>
-				</div>
-			</li>
+                        <a href="#" class="view-more">View all messages</a>
+                    </div>
+                </div>
+            </li>
 
-			<li class="dropdown top-nav__notifications">
-				<a href="#" data-toggle="dropdown" class="top-nav__notify">
-					<i class="zmdi zmdi-notifications"></i>
-				</a>
-				<div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
-					<div class="dropdown-header">
-						Notifications
+            <li class="dropdown top-nav__notifications">
+                <a href="#" data-toggle="dropdown" class="top-nav__notify">
+                    <i class="zmdi zmdi-notifications"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
+                    <div class="dropdown-header">
+                        Notifications
 
-						<div class="actions">
-							<a href="#" class="actions__item zmdi zmdi-check-all" data-sa-action="notifications-clear"></a>
-						</div>
-					</div>
+                        <div class="actions">
+                            <a href="#" class="actions__item zmdi zmdi-check-all" data-sa-action="notifications-clear"></a>
+                        </div>
+                    </div>
 
-					<div class="listview listview--hover">
-						<div class="listview__scroll scrollbar-inner">
-							<a href="#" class="listview__item">
-								<img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
+                    <div class="listview listview--hover">
+                        <div class="listview__scroll scrollbar-inner">
+                            <a href="#" class="listview__item">
+                                <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
 
-								<div class="listview__content">
-									<div class="listview__heading">David Belle</div>
-									<p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
-								</div>
-							</a>
+                                <div class="listview__content">
+                                    <div class="listview__heading">David Belle</div>
+                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                </div>
+                            </a>
 
-							<a href="#" class="listview__item">
-								<img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
+                            <a href="#" class="listview__item">
+                                <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
 
-								<div class="listview__content">
-									<div class="listview__heading">Jonathan Morris</div>
-									<p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-								</div>
-							</a>
+                                <div class="listview__content">
+                                    <div class="listview__heading">Jonathan Morris</div>
+                                    <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                </div>
+                            </a>
 
-							<a href="#" class="listview__item">
-								<img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+                            <a href="#" class="listview__item">
+                                <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
 
-								<div class="listview__content">
-									<div class="listview__heading">Fredric Mitchell Jr.</div>
-									<p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
-								</div>
-							</a>
+                                <div class="listview__content">
+                                    <div class="listview__heading">Fredric Mitchell Jr.</div>
+                                    <p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
+                                </div>
+                            </a>
 
-							<a href="#" class="listview__item">
-								<img src="demo/img/profile-pics/4.jpg" class="listview__img" alt="">
+                            <a href="#" class="listview__item">
+                                <img src="demo/img/profile-pics/4.jpg" class="listview__img" alt="">
 
-								<div class="listview__content">
-									<div class="listview__heading">Glenn Jecobs</div>
-									<p>Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</p>
-								</div>
-							</a>
+                                <div class="listview__content">
+                                    <div class="listview__heading">Glenn Jecobs</div>
+                                    <p>Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</p>
+                                </div>
+                            </a>
 
-							<a href="#" class="listview__item">
-								<img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
+                            <a href="#" class="listview__item">
+                                <img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
 
-								<div class="listview__content">
-									<div class="listview__heading">Bill Phillips</div>
-									<p>Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</p>
-								</div>
-							</a>
+                                <div class="listview__content">
+                                    <div class="listview__heading">Bill Phillips</div>
+                                    <p>Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</p>
+                                </div>
+                            </a>
 
-							<a href="#" class="listview__item">
-								<img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
+                            <a href="#" class="listview__item">
+                                <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
 
-								<div class="listview__content">
-									<div class="listview__heading">David Belle</div>
-									<p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
-								</div>
-							</a>
+                                <div class="listview__content">
+                                    <div class="listview__heading">David Belle</div>
+                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                </div>
+                            </a>
 
-							<a href="#" class="listview__item">
-								<img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
+                            <a href="#" class="listview__item">
+                                <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
 
-								<div class="listview__content">
-									<div class="listview__heading">Jonathan Morris</div>
-									<p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-								</div>
-							</a>
+                                <div class="listview__content">
+                                    <div class="listview__heading">Jonathan Morris</div>
+                                    <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                </div>
+                            </a>
 
-							<a href="#" class="listview__item">
-								<img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+                            <a href="#" class="listview__item">
+                                <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
 
-								<div class="listview__content">
-									<div class="listview__heading">Fredric Mitchell Jr.</div>
-									<p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
-								</div>
-							</a>
-						</div>
+                                <div class="listview__content">
+                                    <div class="listview__heading">Fredric Mitchell Jr.</div>
+                                    <p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
+                                </div>
+                            </a>
+                        </div>
 
-						<div class="p-1"></div>
-					</div>
-				</div>
-			</li>
+                        <div class="p-1"></div>
+                    </div>
+                </div>
+            </li>
 
-			<li class="dropdown hidden-xs-down">
-				<a href="#" data-toggle="dropdown"><i class="zmdi zmdi-check-circle"></i></a>
+            <li class="dropdown hidden-xs-down">
+                <a href="#" data-toggle="dropdown"><i class="zmdi zmdi-check-circle"></i></a>
 
-				<div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
-					<div class="dropdown-header">Tasks</div>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
+                    <div class="dropdown-header">Tasks</div>
 
-					<div class="listview listview--hover">
-						<a href="#" class="listview__item">
-							<div class="listview__content">
-								<div class="listview__heading">HTML5 Validation Report</div>
+                    <div class="listview listview--hover">
+                        <a href="#" class="listview__item">
+                            <div class="listview__content">
+                                <div class="listview__heading">HTML5 Validation Report</div>
 
-								<div class="progress mt-1">
-									<div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</a>
+                                <div class="progress mt-1">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </a>
 
-						<a href="#" class="listview__item">
-							<div class="listview__content">
-								<div class="listview__heading">Google Chrome Extension</div>
+                        <a href="#" class="listview__item">
+                            <div class="listview__content">
+                                <div class="listview__heading">Google Chrome Extension</div>
 
-								<div class="progress mt-1">
-									<div class="progress-bar bg-warning" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</a>
+                                <div class="progress mt-1">
+                                    <div class="progress-bar bg-warning" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </a>
 
-						<a href="#" class="listview__item">
-							<div class="listview__content">
-								<div class="listview__heading">Social Intranet Projects</div>
+                        <a href="#" class="listview__item">
+                            <div class="listview__content">
+                                <div class="listview__heading">Social Intranet Projects</div>
 
-								<div class="progress mt-1">
-									<div class="progress-bar bg-success" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</a>
+                                <div class="progress mt-1">
+                                    <div class="progress-bar bg-success" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </a>
 
-						<a href="#" class="listview__item">
-							<div class="listview__content">
-								<div class="listview__heading">Bootstrap Admin Template</div>
+                        <a href="#" class="listview__item">
+                            <div class="listview__content">
+                                <div class="listview__heading">Bootstrap Admin Template</div>
 
-								<div class="progress mt-1">
-									<div class="progress-bar bg-info" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</a>
+                                <div class="progress mt-1">
+                                    <div class="progress-bar bg-info" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </a>
 
-						<a href="#" class="listview__item">
-							<div class="listview__content">
-								<div class="listview__heading">Youtube Client App</div>
+                        <a href="#" class="listview__item">
+                            <div class="listview__content">
+                                <div class="listview__heading">Youtube Client App</div>
 
-								<div class="progress mt-1">
-									<div class="progress-bar bg-danger" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-								</div>
-							</div>
-						</a>
+                                <div class="progress mt-1">
+                                    <div class="progress-bar bg-danger" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </a>
 
-						<a href="#" class="view-more">View all Tasks</a>
-					</div>
-				</div>
-			</li>
+                        <a href="#" class="view-more">View all Tasks</a>
+                    </div>
+                </div>
+            </li>
 
-			<li class="dropdown hidden-xs-down">
-				<a href="#" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>
+            <li class="dropdown hidden-xs-down">
+                <a href="#" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>
 
-				<div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
-					<div class="row app-shortcuts">
-						<a class="col-4 app-shortcuts__item" href="#">
-							<i class="zmdi zmdi-calendar"></i>
-							<small class="">Calendar</small>
-						</a>
-						<a class="col-4 app-shortcuts__item" href="#">
-							<i class="zmdi zmdi-file-text"></i>
-							<small class="">Files</small>
-						</a>
-						<a class="col-4 app-shortcuts__item" href="#">
-							<i class="zmdi zmdi-email"></i>
-							<small class="">Email</small>
-						</a>
-						<a class="col-4 app-shortcuts__item" href="#">
-							<i class="zmdi zmdi-trending-up"></i>
-							<small class="">Reports</small>
-						</a>
-						<a class="col-4 app-shortcuts__item" href="#">
-							<i class="zmdi zmdi-view-headline"></i>
-							<small class="">News</small>
-						</a>
-						<a class="col-4 app-shortcuts__item" href="#">
-							<i class="zmdi zmdi-image"></i>
-							<small class="">Gallery</small>
-						</a>
-					</div>
-				</div>
-			</li>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
+                    <div class="row app-shortcuts">
+                        <a class="col-4 app-shortcuts__item" href="#">
+                            <i class="zmdi zmdi-calendar"></i>
+                            <small class="">Calendar</small>
+                        </a>
+                        <a class="col-4 app-shortcuts__item" href="#">
+                            <i class="zmdi zmdi-file-text"></i>
+                            <small class="">Files</small>
+                        </a>
+                        <a class="col-4 app-shortcuts__item" href="#">
+                            <i class="zmdi zmdi-email"></i>
+                            <small class="">Email</small>
+                        </a>
+                        <a class="col-4 app-shortcuts__item" href="#">
+                            <i class="zmdi zmdi-trending-up"></i>
+                            <small class="">Reports</small>
+                        </a>
+                        <a class="col-4 app-shortcuts__item" href="#">
+                            <i class="zmdi zmdi-view-headline"></i>
+                            <small class="">News</small>
+                        </a>
+                        <a class="col-4 app-shortcuts__item" href="#">
+                            <i class="zmdi zmdi-image"></i>
+                            <small class="">Gallery</small>
+                        </a>
+                    </div>
+                </div>
+            </li>
 
-			<li class="dropdown hidden-xs-down">
-				<a href="#" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+            <li class="dropdown hidden-xs-down">
+                <a href="#" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
 
-				<div class="dropdown-menu dropdown-menu-right">
-					<div class="dropdown-item theme-switch">
-						Theme Switch
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-item theme-switch">
+                        Theme Switch
 
-						<div class="btn-group btn-group--colors mt-2 d-block" data-toggle="buttons">
-							<label class="btn border-0" id="label-theme-1" value="1" onclick="setTheme(this.id)" style="background-color: #772036"><input id="theme-1" type="radio" value="1" autocomplete="off"></label>
-							<label class="btn border-0" id="label-theme-2" value="2" onclick="setTheme(this.id)" style="background-color: #273C5B"><input id="theme-2" type="radio" value="2" autocomplete="off"></label>
-							<label class="btn border-0" id="label-theme-3" value="3" onclick="setTheme(this.id)" style="background-color: #174042"><input id="theme-3" type="radio" value="3" autocomplete="off"></label>
-							<label class="btn border-0" id="label-theme-4" value="4" onclick="setTheme(this.id)" style="background-color: #383844"><input id="theme-4" type="radio" value="4" autocomplete="off"></label>
-							<label class="btn border-0" id="label-theme-5" value="5"  onclick="setTheme(this.id)" style="background-color: #49423F"><input id="theme-5" type="radio" value="5" autocomplete="off"></label>
+                        <div class="btn-group btn-group--colors mt-2 d-block" data-toggle="buttons">
+                            <label class="btn border-0" id="label-theme-1" value="1" onclick="setTheme(this.id)" style="background-color: #772036"><input id="theme-1" type="radio" value="1" autocomplete="off"></label>
+                            <label class="btn border-0" id="label-theme-2" value="2" onclick="setTheme(this.id)" style="background-color: #273C5B"><input id="theme-2" type="radio" value="2" autocomplete="off"></label>
+                            <label class="btn border-0" id="label-theme-3" value="3" onclick="setTheme(this.id)" style="background-color: #174042"><input id="theme-3" type="radio" value="3" autocomplete="off"></label>
+                            <label class="btn border-0" id="label-theme-4" value="4" onclick="setTheme(this.id)" style="background-color: #383844"><input id="theme-4" type="radio" value="4" autocomplete="off"></label>
+                            <label class="btn border-0" id="label-theme-5" value="5"  onclick="setTheme(this.id)" style="background-color: #49423F"><input id="theme-5" type="radio" value="5" autocomplete="off"></label>
 
-							<br>
+                            <br>
 
-							<label class="btn border-0" id="label-theme-6" value="6" onclick="setTheme(this.id)" style="background-color: #5e3d22"><input id="theme-6" type="radio" value="6" autocomplete="off" ></label>
-							<label class="btn border-0" id="label-theme-7" value="7" onclick="setTheme(this.id)" style="background-color: #234d6d"><input id="theme-7" type="radio" value="7" autocomplete="off" ></label>
-							<label class="btn border-0" id="label-theme-8" value="8" onclick="setTheme(this.id)" style="background-color: #3b5e5e"><input id="theme-8" type="radio" value="8" autocomplete="off" ></label>
-							<label class="btn border-0" id="label-theme-9" value="9" onclick="setTheme(this.id)" style="background-color: #0a4c3e"><input id="theme-9" type="radio" value="9" autocomplete="off" ></label>
-							<label class="btn border-0" id="label-theme-10"value="10"  onclick="setTheme(this.id)" style="background-color: #7b3d54"><input id="theme-10" type="radio" value="10" autocomplete="off"></label>
-						</div>
-					</div>
-					<a href="#" class="dropdown-item" data-sa-action="fullscreen">Fullscreen</a>
-					<a href="#" class="dropdown-item">Clear Local Storage</a>
-				</div>
-			</li>
-		</ul>
+                            <label class="btn border-0" id="label-theme-6" value="6" onclick="setTheme(this.id)" style="background-color: #5e3d22"><input id="theme-6" type="radio" value="6" autocomplete="off" ></label>
+                            <label class="btn border-0" id="label-theme-7" value="7" onclick="setTheme(this.id)" style="background-color: #234d6d"><input id="theme-7" type="radio" value="7" autocomplete="off" ></label>
+                            <label class="btn border-0" id="label-theme-8" value="8" onclick="setTheme(this.id)" style="background-color: #3b5e5e"><input id="theme-8" type="radio" value="8" autocomplete="off" ></label>
+                            <label class="btn border-0" id="label-theme-9" value="9" onclick="setTheme(this.id)" style="background-color: #0a4c3e"><input id="theme-9" type="radio" value="9" autocomplete="off" ></label>
+                            <label class="btn border-0" id="label-theme-10"value="10"  onclick="setTheme(this.id)" style="background-color: #7b3d54"><input id="theme-10" type="radio" value="10" autocomplete="off"></label>
+                        </div>
+                    </div>
+                    <a href="#" class="dropdown-item" data-sa-action="fullscreen">Fullscreen</a>
+                    <a href="#" class="dropdown-item">Clear Local Storage</a>
+                </div>
+            </li>
+        </ul>
 
-		<div class="clock hidden-md-down">
-			<div class="time">
-				<span class="hours"></span>
-				<span class="min"></span>
-				<span class="sec"></span>
-			</div>
-		</div>
-	</header>
+        <div class="clock hidden-md-down">
+            <div class="time">
+                <span class="hours"></span>
+                <span class="min"></span>
+                <span class="sec"></span>
+            </div>
+        </div>
+    </header>
 
-	<aside class="sidebar">
-		<div class="scrollbar-inner">
+    <aside class="sidebar">
+        <div class="scrollbar-inner">
 
-			<div class="user">
-				<div class="user__info" data-toggle="dropdown">
-					<img class="user__img" src="img/user.jpg" onerror="if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';" alt="">
-					<div>
-						<div class="user__name" id="user">---</div>
-						<div class="user__email" id="ip">---</div>
-					</div>
-				</div>
+            <div class="user">
+                <div class="user__info" data-toggle="dropdown">
+                    <img class="user__img" src="img/user.jpg" onerror="if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';" alt="">
+                    <div>
+                        <div class="user__name" id="user">---</div>
+                        <div class="user__email" id="ip">---</div>
+                    </div>
+                </div>
 
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">View Profile</a>
-					<a class="dropdown-item" href="#">Settings</a>
-					<a class="dropdown-item" href="#">Logout</a>
-				</div>
-			</div>
+                <div class="dropdown-menu">
+                    <input type="file" id="profilePic" class="dropdown-item" style="width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1;"><label class="dropdown-item" for="profilePic">Upload Profile Picture</label>
+                    <a class="dropdown-item" href="#">Remove Profile Picture</a>
+                </div>
+            </div>
 
-			<ul class="navigation">
-				<li class="@@indexactive"><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
-				<li class="@@sharefolderactive"><a href="shareFolder.html"><i class="zmdi zmdi-share"></i> Share</a></li>
+            <ul class="navigation">
+                <li class="@@indexactive"><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+                <li class="@@sharefolderactive"><a href="shareFolder.html"><i class="zmdi zmdi-share"></i> Share</a></li>
                 <li class="navigation__active"><a href="musicPlayer.html"><i class="zmdi zmdi-collection-music"></i> Music</a></li>
-				<li class="@@videolistactive"><a href="videoPlayer.html"><i class="zmdi zmdi-collection-video"></i> Video</a></li>
-			</ul>
-		</div>
-	</aside>
+                <li class="@@videolistactive"><a href="videoPlayer.html"><i class="zmdi zmdi-collection-video"></i> Video</a></li>
+            </ul>
+        </div>
+    </aside>
 
-	<section class="content">
-          <div class="toolbar">
+    <section class="content">
+
+        <div class="toolbar">
             <div class="toolbar__nav" >
                 <nav aria-label="breadcrumb" role="navigation">
                     <ol class="breadcrumb card-title" id = "navBar">
@@ -422,127 +396,50 @@
                 <i class="toolbar__search__close zmdi zmdi-long-arrow-left" onclick="updateFolderList()" data-sa-action="toolbar-search-close"></i>
             </div>
         </div>
-            <div class="row">
-			<div class="medium-centered columns" id="amplitude-player">
-				<div class="row">
-					<div class="medium-6 columns" id="amplitude-left">
-						<img amplitude-song-info="cover_art_url" amplitude-main-song-info="true"/>
-						<div id="player-left-bottom">
-							<div id="time-container">
-								<span class="current-time">
-									<span class="amplitude-current-minutes" amplitude-main-current-minutes="true"></span>:<span class="amplitude-current-seconds" amplitude-main-current-seconds="true"></span>
-								</span>
-								<input type="range" class="amplitude-song-slider" amplitude-main-song-slider="true" step=".1"/>
-								<span class="duration">
-									<span class="amplitude-duration-minutes" amplitude-main-duration-minutes="true"></span>:<span class="amplitude-duration-seconds" amplitude-main-duration-seconds="true"></span>
-								</span>
-							</div>
 
-							<div id="control-container">
-								<div id="repeat-container">
-									<div class="amplitude-repeat" id="repeat"></div>
-								</div>
 
-								<div id="central-control-container">
-									<div id="central-controls">
-										<div class="amplitude-prev" id="previous"></div>
-										<div class="amplitude-play-pause" amplitude-main-play-pause="true" id="play-pause"></div>
-										<div class="amplitude-next" id="next"></div>
-									</div>
-								</div>
 
-								<div id="shuffle-container">
-									<div class="amplitude-shuffle amplitude-shuffle-off" id="shuffle"></div>
-								</div>
-							</div>
+        <div class="contacts row" id="folderList"></div>
+        <div id="musicList"></div>
+        <div id="videoContent"></div>
 
-							<div id="meta-container">
-								<span amplitude-song-info="name" amplitude-main-song-info="true" class="song-name"></span>
-
-								<div class="song-artist-album">
-									<span amplitude-song-info="artist" amplitude-main-song-info="true"></span>
-									<span amplitude-song-info="album" amplitude-main-song-info="true"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="large-6 medium-6 small-12 columns" id="amplitude-right">
-						<div class="song amplitude-song-container amplitude-play-pause" amplitude-song-index="0">
-							<div class="song-now-playing-icon-container">
-								<div class="play-button-container">
-
-								</div>
-								<img class="now-playing" src="amplitudejs/img/now-playing.svg"/>
-							</div>
-							<div class="song-meta-data">
-								<span class="song-title">Ricchi per sempre</span>
-								<span class="song-artist">Sfera Ebbasta</span>
-							</div>
-							<span class="song-duration">5:40</span>
-						</div>
-						<div class="song amplitude-song-container amplitude-play-pause" amplitude-song-index="1">
-							<div class="song-now-playing-icon-container">
-								<div class="play-button-container">
-
-								</div>
-								<img class="now-playing" src="amplitudejs/img/now-playing.svg"/>
-							</div>
-							<div class="song-meta-data">
-								<span class="song-title">Cupido</span>
-								<span class="song-artist">Sfera Ebbasta</span>
-							</div>
-							<span class="song-duration">5:40</span>
-						</div>
-					</div>
-				</div>
-			</div>
-        </div>
-	</section>
+    </section>
 </main>
 
 <!-- Javascript -->
-
 <!-- Vendors -->
+<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+    try {
+        $ = jQuery = module.exports;
+        // If you want module.exports to be empty, uncomment:
+        // module.exports = {};
+    } catch(e) {}
+</script>
+<script>
+    document.getElementById('profilePic').onchange = function(evt) {
+        ImageTools.resize(this.files[0], {
+            width: 320, // maximum width
+            height: 320 // maximum height
+
+        });
+    };
+</script>
 <script src="vendors/bower_components/autosize/dist/autosize.min.js"></script>
 <script src="vendors/bower_components/popper.js/dist/umd/popper.min.js"></script>
 <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
 <script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
 
-<!-- Vendors: Data tables -->
-<script src="vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script src="vendors/bower_components/jszip/dist/jszip.min.js"></script>
-<script src="vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+
 
 <!-- App functions and actions -->
 <script src="js/app.min.js"></script>
 
 <!-- Personal JS functions -->
 <script src="js/load.js"></script>
-<script src="js/index.js"></script>
-<script type="text/javascript">
-    Amplitude.init({
-        "songs": [
-            {
-                "name": "Ricchi per sempre",
-                "artist": "Sfera Ebbasta",
-                "album": "Rockstar",
-                "url": "amplitudejs/songs/05. Ricchi x Sempre.mp3",
-                "cover_art_url": "https://lastfm-img2.akamaized.net/i/u/300x300/4db6af8457eb6de9e71ec3fbc03171fb.png"
-            },
-            {
-                "name": "Cupido",
-                "artist": "Sfera Ebbasta",
-                "album": "Rockstar",
-                "url": "amplitudejs/songs/03. Cupido feat. Quavo.mp3",
-                "cover_art_url": "https://lastfm-img2.akamaized.net/i/u/300x300/4db6af8457eb6de9e71ec3fbc03171fb.png"
-            },
-        ]
-    });
+<script src="js/music.js"></script>
 
-</script>
 
 </body>
 

@@ -3,8 +3,10 @@ var xml2js = require('xml2js');
 var os = require('os');
 var path = require('path');
 var currFolder="/";
+var fileList = {
+    users: []
+};
 
-$.getScript("js/sharedFiles.js", function() {});
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
 function updateSharedFiles(){
@@ -155,6 +157,14 @@ function searchFolder() {
                         "<strong>" + file[file.length - 1] + "</strong>" +
                         "<small>" + fileList.users[k].ip + "</small></div></div></div>";
                 }
+            }
+            else{
+                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\")>" +
+                    "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(fileList.users[k].videos[j]).replace(/"/g, "&quot;") + ")>" +
+                    "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
+                    "<div class=\"contacts__info\">" +
+                    "<strong>" + file[file.length - 1] + "</strong>" +
+                    "<small>" + fileList.users[k].ip + "</small></div></div></div>";
             }
         }
     }
