@@ -387,21 +387,21 @@
                 </nav>
             </div>
 
-            <div class="actions">
+            <div class="actions" id="searchBar">
                 <i class="actions__item zmdi zmdi-search" data-sa-action="toolbar-search-open"></i>
             </div>
 
             <div class="toolbar__search">
                 <input type="text" id="searchInput" placeholder="Search..." onchange="searchFolder();" onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
-                <i class="toolbar__search__close zmdi zmdi-long-arrow-left" onclick="updateFolderList()" data-sa-action="toolbar-search-close"></i>
+                <i class="toolbar__search__close zmdi zmdi-long-arrow-left" onclick="document.getElementById('searchInput').value=''; searchFolder()" data-sa-action="toolbar-search-close"></i>
             </div>
         </div>
 
 
 
         <div class="contacts row" id="folderList"></div>
-        <div id="musicList"></div>
-        <div id="videoContent"></div>
+        <div id="musicList" style="overflow:auto; height:62vh;"></div>
+        <div id="videoContent" style="position: fixed; width: 77%; height: 50px ; bottom: 10px"></div>
 
     </section>
 </main>

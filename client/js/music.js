@@ -66,11 +66,13 @@ function updateFolderList(folder) {
     }
     document.getElementById("folderList").innerHTML = "";
     document.getElementById("musicList").innerHTML = "";
-    if(currFolder.endsWith(".mp3")){
+    if(currFolder.toString() !== "/"){
         document.getElementById("videoContent").style.display="block";
     }
     else {
         document.getElementById("videoContent").innerHTML = "";
+        document.getElementById("videoContent").style.display="none";
+    }
         var path = currFolder.split("/").filter(function (entry) {
             return /\S/.test(entry);
         });
@@ -79,7 +81,7 @@ function updateFolderList(folder) {
         for (i in path) {
             folderPath += path[i] + "/";
             var clickFolder = JSON.stringify(folderPath).replace(/ /g, '&nbsp;');
-            nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function () {
+            nav += "<li class=\"breadcrumb-item\"><a href='#'>" + (function () {
                 if (path[i] == "localhost") {
                     return "This PC";
                 } else {
@@ -91,6 +93,7 @@ function updateFolderList(folder) {
         document.getElementById("navBar").innerHTML = nav;
 
         if (currFolder == "/") {
+            document.getElementById("searchBar").style.display="none";
             for (k in fileList.users) {
                 document.getElementById("folderList").innerHTML +=
                     "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
@@ -109,111 +112,175 @@ function updateFolderList(folder) {
             }
         }
         else {
+            document.getElementById("searchBar").style.display="block";
             var element = "";
             for (k in fileList.users) {
                 if (fileList.users[k].ip === path[0]) {
-                    var encodeText = encodeURIComponent(fileList.users[k].videos[0]);
-                    var url = "http://" + fileList.users[k].ip + ":8080/stream?source=" + encodeText;
-                    var xhr = new XMLHttpRequest();
-                    xhr.open('GET', "http://" + fileList.users[k].ip + ":8080/available?source=" + encodeText, false);
-                    xhr.onload = function (e) {
-                        if (xhr.readyState === 4) {
-                            if (xhr.status === 200) {
-                                if (xhr.responseText === "true") {
-                                    document.getElementById("navBar").innerHTML = nav;
-                                    document.getElementById("videoContent").innerHTML = "<audio style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" name=\"media\">" +
-                                        "<source src=" + url + " type=\"audio/mp3\"></audio>";
-                                }
-                            }
-                        }
-                    };
-                    xhr.send();
-                    var element = "<div class=\"card\"><div class=\"card-body\"><table class=\"table table-hover mb-0\"><tbody>";
+                    var element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
                     for (j in fileList.users[k].videos) {
-                        element += "<tr><th scope=\"row\">" + j + "</th><td>" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
-
-
+                        var encodeText = encodeURIComponent(fileList.users[k].videos[j]);
+                        var l = j;
+                        l++;
+                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
                     }
                     element += "</tbody></table></div></div>";
                     document.getElementById("musicList").innerHTML = element;
+                    var table = document.getElementById("musicTable");
+                    var rows = table.getElementsByTagName("tr");
+                    for (i = 0; i < rows.length; i++) {
+                        var currentRow = table.rows[i];
+                        var createClickHandler = function(table, index) {
+                            return function() {
+                                var currentRow = table.rows[index];
+                                encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
+                                url ="http://"+fileList.users[k].ip+":8080/stream?source="+encodeText;
+                                xhr = new XMLHttpRequest();
+                                xhr.open('GET', "http://" + fileList.users[k].ip + ":8080/available?source=" + encodeText, false);
+                                xhr.onload = function (e) {
+                                    if (xhr.readyState === 4) {
+                                        if (xhr.status === 200) {
+                                            if (xhr.responseText === "true") {
+                                                document.getElementById("videoContent").innerHTML = "<h5 id=\"songName\">"+decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "")+"</h5><audio id=\"audioPlayer\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" onloadstart=\"this.volume=0.5\" name=\"media\">" +
+                                                    "<source src=" + url + " type=\"audio/mp3\"></audio>";
+                                                var nextSong = function(table, index) {
+                                                    return function() {
+                                                        var music = document.getElementById("audioPlayer");
+                                                        if (index === table.rows.length - 1) {
+                                                            var nextIndex = 0;
+                                                        }
+                                                        else {
+                                                            var nextIndex = index + 1;
+                                                        }
+                                                        music.onended = nextSong(table, nextIndex);
+                                                        music.pause();
+                                                        var currentRow = table.rows[index];
+                                                        var encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
+                                                        document.getElementById("songName").innerText=decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "");
+                                                        var url = "http://" + fileList.users[k].ip + ":8080/stream?source=" + encodeText;
+                                                        music.src = url;
+                                                        music.load();
+                                                        music.play();
+                                                    }
+                                                };
+                                                var music = document.getElementById("audioPlayer");
+                                                if (index === table.rows.length-1){
+                                                    var nextIndex =0;
+                                                }
+                                                else{
+                                                    var nextIndex =index+1;
+                                                }
+                                                music.onended = nextSong(table, nextIndex);
+                                            }
+                                            else {
+                                                swal({
+                                                    title: 'Warning',
+                                                    text: 'The selected song seems to not be available at the moment.',
+                                                    type: 'warning',
+                                                    buttonsStyling: false,
+                                                    confirmButtonClass: 'btn btn-sm btn-light',
+                                                    background: 'rgba(0, 0, 0, 0.96)'
+                                                }).then(function () {
+                                                    updateSharedFiles();
+                                                    updateFolderList("/");
+                                                });
+                                            }
+                                        }
+                                    }
+                                };
+                                xhr.send();
+                            };
+                        };
+                        currentRow.onclick = createClickHandler(table,i);
+                    }
                 }
             }
         }
-    }
 }
 
 function searchFolder() {
-    var element = "<div class=\"card\"><div class=\"card-body\"><table class=\"table table-hover mb-0\"><tbody>";
+    var element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
     for (k in fileList.users) {
         for (j in fileList.users[k].videos) {
+            var l = j;
+            l++;
+            var encodeText = encodeURIComponent(fileList.users[k].videos[j]);
             if(document.getElementById("searchInput").value!=""&&document.getElementById("searchInput").value!=undefined&&document.getElementById("searchInput").value!=null) {
                 if (fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
-                        element+= "<tr><th scope=\"row\">"+j+"</th><td>"+fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "")+"</td></tr>\n"
+                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
                 }
             }
             else{
-                element+= "<tr><th scope=\"row\">"+j+"</th><td>"+fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "")+"</td></tr>\n"
+                element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
             }
         }
     }
     element+="</tbody></table></div></div>";
     document.getElementById("musicList").innerHTML=element;
-}
-
-function videoPlayer(ip,source) {
-    if (ip != undefined && source != undefined) {
-        currFolder = ip + source.replace(/\s/g, ' ');
+    var table = document.getElementById("musicTable");
+    var rows = table.getElementsByTagName("tr");
+    for (i = 0; i < rows.length; i++) {
+        var currentRow = table.rows[i];
+        var createClickHandler = function(table, index) {
+            return function() {
+                var currentRow = table.rows[index];
+                encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
+                url ="http://"+fileList.users[k].ip+":8080/stream?source="+encodeText;
+                xhr = new XMLHttpRequest();
+                xhr.open('GET', "http://" + fileList.users[k].ip + ":8080/available?source=" + encodeText, false);
+                xhr.onload = function (e) {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            if (xhr.responseText === "true") {
+                                document.getElementById("videoContent").innerHTML = "<h5 id=\"songName\">"+decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "")+"</h5><audio id=\"audioPlayer\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" onloadstart=\"this.volume=0.5\" name=\"media\">" +
+                                    "<source src=" + url + " type=\"audio/mp3\"></audio>";
+                                var nextSong = function(table, index) {
+                                    return function() {
+                                        var music = document.getElementById("audioPlayer");
+                                        if (index === table.rows.length - 1) {
+                                            var nextIndex = 0;
+                                        }
+                                        else {
+                                            var nextIndex = index + 1;
+                                        }
+                                        music.onended = nextSong(table, nextIndex);
+                                        music.pause();
+                                        var currentRow = table.rows[index];
+                                        var encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
+                                        document.getElementById("songName").innerText=decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "");
+                                        var url = "http://" + fileList.users[k].ip + ":8080/stream?source=" + encodeText;
+                                        music.src = url;
+                                        music.load();
+                                        music.play();
+                                    }
+                                };
+                                var music = document.getElementById("audioPlayer");
+                                if (index === table.rows.length-1){
+                                    var nextIndex =0;
+                                }
+                                else{
+                                    var nextIndex =index+1;
+                                }
+                                music.onended = nextSong(table, nextIndex);
+                            }
+                            else {
+                                swal({
+                                    title: 'Warning',
+                                    text: 'The selected song seems to not be available at the moment.',
+                                    type: 'warning',
+                                    buttonsStyling: false,
+                                    confirmButtonClass: 'btn btn-sm btn-light',
+                                    background: 'rgba(0, 0, 0, 0.96)'
+                                }).then(function () {
+                                    updateSharedFiles();
+                                    updateFolderList("/");
+                                });
+                            }
+                        }
+                    }
+                };
+                xhr.send();
+            };
+        };
+        currentRow.onclick = createClickHandler(table,i);
     }
-    document.getElementById("videoContent").style.display = "block";
-    document.getElementById("folderList").innerHTML = "";
-    document.getElementById("videoContent").innerHTML = "";
-    var path = currFolder.split("/").filter(function (entry) {
-        return /\S/.test(entry);
-    });
-    var title = path.pop();
-    var folderPath = "";
-    var nav = "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
-    for (i in path) {
-        folderPath += path[i] + "/";
-        clickFolder = JSON.stringify(folderPath);
-        nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function () {
-            if (path[i] == "localhost") {
-                return "This PC";
-            } else {
-                return path[i];
-            }
-        }());
-        +"</a></li>";
-    }
-
-    var url = "http://" + ip + ":8080/stream?source=" + encodeText;
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://" + ip + ":8080/available?source=" + encodeText, false);
-    xhr.onload = function (e) {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                if (xhr.responseText === "true") {
-                    document.getElementById("navBar").innerHTML = nav;
-                    document.getElementById("videoContent").innerHTML = "<h2>" + title + "</h2><br><audio style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" name=\"media\">" +
-                        "<source src=" + url + " type=\"audio/mp3\"></audio>";
-                }
-                else {
-                    swal({
-                        title: 'Warning',
-                        text: 'The selected video seems to not be available at the moment.',
-                        type: 'warning',
-                        buttonsStyling: false,
-                        confirmButtonClass: 'btn btn-sm btn-light',
-                        background: 'rgba(0, 0, 0, 0.96)'
-                    }).then(function () {
-                        updateSharedFiles();
-                        updateFolderList("/");
-                    });
-                }
-            } else {
-                console.error(xhr.statusText);
-            }
-        }
-    };
-    xhr.send();
 }

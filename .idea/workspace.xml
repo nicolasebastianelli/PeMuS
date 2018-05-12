@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46575ed0-a898-48f6-9d6f-a8f6c0b14e1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/js/music.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/dist/amplitude.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/dist/amplitude.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/bandcamp-grey.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/bandcamp-white.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/bandcamp.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/list-play-hover.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/list-play-light.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/next.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/now-playing.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/pause.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/play.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/prev.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/repeat-off.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/repeat-on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/shuffle-off.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/img/shuffle-on.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/js/functions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/resources/css/foundation.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/resources/js/foundation.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/resources/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/songs/03. Cupido feat. Quavo.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/amplitudejs/songs/05. Ricchi x Sempre.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/sharedFiles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/video.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/music.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/music.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/musicPlayer.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/musicPlayer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,8 +24,28 @@
       <file leaf-file-name="musicPlayer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/musicPlayer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6030">
-              <caret line="402" column="26" selection-start-line="402" selection-start-column="26" selection-end-line="402" selection-end-column="26" />
+            <state relative-caret-position="310">
+              <caret line="403" column="96" selection-start-line="403" selection-start-column="96" selection-end-line="403" selection-end-column="96" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#0;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#1;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#2;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#3;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#4;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#3;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#4;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#5;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#6;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#7;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#8;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#9;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#0;n#aside#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,8 +53,8 @@
       <file leaf-file-name="music.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/music.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="144" column="25" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
+            <state relative-caret-position="-2731">
+              <caret line="72" column="61" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
               <folding>
                 <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
@@ -83,15 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>card</find>
-      <find>size</find>
-      <find>margin</find>
-      <find>margin-le</find>
-      <find>margin-righ</find>
-      <find>img</find>
-      <find>mp4</find>
-      <find>upda</find>
-      <find>mp3</find>
       <find>videoco</find>
       <find>videoCon</find>
       <find>musicPlayer</find>
@@ -113,6 +97,15 @@
       <find>sear</find>
       <find>j+</find>
       <find>musicListspli</find>
+      <find>vide</find>
+      <find>tr</find>
+      <find>nav</find>
+      <find>row</find>
+      <find>tool</find>
+      <find>non</find>
+      <find>videoConte</find>
+      <find>folderli</find>
+      <find>titl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,8 +162,8 @@
         <option value="$PROJECT_DIR$/client/amplitudejs/css/styles.css" />
         <option value="$PROJECT_DIR$/client/amplitudejs/js/functions.js" />
         <option value="$PROJECT_DIR$/client/js/sharedFiles.js" />
-        <option value="$PROJECT_DIR$/client/musicPlayer.html" />
         <option value="$PROJECT_DIR$/client/js/video.js" />
+        <option value="$PROJECT_DIR$/client/musicPlayer.html" />
         <option value="$PROJECT_DIR$/client/js/music.js" />
       </list>
     </option>
@@ -347,17 +340,18 @@
       <workItem from="1525950300350" duration="453000" />
       <workItem from="1525950805525" duration="17048000" />
       <workItem from="1526058547378" duration="94000" />
+      <workItem from="1526124752256" duration="11644000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204048000" />
+    <option name="totallyTimeSpent" value="215692000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6905901" visible="true" weight="0.19609375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.68899524" visible="true" weight="0.19609375" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3290938" />
@@ -365,7 +359,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" sideWeight="0.3094099" side_tool="true" visible="true" weight="0.19609375" />
+      <window_info id="Favorites" order="2" sideWeight="0.3110048" side_tool="true" visible="true" weight="0.19609375" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -378,19 +372,19 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32750398" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3290938" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32750398" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -583,22 +577,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/video.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="131" column="29" lean-forward="true" selection-start-line="131" selection-start-column="29" selection-end-line="131" selection-end-column="29" />
+        <state relative-caret-position="-380">
+          <caret line="145" column="64" selection-start-line="145" selection-start-column="43" selection-end-line="145" selection-end-column="64" />
+          <folding>
+            <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/musicPlayer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6030">
-          <caret line="402" column="26" selection-start-line="402" selection-start-column="26" selection-end-line="402" selection-end-column="26" />
+        <state relative-caret-position="310">
+          <caret line="403" column="96" selection-start-line="403" selection-start-column="96" selection-end-line="403" selection-end-column="96" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#0;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#1;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#2;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#3;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#a#4;n#div#1;n#div#0;n#li#3;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#1;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#2;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#3;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#4;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#5;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#6;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#7;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#8;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#9;n#div#0;n#div#0;n#div#0;n#li#5;n#ul#0;n#header#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#div#0;n#aside#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/music.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="144" column="25" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
+        <state relative-caret-position="-2731">
+          <caret line="72" column="61" selection-start-line="72" selection-start-column="61" selection-end-line="72" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
