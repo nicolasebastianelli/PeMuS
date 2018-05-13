@@ -15,9 +15,10 @@
 
     <!-- App styles -->
     <link rel="stylesheet" href="css/app.min.css">
+    <link rel="stylesheet" href="css/video.css">
 </head>
 
-<body data-sa-theme="1" onload="updateUser();updateUserMessage();updateTheme();">
+<body data-sa-theme="1" onload="updateSharedFiles();updateUser();updateTheme();">
 <main class="main">
     <div class="page-loader">
         <div class="page-loader__spinner">
@@ -361,15 +362,14 @@
                 </div>
 
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">View Profile</a>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <input type="file" id="profilePic" class="dropdown-item" style="width: 0.1px;height: 0.1px;opacity: 0;overflow: hidden;position: absolute;z-index: -1;"><label class="dropdown-item" for="profilePic">Upload Profile Picture</label>
+                    <a class="dropdown-item" href="#">Remove Profile Picture</a>
                 </div>
             </div>
 
             <ul class="navigation">
-                <li class="navigation__active"><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
-                <li class="@@musiclistactive"><a href="musicPlayer.html"><i class="zmdi zmdi-collection-music"></i> Music</a></li>
+                <li class="@@indexactive"><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+                <li class="navigation__active"><a href="musicPlayer.html"><i class="zmdi zmdi-collection-music"></i> Music</a></li>
                 <li class="@@videolistactive"><a href="videoPlayer.html"><i class="zmdi zmdi-collection-video"></i> Video</a></li>
             </ul>
         </div>
@@ -377,14 +377,31 @@
 
     <section class="content">
 
-        <div class="card">
-        <div class="card-body">
-            <h1 id="userMsg"></h1><h1 id="ipMsg"></h1>
-            <br>
-            <br>
-            <h3 >You can start navigate and enjoy your streaming &#x1F609</h3>
+        <div class="toolbar">
+            <div class="toolbar__nav" >
+                <nav aria-label="breadcrumb" role="navigation">
+                    <ol class="breadcrumb card-title" id = "navBar">
+
+                    </ol>
+                </nav>
+            </div>
+
+            <div class="actions" id="searchBar">
+                <i class="actions__item zmdi zmdi-search" data-sa-action="toolbar-search-open"></i>
+            </div>
+
+            <div class="toolbar__search">
+                <input type="text" id="searchInput" placeholder="Search..." onchange="searchFolder();" onkeyup="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+                <i class="toolbar__search__close zmdi zmdi-long-arrow-left" onclick="document.getElementById('searchInput').value=''; searchFolder()" data-sa-action="toolbar-search-close"></i>
+            </div>
         </div>
-        </div>
+
+
+
+        <div class="contacts row" id="folderList"></div>
+        <div id="musicList" style="overflow:auto; height:62vh;"></div>
+        <div id="videoContent" style="position: fixed; width: 77%; height: 50px ; bottom: 10px"></div>
+
     </section>
 </main>
 
@@ -398,24 +415,30 @@
         // module.exports = {};
     } catch(e) {}
 </script>
+<script>
+    document.getElementById('profilePic').onchange = function(evt) {
+        ImageTools.resize(this.files[0], {
+            width: 320, // maximum width
+            height: 320 // maximum height
+
+        });
+    };
+</script>
 <script src="vendors/bower_components/autosize/dist/autosize.min.js"></script>
 <script src="vendors/bower_components/popper.js/dist/umd/popper.min.js"></script>
 <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
 <script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
 
-<!-- Vendors: Data tables -->
-<script src="vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script src="vendors/bower_components/jszip/dist/jszip.min.js"></script>
-<script src="vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+
 
 <!-- App functions and actions -->
 <script src="js/app.min.js"></script>
 
 <!-- Personal JS functions -->
 <script src="js/load.js"></script>
+<script src="js/music.js"></script>
+
 
 </body>
 

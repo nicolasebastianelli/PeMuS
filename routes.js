@@ -58,22 +58,34 @@ routes.get('/getVideoList', function(req, res) {
     var videoList =[];
     parser.parseString(xml, function (err, result) {
         for (k in result.pathlist.path) {
-            fromDir(result.pathlist.path[k].folder.toString(),videoList);
+            fromDir(result.pathlist.path[k].folder.toString(),videoList,".mp4");
         }
     });
     res.send(JSON.stringify(videoList))
 });
 
-function fromDir(startPath,res){
+routes.get('/getMusicList', function(req, res) {
+    var xml = fs.readFileSync('client/xml/paths.xml');
+    var parser = new xml2js.Parser();
+    var videoList =[];
+    parser.parseString(xml, function (err, result) {
+        for (k in result.pathlist.path) {
+            fromDir(result.pathlist.path[k].folder.toString(),videoList,".mp3");
+        }
+    });
+    res.send(JSON.stringify(videoList))
+});
+
+function fromDir(startPath,res,fileType){
     var files=fs.readdirSync(startPath);
     for(var i=0;i<files.length;i++){
         var filename=path.join(startPath,files[i]);
         try {
             var stat = fs.lstatSync(filename);
             if (stat.isDirectory()) {
-                fromDir(filename, res);
+                fromDir(filename, res,fileType);
             }
-            else if (filename.indexOf(".mp4") >= 0) {
+            else if (filename.indexOf(fileType) >= 0) {
                 res.push(filename);
             }
         }
