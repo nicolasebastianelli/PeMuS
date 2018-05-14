@@ -94,7 +94,7 @@ function updateFolderList(folder) {
                 document.getElementById("folderList").innerHTML +=
                     "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
                     "<div class=\"contacts__item\">" +
-                    "<a href=\"#\" ><img src=\"img/user.jpg\" onerror=\"if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>" +
+                    "<a href=\"#\" ><img src=\"img/user.jpg\" id=\"proPic2\" onerror=\"if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>" +
                     "<div class=\"contacts__info\">" +
                     "<strong>" + fileList.users[k].name + "</strong>" +
                     "<small>" + (function () {
@@ -188,9 +188,9 @@ function videoPlayer(ip,source) {
         nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function(){if(path[i]=="localhost"){return "This PC";} else{return path[i];}}()); + "</a></li>";
     }
     var encodeText = encodeURIComponent(source);
-    var url ="http://"+ip+":8080/stream?source="+encodeText;
+    var url ="http://"+ip+":4545/stream?source="+encodeText;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://"+ip+":8080/available?source="+encodeText, false);
+    xhr.open('GET', "http://"+ip+":4545/available?source="+encodeText, false);
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {

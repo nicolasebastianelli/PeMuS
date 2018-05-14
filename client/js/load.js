@@ -1,6 +1,8 @@
 var fs = require('fs');
 var xml2js = require('xml2js');
 var os = require('os');
+var app = require('electron').remote;
+var dialog = app.dialog;
 
 function updateTheme() {
     var xml = fs.readFileSync('client/xml/settings.xml');
@@ -51,4 +53,46 @@ function updateUser() {
     document.getElementById("ip").innerHTML=addresses[1];
     document.getElementById("user").innerHTML=addresses[0];
 
+}
+
+function updateUserMessage() {
+    var addresses = getUserInfo();
+    document.getElementById("localMsg").innerHTML="IP:&emsp;\""+addresses[1]+":4545\"";
+}
+
+function newProPic() {
+    dialog.showOpenDialog({ filters: [{ name: 'image', extensions: ['jpg','jpeg','png'] }]},
+    (fileName) => {
+        // fileNames is an array that contains all the selected
+        if(fileName === undefined)
+        {
+            return;
+        }
+        var content = fs.readFileSync(fileName.toString());
+        fs.writeFileSync("client/img/user.jpg", content);
+        fs.writeFileSync("public/img/user.jpg", content);
+        document.getElementById("proPic").src="img/user.jpg?"+Math.random();
+    if (document.getElementById('proPic2') !==null) {
+        document.getElementById("proPic2").src="img/user.jpg?"+Math.random();
+    }
+    });
+}
+
+function delProPic() {
+    fs.stat('client/img/user.jpg', function (err, stats) {
+        if (err) {
+            return console.error(err);
+        }
+
+        fs.unlink('client/img/user.jpg',function(err){
+            if(err) return ;
+            fs.unlink('public/img/user.jpg',function(err){
+                if(err) return ;
+                document.getElementById("proPic").src="img/user.jpg?"+Math.random();
+                if (document.getElementById('proPic2') !==null) {
+                    document.getElementById("proPic2").src="img/user.jpg?"+Math.random();
+                }
+            });
+        });
+    });
 }

@@ -1,6 +1,6 @@
 function updateTheme() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://"+window.location.hostname.toString()+":8080/getCurrentTheme", true);
+    xhr.open('GET', "http://"+window.location.hostname.toString()+":4545/getCurrentTheme", true);
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
@@ -17,7 +17,7 @@ function updateTheme() {
 
 function updateUser() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://"+window.location.hostname.toString()+":8080/getUser", true);
+    xhr.open('GET', "http://"+window.location.hostname.toString()+":4545/getUser", true);
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
@@ -33,12 +33,12 @@ function updateUser() {
 
 function updateUserMessage() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://"+window.location.hostname.toString()+":8080/getUser", true);
+    xhr.open('GET', "http://"+window.location.hostname.toString()+":4545/getUser", true);
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                document.getElementById("ipMsg").innerHTML="at the ip: "+window.location.hostname;
-                document.getElementById("userMsg").innerHTML="You are connected to the user: "+xhr.responseText;
+                document.getElementById("ipMsg").innerHTML="IP:&emsp;\""+window.location.hostname+"\"";
+                document.getElementById("userMsg").innerHTML="User:&emsp;\""+xhr.responseText+"\"";
             } else {
                 console.error(xhr.statusText);
             }

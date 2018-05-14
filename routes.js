@@ -93,7 +93,4 @@ function fromDir(startPath,res,fileType){
     }
 }
 
-
-
-
-server.listen(8080);
+server.listen(4545);
