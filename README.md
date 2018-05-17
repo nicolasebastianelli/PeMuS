@@ -5,7 +5,7 @@
 Distributed application for sharing and stream multimedia files.
 
 
-- Goal: 
+#### Goal: 
 
 Create a distributed cross-platform application that gives to the users the possibility to share local multimedia files, like music and video, and stream other users local files.
 
@@ -14,14 +14,15 @@ For requests from the same local network will be possible to use the browser as 
 Due to the distributed nature of the project a field test is required, so to test the prototype will be used Mininet, a software for creating a virtual network over the same machine.
 
 
-- Technologies:
-Backend:	
-Frontend:	
-Connection:	
-Network Virtualization for prototyping:	
+#### Technologies:
+[Node.js](https://nodejs.org/it/)	
+[Electron](https://electronjs.org/)
+[Peerjs](https://github.com/peers/peerjs)
+[WebTorrent](https://webtorrent.io/intro)
 
 
 
+#### Architecture:
 
-- Architecture:
+![alt text](https://ibb.co/gN3sLd)
 
