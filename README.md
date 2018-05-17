@@ -14,11 +14,14 @@ For requests from the same local network will be possible to use the browser as 
 Due to the distributed nature of the project a field test is required, so to test the prototype will be used Mininet, a software for creating a virtual network over the same machine.
 
 
-#### Technologies:
+#### Main Technologies:
 - [Node.js](https://nodejs.org/it/)	
 - [Electron](https://electronjs.org/)
+- [Express](http://expressjs.com/it/)
 - [Peerjs](https://github.com/peers/peerjs)
 - [WebTorrent](https://webtorrent.io/intro)
+- [xml2js](https://www.npmjs.com/package/xml2js)
+- [uniqid](https://www.npmjs.com/package/uniqid)
 
 
 
