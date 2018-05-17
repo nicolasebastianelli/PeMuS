@@ -1,16 +1,18 @@
 var fs = require('fs');
 var xml2js = require('xml2js');
 var os = require('os');
+var uniqid = require('uniqid');
 var app = require('electron').remote;
 var dialog = app.dialog;
+var port =process.env.PORT;
 
 function updateTheme() {
     var xml = fs.readFileSync('client/xml/settings.xml');
     var parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
-        document.getElementsByTagName("body")[0].setAttribute("data-sa-theme", result.currtheme);
-        document.getElementById("label-theme-" + result.currtheme).className += " active"
-        document.getElementById("theme-" + result.currtheme).checked = true;
+        document.getElementsByTagName("body")[0].setAttribute("data-sa-theme", result.settings.currtheme);
+        document.getElementById("label-theme-" + result.settings.currtheme).className += " active";
+        document.getElementById("theme-" + result.settings.currtheme).checked = true;
 
     });
 }
@@ -20,10 +22,10 @@ function setTheme(id) {
     var parser = new xml2js.Parser();
     parser.parseString(xml, function(err,result) {
         if (document.getElementById(id).getAttribute("value")>0 && document.getElementById(id).getAttribute("value")<=10) {
-            result.currtheme = document.getElementById(id).getAttribute("value");
+            result.settings.currtheme = document.getElementById(id).getAttribute("value");
         }
         else{
-            result.currtheme="1";
+            result.settings.currtheme="1";
         }
         var builder = new xml2js.Builder();
         xml = builder.buildObject(result);
@@ -44,7 +46,7 @@ function getUserInfo() {
         }
     }
     if(addresses[1]==undefined)
-        addresses.push("Not connected to internet")
+        addresses.push("Not connected to internet");
     return addresses;
 }
 
@@ -57,7 +59,41 @@ function updateUser() {
 
 function updateUserMessage() {
     var addresses = getUserInfo();
-    document.getElementById("localMsg").innerHTML="IP:&emsp;\""+addresses[1]+":4545\"";
+    document.getElementById("localMsg").innerHTML="IP:&emsp;\""+addresses[1]+":"+port+"\"";
+    var xml = fs.readFileSync('client/xml/settings.xml');
+    var parser = new xml2js.Parser();
+    parser.parseString(xml, function (err, result) {
+        document.getElementById("remoteMsg").innerHTML="ID:&emsp;\""+result.settings.id+"\"";
+    });
+
+}
+
+function checkID() {
+    try {
+        var xml = fs.readFileSync('client/xml/settings.xml');
+        var parser = new xml2js.Parser();
+        parser.parseString(xml, function (err, result) {
+            if(result.settings.id == "" || result.settings.id === undefined || result.settings.id==null) {
+                result.settings.id = uniqid();
+                var builder = new xml2js.Builder();
+                xml = builder.buildObject(result);
+                fs.writeFileSync('client/xml/settings.xml', xml);
+            }
+
+        });
+    } catch (err) {
+        fs.appendFileSync('client/xml/settings.xml',
+            "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
+            "<settings>\n" +
+            "  <currtheme>1</currtheme>\n" +
+            "  <id>"+uniqid()+"</id>\n" +
+            "</settings>",
+            function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+        });
+    }
+    updateTheme();
 }
 
 function newProPic() {

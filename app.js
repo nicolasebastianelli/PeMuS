@@ -1,13 +1,18 @@
 // Caricamento delle librerie Node.js
-const {app,BrowserWindow} = require('electron')
-const path = require('path')
-const url = require('url')
+const {app,BrowserWindow} = require('electron');
+const path = require('path');
+const url = require('url');
 var childProcess = require('child_process');
+const portfinder = require('portfinder');
+
+portfinder.getPort(function (err, port) {
+    process.env.PORT=port.toString();
+});
 
 // Mantiene la referenza globale dell'oggetto window, in caso contrario
 // la finestra verrà chiusa automaticamente quando l'oggetto JavaScript
 // verrà deallocato dal garbage collector.
-let win
+let win;
 
 
 function createWindow() {

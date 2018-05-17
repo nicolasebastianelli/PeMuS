@@ -4,7 +4,10 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.16.2",
+    "peerjs": "^0.3.14",
+    "portfinder": "^1.0.13",
     "uniqid": "^4.1.1",
+    "webtorrent-hybrid": "^1.0.6",
     "xml2js": "^0.4.19"
   }
 }

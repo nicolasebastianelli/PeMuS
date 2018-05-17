@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/app.min.css">
 </head>
 
-<body data-sa-theme="1" onload="updateFolderTable();updateUser();updateTheme();updateUserMessage();">
+<body data-sa-theme="1" onload="checkID();updateUser();updateUserMessage();">
 <main class="main">
     <div class="page-loader">
         <div class="page-loader__spinner">
@@ -46,10 +46,6 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
                     <div class="dropdown-header">
                         Notifications
-
-                        <div class="actions">
-                            <a href="#" class="actions__item zmdi zmdi-check-all" data-sa-action="notifications-clear"></a>
-                        </div>
                     </div>
 
                     <div class="listview listview--hover">
@@ -59,70 +55,8 @@
 
                                 <div class="listview__content">
                                     <div class="listview__heading">David Belle</div>
-                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
-
-                                <div class="listview__content">
-                                    <div class="listview__heading">Jonathan Morris</div>
-                                    <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
-
-                                <div class="listview__content">
-                                    <div class="listview__heading">Fredric Mitchell Jr.</div>
-                                    <p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/4.jpg" class="listview__img" alt="">
-
-                                <div class="listview__content">
-                                    <div class="listview__heading">Glenn Jecobs</div>
-                                    <p>Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
-
-                                <div class="listview__content">
-                                    <div class="listview__heading">Bill Phillips</div>
-                                    <p>Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
-
-                                <div class="listview__content">
-                                    <div class="listview__heading">David Belle</div>
-                                    <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
-
-                                <div class="listview__content">
-                                    <div class="listview__heading">Jonathan Morris</div>
-                                    <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
-                                </div>
-                            </a>
-
-                            <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
-
-                                <div class="listview__content">
-                                    <div class="listview__heading">Fredric Mitchell Jr.</div>
-                                    <p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
+                                    <button type="button" class="btn btn-success btn--icon-text"><i class="zmdi zmdi-check"></i> Confirm</button>
+                                    <button type="button" class="btn btn-danger btn--icon-text"><i class="zmdi zmdi-close"></i> Deny</button>
                                 </div>
                             </a>
                         </div>
@@ -199,9 +133,47 @@
 
         <div class="card">
             <div class="card-body">
-                <h2>For start streaming from a local network device type the following URL in the browser.</h2>
+                <h4 id="localMsg" class="card-title"></h4>
+                <h4 class="card-subtitle">For start streaming from a LOCAL network device type the above URL in the browser.</h4>
                 <br>
-                <h2 id="localMsg"></h2>
+                <h4 id="remoteMsg" class="card-title"></h4>
+                <h4 class="card-subtitle">For start streaming from a REMOTE server send the above unique ID to the host.</h4>
+            </div>
+        </div>
+
+        <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Connect to new server:</h4>
+            <h6 class="card-subtitle">Insert the unique code of the new server you want to connect to.</h6>
+            <div class="form-group">
+                <input type="text" id="path" class="form-control form-control-lg" placeholder="e.g 1234abcd5678efgh">
+                <i class="form-group__bar"></i>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-light btn--icon-text" onclick="sendRequest();">
+                    Send Request  <i class="zmdi zmdi-arrow-forward"></i>
+                </button>
+            </div>
+        </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">List of connected server</h4>
+                <div class="table-responsive">
+                    <table id="pathTable" class="table">
+                        <thead>
+                        <tr>
+                            <th>Server</th>
+                            <th>User</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
@@ -235,7 +207,7 @@
 
 <!-- Personal JS functions -->
 <script src="js/load.js"></script>
-<script src="js/share.js"></script>
+<script src="js/remote.js"></script>
 
 </body>
 

@@ -6,6 +6,7 @@ var currFolder="/";
 var fileList = {
     users: []
 };
+var port =process.env.PORT;
 
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
@@ -133,9 +134,9 @@ function updateFolderList(folder) {
                             return function() {
                                 var currentRow = table.rows[index];
                                 encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
-                                url ="http://"+fileList.users[k].ip+":4545/stream?source="+encodeText;
+                                url ="http://"+fileList.users[k].ip+":"+port+"/stream?source="+encodeText;
                                 xhr = new XMLHttpRequest();
-                                xhr.open('GET', "http://" + fileList.users[k].ip + ":4545/available?source=" + encodeText, false);
+                                xhr.open('GET', "http://" + fileList.users[k].ip + ":"+port+"/available?source=" + encodeText, false);
                                 xhr.onload = function (e) {
                                     if (xhr.readyState === 4) {
                                         if (xhr.status === 200) {
@@ -156,7 +157,7 @@ function updateFolderList(folder) {
                                                         var currentRow = table.rows[index];
                                                         var encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
                                                         document.getElementById("songName").innerText=decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "");
-                                                        var url = "http://" + fileList.users[k].ip + ":4545/stream?source=" + encodeText;
+                                                        var url = "http://" + fileList.users[k].ip + ":"+port+"/stream?source=" + encodeText;
                                                         music.src = url;
                                                         music.load();
                                                         music.play();
@@ -224,9 +225,9 @@ function searchFolder() {
             return function() {
                 var currentRow = table.rows[index];
                 encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
-                url ="http://"+fileList.users[k].ip+":4545/stream?source="+encodeText;
+                url ="http://"+fileList.users[k].ip+":"+port+"/stream?source="+encodeText;
                 xhr = new XMLHttpRequest();
-                xhr.open('GET', "http://" + fileList.users[k].ip + ":4545/available?source=" + encodeText, false);
+                xhr.open('GET', "http://" + fileList.users[k].ip + ":"+port+"/available?source=" + encodeText, false);
                 xhr.onload = function (e) {
                     if (xhr.readyState === 4) {
                         if (xhr.status === 200) {
@@ -247,7 +248,7 @@ function searchFolder() {
                                         var currentRow = table.rows[index];
                                         var encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
                                         document.getElementById("songName").innerText=decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "");
-                                        var url = "http://" + fileList.users[k].ip + ":4545/stream?source=" + encodeText;
+                                        var url = "http://" + fileList.users[k].ip + ":"+port+"/stream?source=" + encodeText;
                                         music.src = url;
                                         music.load();
                                         music.play();

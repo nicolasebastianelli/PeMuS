@@ -6,6 +6,7 @@ var fs = require('fs');
 var xml2js = require('xml2js');
 var path = require('path');
 var os = require('os');
+var port =process.env.PORT;
 
 routes.use(express.static('public'));
 
@@ -44,7 +45,7 @@ routes.get('/getCurrentTheme', function(req, res) {
     var xml = fs.readFileSync('client/xml/settings.xml');
     var parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
-        res.send(result.currtheme);
+        res.send(result.settings.currtheme.toString());
     });
 });
 
@@ -93,4 +94,4 @@ function fromDir(startPath,res,fileType){
     }
 }
 
-server.listen(4545);
+server.listen(port);

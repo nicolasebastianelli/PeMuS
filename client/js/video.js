@@ -3,6 +3,7 @@ var xml2js = require('xml2js');
 var os = require('os');
 var path = require('path');
 var currFolder="/";
+var port =process.env.PORT;
 var fileList = {
     users: []
 };
@@ -188,9 +189,9 @@ function videoPlayer(ip,source) {
         nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function(){if(path[i]=="localhost"){return "This PC";} else{return path[i];}}()); + "</a></li>";
     }
     var encodeText = encodeURIComponent(source);
-    var url ="http://"+ip+":4545/stream?source="+encodeText;
+    var url ="http://"+ip+":"+port+"/stream?source="+encodeText;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://"+ip+":4545/available?source="+encodeText, false);
+    xhr.open('GET', "http://"+ip+":"+port+"/available?source="+encodeText, false);
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {

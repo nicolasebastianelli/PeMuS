@@ -4,6 +4,9 @@ var fileList = {
     users: []
 };
 
+var hostname=window.location.hostname.toString();
+var port=window.location.port.toString();
+
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
 function updateSharedFiles(){
@@ -11,18 +14,18 @@ function updateSharedFiles(){
         users: []
     };
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', "http://"+window.location.hostname.toString()+":4545/getUser", true);
+        xhr.open('GET', "http://"+hostname+":"+port+"/getUser", true);
         xhr.onload = function (e) {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     var myUsr={
-                        ip: window.location.hostname,
+                        ip: hostname,
                         name: xhr.responseText,
                         active: 1,
                         videos: [ ]
                     };
                     var xhr2 = new XMLHttpRequest();
-                    xhr2.open('GET', "http://"+window.location.hostname.toString()+":4545/getVideoList", true);
+                    xhr2.open('GET', "http://"+hostname+":"+port+"/getVideoList", true);
                     xhr2.onload = function (e) {
                         if (xhr2.readyState === 4) {
                             if (xhr2.status === 200) {
@@ -164,9 +167,9 @@ function videoPlayer(ip,source) {
         nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function(){if(path[i]=="localhost"){return "This PC";} else{return path[i];}}()); + "</a></li>";
     }
     var encodeText = encodeURIComponent(source);
-    var url ="http://"+ip+":4545/stream?source="+encodeText;
+    var url ="http://"+ip+":"+port+"/stream?source="+encodeText;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', "http://"+ip+":4545/available?source="+encodeText, false);
+    xhr.open('GET', "http://"+ip+":"+port+"/available?source="+encodeText, false);
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
