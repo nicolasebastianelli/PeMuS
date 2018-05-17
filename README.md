@@ -24,5 +24,5 @@ Due to the distributed nature of the project a field test is required, so to tes
 
 #### Architecture:
 
-![alt text](https://ibb.co/gN3sLd)
+![](https://image.ibb.co/m0pXLd/Untitled.png)
 
