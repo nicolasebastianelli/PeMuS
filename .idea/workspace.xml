@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46575ed0-a898-48f6-9d6f-a8f6c0b14e1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/client/xml/pending.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/load.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/js/remote.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/remote.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/share.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/share.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/musicPlayer.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/musicPlayer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/shareFolder.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/shareFolder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/videoPlayer.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/videoPlayer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/xml/pending.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/xml/pending.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/xml/servers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/xml/servers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/xml/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/xml/settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/load.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,8 +43,8 @@
       <file leaf-file-name="remote.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/js/remote.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="121" column="65" lean-forward="true" selection-start-line="121" selection-start-column="65" selection-end-line="121" selection-end-column="65" />
+            <state relative-caret-position="341">
+              <caret line="286" column="46" selection-start-line="286" selection-start-column="46" selection-end-line="286" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -62,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/client/xml/pending.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -127,8 +118,8 @@
       <find>fold</find>
       <find>chec</find>
       <find>/serve</find>
-      <find>trovato</find>
       <find>table</find>
+      <find>trovato</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -349,12 +340,12 @@
       <workItem from="1526546980663" duration="677000" />
       <workItem from="1526567319971" duration="16409000" />
       <workItem from="1526589687475" duration="56000" />
-      <workItem from="1526634460650" duration="20056000" />
+      <workItem from="1526634460650" duration="21377000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269200000" />
+    <option name="totallyTimeSpent" value="270521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="6" />
@@ -605,13 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/xml/pending.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -619,10 +603,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/xml/pending.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/remote.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="121" column="65" lean-forward="true" selection-start-line="121" selection-start-column="65" selection-end-line="121" selection-end-column="65" />
+        <state relative-caret-position="341">
+          <caret line="286" column="46" selection-start-line="286" selection-start-column="46" selection-end-line="286" selection-end-column="46" />
         </state>
       </provider>
     </entry>

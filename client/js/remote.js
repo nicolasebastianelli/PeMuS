@@ -7,14 +7,13 @@ var portServer =3000;
 var hostServer ='localhost';
 var ID;
 var localName =os.userInfo().username;
-var table = $('#serverTable').DataTable();
 
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
 var xml = fs.readFileSync('client/xml/settings.xml');
 var parser = new xml2js.Parser();
 parser.parseString(xml, function (err, result) {
-        ID=result.settings.id;
+    ID=result.settings.id;
 });
 
 var peer = new Peer(ID, {
@@ -41,14 +40,14 @@ peer.on('error', function(err){
         var xml = fs.readFileSync('client/xml/settings.xml');
         var parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
-                result.settings.id = uniqid();
-                var builder = new xml2js.Builder();
-                xml = builder.buildObject(result);
-                fs.writeFileSync('client/xml/settings.xml', xml);
-                try{
-                    document.getElementById("remoteMsg").innerHTML="ID:&emsp;\""+result.settings.id+"\"";
-                }
-                catch(err){}
+            result.settings.id = uniqid();
+            var builder = new xml2js.Builder();
+            xml = builder.buildObject(result);
+            fs.writeFileSync('client/xml/settings.xml', xml);
+            try{
+                document.getElementById("remoteMsg").innerHTML="ID:&emsp;\""+result.settings.id+"\"";
+            }
+            catch(err){}
         });
     }
     if(err.type==="disconnected"||err.type==="server-error"){
@@ -75,92 +74,81 @@ peer.on('error', function(err){
 
 peer.on('connection', function(conn) {
 
-        if(conn.metadata.type=='conn-req') {
-            var xml = fs.readFileSync('client/xml/pending.xml');
-            var parser = new xml2js.Parser();
-            parser.parseString(xml, function (err, result) {
-                var exist = "0";
-                for (k in result.servers.server) {
-                    if (result.servers.server[k].id.toString() == conn.metadata.id.toString()) {
-                        exist = "1";
-                        break;
-                    }
+    if(conn.metadata.type=='conn-req') {
+        var xml = fs.readFileSync('client/xml/pending.xml');
+        var parser = new xml2js.Parser();
+        parser.parseString(xml, function (err, result) {
+            var exist = "0";
+            for (k in result.servers.server) {
+                if (result.servers.server[k].id.toString() == conn.metadata.id.toString()) {
+                    exist = "1";
+                    break;
                 }
-                if (exist !== "0") {
-                    updateNotification();
-                    return;
-                }
-                var newServer;
-                if (result.servers.length == 0) {
-                    newServer = {
-                        server: [{
-                            id: conn.metadata.id,
-                            name: conn.metadata.name
-                        }]
-                    };
-                    result.servers = newServer;
-                } else {
-                    newServer = {
-                        id: conn.metadata.id,
-                        name: conn.metadata.name
-                    };
-                    result.servers.server.push(newServer);
-                }
-                var builder = new xml2js.Builder();
-                xml = builder.buildObject(result);
-                fs.writeFileSync('client/xml/pending.xml', xml);
+            }
+            if (exist !== "0") {
                 updateNotification();
-            });
-        }
-
-        if(conn.metadata.type=='conn-confirm') {
-            var xml = fs.readFileSync('client/xml/servers.xml');
-            var parser = new xml2js.Parser();
-            parser.parseString(xml, function (err, result) {
-                var exist = "0";
-                for (k in result.servers.server) {
-                    if (result.servers.server[k].id.toString() == conn.metadata.id.toString()) {
-                        exist = "1";
-                        break;
-                    }
-                }
-                if (exist !== "0") {
-                    updateNotification();
-                    return;
-                }
-                var newServer;
-                if (result.servers.length == 0) {
-                    newServer = {
-                        server: [{
-                            id: conn.metadata.id,
-                            name: conn.metadata.name
-                        }]
-                    };
-                    result.servers = newServer;
-                } else {
-                    newServer = {
+                return;
+            }
+            var newServer;
+            if (result.servers.length == 0) {
+                newServer = {
+                    server: [{
                         id: conn.metadata.id,
                         name: conn.metadata.name
-                    };
-                    result.servers.server.push(newServer);
-                }
-                var builder = new xml2js.Builder();
-                xml = builder.buildObject(result);
-                fs.writeFileSync('client/xml/servers.xml', xml);
-                swal({
-                    title: 'Success',
-                    text: 'The server: '+conn.metadata.id+' - '+conn.metadata.name+' has accepted your connection, you are now connected!',
-                    type: 'success',
-                    buttonsStyling: false,
-                    confirmButtonClass: 'btn btn-sm btn-light',
-                    background: 'rgba(0, 0, 0, 0.96)'
-                });
-                try {
-                    updateServerTable();
-                }
-                catch(err){}
+                    }]
+                };
+                result.servers = newServer;
+            } else {
+                newServer = {
+                    id: conn.metadata.id,
+                    name: conn.metadata.name
+                };
+                result.servers.server.push(newServer);
+            }
+            var builder = new xml2js.Builder();
+            xml = builder.buildObject(result);
+            fs.writeFileSync('client/xml/pending.xml', xml);
+            updateNotification();
+        });
+    }
+
+    if(conn.metadata.type=='conn-confirm') {
+        var xml = fs.readFileSync('client/xml/servers.xml');
+        var parser = new xml2js.Parser();
+        parser.parseString(xml, function (err, result) {
+            var newServer;
+            if (result.servers.length == 0) {
+                newServer = {
+                    server: [{
+                        id: conn.metadata.id,
+                        name: conn.metadata.name
+                    }]
+                };
+                result.servers = newServer;
+            } else {
+                newServer = {
+                    id: conn.metadata.id,
+                    name: conn.metadata.name
+                };
+                result.servers.server.push(newServer);
+            }
+            var builder = new xml2js.Builder();
+            xml = builder.buildObject(result);
+            fs.writeFileSync('client/xml/servers.xml', xml);
+            swal({
+                title: 'Success',
+                text: 'The server: '+conn.metadata.id+' - '+conn.metadata.name+' has accepted your connection, you are now connected!',
+                type: 'success',
+                buttonsStyling: false,
+                confirmButtonClass: 'btn btn-sm btn-light',
+                background: 'rgba(0, 0, 0, 0.96)'
             });
-        }
+            try {
+                updateServerTable();
+            }
+            catch(err){}
+        });
+    }
     //close connection
     conn.on('close', function(data) {
         console.log('Connection closed');
@@ -295,6 +283,17 @@ function confirmConn(e){
         var xml = fs.readFileSync('client/xml/servers.xml');
         var parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
+            var exist = "0";
+            for (k in result.servers.server) {
+                if (result.servers.server[k].id.toString() == remoteID) {
+                    exist = "1";
+                    break;
+                }
+            }
+            if (exist !== "0") {
+                updateNotification();
+                return;
+            }
             var newServer;
             if (result.servers.length == 0) {
                 newServer = {
@@ -374,6 +373,7 @@ function updateCode(){
 }
 
 function updateServerTable() {
+    var table = $('#serverTable').DataTable();
     var xml = fs.readFileSync('client/xml/servers.xml');
     var parser = new xml2js.Parser();
     table.clear().draw();
