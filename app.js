@@ -2,7 +2,6 @@
 const {app,BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
-var childProcess = require('child_process');
 const portfinder = require('portfinder');
 
 portfinder.getPort(function (err, port) {

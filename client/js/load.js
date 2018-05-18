@@ -52,7 +52,7 @@ function getUserInfo() {
 
 function updateUser() {
     var addresses = getUserInfo();
-    document.getElementById("ip").innerHTML=addresses[1];
+    document.getElementById("ip").innerHTML=addresses[1]+":"+port;
     document.getElementById("user").innerHTML=addresses[0];
 
 }
@@ -93,7 +93,6 @@ function checkID() {
             console.log('Saved!');
         });
     }
-    updateTheme();
 }
 
 function newProPic() {
@@ -132,3 +131,5 @@ function delProPic() {
         });
     });
 }
+
+checkID();

@@ -135,7 +135,7 @@ function deletePathMessage(e) {
         cancelButtonClass: 'btn btn-light',
         background: 'rgba(0, 0, 0, 0.96)'
     }).then(function () {
-        trovato=deletePath(e.getAttribute("idPath"))
+        trovato=deletePath(e.getAttribute("idPath"));
         if (trovato === "1") {
             swal({
                 title: 'Success',

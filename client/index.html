@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/app.min.css">
 </head>
 
-<body data-sa-theme="1" onload="checkID();updateUser();updateUserMessage();">
+<body data-sa-theme="1" onload="updateTheme();updateUser();updateUserMessage();updateServerTable()">
 <main class="main">
     <div class="page-loader">
         <div class="page-loader__spinner">
@@ -40,7 +40,7 @@
 
 
             <li class="dropdown top-nav__notifications">
-                <a href="#" data-toggle="dropdown" class="top-nav__notify">
+                <a href="#" id="notificationTwink" data-toggle="dropdown" class="">
                     <i class="zmdi zmdi-notifications"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
@@ -49,16 +49,7 @@
                     </div>
 
                     <div class="listview listview--hover">
-                        <div class="listview__scroll scrollbar-inner">
-                            <a href="#" class="listview__item">
-                                <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
-
-                                <div class="listview__content">
-                                    <div class="listview__heading">David Belle</div>
-                                    <button type="button" class="btn btn-success btn--icon-text"><i class="zmdi zmdi-check"></i> Confirm</button>
-                                    <button type="button" class="btn btn-danger btn--icon-text"><i class="zmdi zmdi-close"></i> Deny</button>
-                                </div>
-                            </a>
+                        <div id="requestList" class="listview__scroll scrollbar-inner">
                         </div>
 
                         <div class="p-1"></div>
@@ -112,6 +103,7 @@
                     <div>
                         <div class="user__name" id="user">---</div>
                         <div class="user__email" id="ip">---</div>
+                        <div class="user__email" id="code">---</div>
                     </div>
                 </div>
                 <div class="dropdown-menu">
@@ -146,7 +138,7 @@
             <h4 class="card-title">Connect to new server:</h4>
             <h6 class="card-subtitle">Insert the unique code of the new server you want to connect to.</h6>
             <div class="form-group">
-                <input type="text" id="path" class="form-control form-control-lg" placeholder="e.g 1234abcd5678efgh">
+                <input type="text" id="remoteID" class="form-control form-control-lg" placeholder="e.g 1234abcd5678efgh">
                 <i class="form-group__bar"></i>
             </div>
             <div class="form-group">
@@ -161,7 +153,7 @@
             <div class="card-body">
                 <h4 class="card-title">List of connected server</h4>
                 <div class="table-responsive">
-                    <table id="pathTable" class="table">
+                    <table id="serverTable" class="table">
                         <thead>
                         <tr>
                             <th>Server</th>

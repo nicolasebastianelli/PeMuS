@@ -25,7 +25,7 @@ function updateUser() {
     xhr.onload = function (e) {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                document.getElementById("ip").innerHTML=hostname;
+                document.getElementById("ip").innerHTML=hostname+":"+port;
                 document.getElementById("user").innerHTML=xhr.responseText;
             } else {
                 console.error(xhr.statusText);
