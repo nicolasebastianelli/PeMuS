@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "main": "app.js",
   "dependencies": {
-    "express": "^4.16.2",
+    "electron": "^2.0.1",
+    "express": "^4.16.3",
     "peerjs": "^0.3.14",
     "portfinder": "^1.0.13",
     "uniqid": "^4.1.1",
+    "webtorrent": "^0.99.4",
     "webtorrent-hybrid": "^1.0.6",
     "xml2js": "^0.4.19"
   }

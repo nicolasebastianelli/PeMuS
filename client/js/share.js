@@ -1,11 +1,4 @@
-var fs = require('fs');
-var xml2js = require('xml2js');
-var os = require('os');
-var uniqid = require('uniqid');
-
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
-
-var table = $('#pathTable').DataTable();
 
 function addPathMessage() {
     var xml = fs.readFileSync('client/xml/paths.xml');
@@ -180,6 +173,7 @@ function deletePath(idPath){
 }
 
 function updateFolderTable() {
+    var table = $('#pathTable').DataTable();
     var xml = fs.readFileSync('client/xml/paths.xml');
     var parser = new xml2js.Parser();
     table.clear().draw();

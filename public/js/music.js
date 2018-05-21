@@ -20,7 +20,7 @@ function updateSharedFiles(){
                     ip: hostname,
                     name: xhr.responseText,
                     active: 1,
-                    videos: [ ]
+                    files: [ ]
                 };
                 var xhr2 = new XMLHttpRequest();
                 xhr2.open('GET', "http://"+hostname+":"+port+"/getMusicList", true);
@@ -131,11 +131,11 @@ function updateFolderList(folder) {
             for (k in fileList.users) {
                 if (fileList.users[k].ip === path[0]) {
                     var element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
-                    for (j in fileList.users[k].videos) {
-                        var encodeText = encodeURIComponent(fileList.users[k].videos[j]);
+                    for (j in fileList.users[k].files) {
+                        var encodeText = encodeURIComponent(fileList.users[k].files[j]);
                         var l = j;
                         l++;
-                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>"
+                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>"
                     }
                     element += "</tbody></table></div></div>";
                     document.getElementById("musicList").innerHTML = element;
@@ -214,17 +214,17 @@ function updateFolderList(folder) {
 function searchFolder() {
     var element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
     for (k in fileList.users) {
-        for (j in fileList.users[k].videos) {
+        for (j in fileList.users[k].files) {
             var l = j;
             l++;
-            var encodeText = encodeURIComponent(fileList.users[k].videos[j]);
+            var encodeText = encodeURIComponent(fileList.users[k].files[j]);
             if(document.getElementById("searchInput").value!=""&&document.getElementById("searchInput").value!=undefined&&document.getElementById("searchInput").value!=null) {
-                if (fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
-                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                if (fileList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
+                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
                 }
             }
             else{
-                element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
             }
         }
     }

@@ -1,10 +1,9 @@
-var fs = require('fs');
-var xml2js = require('xml2js');
-var os = require('os');
-var uniqid = require('uniqid');
-var app = require('electron').remote;
-var dialog = app.dialog;
-var port =process.env.PORT;
+const fs = require('fs');
+const xml2js = require('xml2js');
+const os = require('os');
+const uniqid = require('uniqid');
+const dialog = require('electron').remote.dialog;
+const port =process.env.PORT;
 
 function updateTheme() {
     var xml = fs.readFileSync('client/xml/settings.xml');

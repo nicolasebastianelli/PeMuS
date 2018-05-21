@@ -1,65 +1,24 @@
-var fs = require('fs');
-var xml2js = require('xml2js');
-var os = require('os');
-var path = require('path');
-var currFolder="/";
-var fileList = {
+let currFolder="/";
+let musicList = {
     users: []
 };
-var port =process.env.PORT;
 
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
-function updateSharedFiles(){
-    var myUsr={
-        ip: "localhost",
-        name: os.userInfo().username,
-        active: 1,
-        videos: [ ]
-    };
-    myUsr.videos=findVideos();
-    if (fileList.users.length != 0) {
-        for (j in fileList.users) {
-            if(fileList.users[j].ip=="localhost"){
-                delete fileList.users[j];
+ipcRenderer.send('updateMusic');
+
+ipcRenderer.on('updatedMusic', function(event,arg) {
+    if (musicList.users.length !== 0) {
+        for (let j in musicList.users) {
+            if(musicList.users[j].ip==="localhost"){
+                delete musicList.users[j];
                 break;
             }
-
         }
     }
-    fileList.users.push(myUsr);
+    musicList.users.push(arg);
     updateFolderList();
-}
-
-function findVideos() {
-    var xml = fs.readFileSync('client/xml/paths.xml');
-    var parser = new xml2js.Parser();
-    var res =[];
-    parser.parseString(xml, function (err, result) {
-        for (k in result.pathlist.path) {
-            fromDir(result.pathlist.path[k].folder.toString(),res);
-        }
-    });
-    return res;
-}
-
-function fromDir(startPath,res){
-    var files=fs.readdirSync(startPath);
-    for(var i=0;i<files.length;i++){
-        var filename=path.join(startPath,files[i]);
-        try {
-            var stat = fs.lstatSync(filename);
-            if (stat.isDirectory()) {
-                fromDir(filename, res);
-            }
-            else if (filename.indexOf(".mp3") >= 0) {
-                res.push(filename);
-            }
-        }
-        catch (err){ console.log("Errore navigazione path: "+err);}
-    }
-}
-
+});
 
 function updateFolderList(folder) {
     if(folder!=undefined){
@@ -95,18 +54,18 @@ function updateFolderList(folder) {
 
         if (currFolder == "/") {
             document.getElementById("searchBar").style.display="none";
-            for (k in fileList.users) {
+            for (k in musicList.users) {
                 document.getElementById("folderList").innerHTML +=
-                    "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
+                    "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(musicList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
                     "<div class=\"contacts__item\">" +
                     "<a href=\"#\" ><img src=\"img/user.jpg\" id=\"proPic2\" onerror=\"if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>" +
                     "<div class=\"contacts__info\">" +
-                    "<strong>" + fileList.users[k].name + "</strong>" +
+                    "<strong>" + musicList.users[k].name + "</strong>" +
                     "<small>" + (function () {
-                        if (fileList.users[k].ip == "localhost") {
+                        if (musicList.users[k].ip == "localhost") {
                             return "This PC";
                         } else {
-                            return fileList.users[k].ip;
+                            return musicList.users[k].ip;
                         }
                     }());
                 +"</small></div></div></div>";
@@ -115,14 +74,14 @@ function updateFolderList(folder) {
         else {
             document.getElementById("searchBar").style.display="block";
             var element = "";
-            for (k in fileList.users) {
-                if (fileList.users[k].ip === path[0]) {
+            for (k in musicList.users) {
+                if (musicList.users[k].ip === path[0]) {
                     var element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
-                    for (j in fileList.users[k].videos) {
-                        var encodeText = encodeURIComponent(fileList.users[k].videos[j]);
+                    for (j in musicList.users[k].files) {
+                        var encodeText = encodeURIComponent(musicList.users[k].files[j]);
                         var l = j;
                         l++;
-                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
                     }
                     element += "</tbody></table></div></div>";
                     document.getElementById("musicList").innerHTML = element;
@@ -134,9 +93,9 @@ function updateFolderList(folder) {
                             return function() {
                                 var currentRow = table.rows[index];
                                 encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
-                                url ="http://"+fileList.users[k].ip+":"+port+"/stream?source="+encodeText;
+                                url ="http://"+musicList.users[k].ip+":"+port+"/stream?source="+encodeText;
                                 xhr = new XMLHttpRequest();
-                                xhr.open('GET', "http://" + fileList.users[k].ip + ":"+port+"/available?source=" + encodeText, false);
+                                xhr.open('GET', "http://" + musicList.users[k].ip + ":"+port+"/available?source=" + encodeText, false);
                                 xhr.onload = function (e) {
                                     if (xhr.readyState === 4) {
                                         if (xhr.status === 200) {
@@ -157,7 +116,7 @@ function updateFolderList(folder) {
                                                         var currentRow = table.rows[index];
                                                         var encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
                                                         document.getElementById("songName").innerText=decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "");
-                                                        var url = "http://" + fileList.users[k].ip + ":"+port+"/stream?source=" + encodeText;
+                                                        var url = "http://" + musicList.users[k].ip + ":"+port+"/stream?source=" + encodeText;
                                                         music.src = url;
                                                         music.load();
                                                         music.play();
@@ -200,18 +159,18 @@ function updateFolderList(folder) {
 
 function searchFolder() {
     var element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
-    for (k in fileList.users) {
-        for (j in fileList.users[k].videos) {
+    for (k in musicList.users) {
+        for (j in musicList.users[k].files) {
             var l = j;
             l++;
-            var encodeText = encodeURIComponent(fileList.users[k].videos[j]);
+            var encodeText = encodeURIComponent(musicList.users[k].files[j]);
             if(document.getElementById("searchInput").value!=""&&document.getElementById("searchInput").value!=undefined&&document.getElementById("searchInput").value!=null) {
-                if (fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
-                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                if (musicList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
+                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
                 }
             }
             else{
-                element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + fileList.users[k].videos[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
             }
         }
     }
@@ -225,9 +184,9 @@ function searchFolder() {
             return function() {
                 var currentRow = table.rows[index];
                 encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
-                url ="http://"+fileList.users[k].ip+":"+port+"/stream?source="+encodeText;
+                url ="http://"+musicList.users[k].ip+":"+port+"/stream?source="+encodeText;
                 xhr = new XMLHttpRequest();
-                xhr.open('GET', "http://" + fileList.users[k].ip + ":"+port+"/available?source=" + encodeText, false);
+                xhr.open('GET', "http://" + musicList.users[k].ip + ":"+port+"/available?source=" + encodeText, false);
                 xhr.onload = function (e) {
                     if (xhr.readyState === 4) {
                         if (xhr.status === 200) {
@@ -248,7 +207,7 @@ function searchFolder() {
                                         var currentRow = table.rows[index];
                                         var encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
                                         document.getElementById("songName").innerText=decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "");
-                                        var url = "http://" + fileList.users[k].ip + ":"+port+"/stream?source=" + encodeText;
+                                        var url = "http://" + musicList.users[k].ip + ":"+port+"/stream?source=" + encodeText;
                                         music.src = url;
                                         music.load();
                                         music.play();

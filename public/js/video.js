@@ -22,7 +22,7 @@ function updateSharedFiles(){
                         ip: hostname,
                         name: xhr.responseText,
                         active: 1,
-                        videos: [ ]
+                        files: [ ]
                     };
                     var xhr2 = new XMLHttpRequest();
                     xhr2.open('GET', "http://"+hostname+":"+port+"/getVideoList", true);
@@ -99,11 +99,11 @@ function updateFolderList(folder) {
                 if (fileList.users[k].ip == path[0]) {
                     var element = "";
                     var addedFolder = [];
-                    for (j in fileList.users[k].videos) {
-                        var videoPath = fileList.users[k].videos[j].split("/").filter(function (entry) {
+                    for (j in fileList.users[k].files) {
+                        var videoPath = fileList.users[k].files[j].split("/").filter(function (entry) {
                             return /\S/.test(entry);
                         });
-                        if ($.inArray(videoPath[path.length - 1], addedFolder) == -1 && fileList.users[k].videos[j].toString().startsWith(folderPath.replace(fileList.users[k].ip, ""))) {
+                        if ($.inArray(videoPath[path.length - 1], addedFolder) == -1 && fileList.users[k].files[j].toString().startsWith(folderPath.replace(fileList.users[k].ip, ""))) {
                             if (videoPath[path.length] != undefined) {
                                 clickFolder = JSON.stringify(folderPath + videoPath[path.length - 1]).replace(/ /g, '&nbsp;');
                                 element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList("+clickFolder+")>" +
@@ -111,7 +111,7 @@ function updateFolderList(folder) {
                                     "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>";
                             }
                             else {
-                                clickFolder = JSON.stringify(fileList.users[k].videos[j]).replace(/ /g, '&nbsp;');
+                                clickFolder = JSON.stringify(fileList.users[k].files[j]).replace(/ /g, '&nbsp;');
                                 clickIP = JSON.stringify(fileList.users[k].ip).replace(/ /g, '&nbsp;');
                                 element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ")>" +
                                     "<div class=\"contacts__item\">" +
@@ -133,12 +133,12 @@ function searchFolder() {
     document.getElementById("videoContent").style.display="none";
     for (k in fileList.users) {
         var element = "";
-        for (j in fileList.users[k].videos) {
-            var file =fileList.users[k].videos[j].split("/");
+        for (j in fileList.users[k].files) {
+            var file =fileList.users[k].files[j].split("/");
             if(document.getElementById("searchInput").value!=""&&document.getElementById("searchInput").value!=undefined&&document.getElementById("searchInput").value!=null) {
                 if (file[file.length - 1].toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
                     element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\")>" +
-                        "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(fileList.users[k].videos[j]).replace(/"/g, "&quot;") + ")>" +
+                        "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(fileList.users[k].files[j]).replace(/"/g, "&quot;") + ")>" +
                         "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
                         "<div class=\"contacts__info\">" +
                         "<strong>" + file[file.length - 1] + "</strong>" +

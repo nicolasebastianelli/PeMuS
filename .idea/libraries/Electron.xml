@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Electron" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file:///usr/local/lib/node_modules/electron" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file:///usr/local/lib/node_modules/electron" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

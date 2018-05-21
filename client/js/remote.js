@@ -1,12 +1,9 @@
-var fs = require('fs');
-var xml2js = require('xml2js');
-var os = require('os');
-var Peer = require('peerjs');
-var port =process.env.PORT;
-var portServer =3000;
-var hostServer ='localhost';
-var ID;
-var localName =os.userInfo().username;
+const Peer = require('peerjs');
+const ipcRenderer = require('electron').ipcRenderer;
+const portServer =3000;
+const hostServer ='localhost';
+let ID;
+let localName =os.userInfo().username;
 
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 

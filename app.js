@@ -1,77 +1,83 @@
-// Caricamento delle librerie Node.js
 const {app,BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
-const portfinder = require('portfinder');
+const portFinder = require('portfinder');
+const fork = require('child_process').fork;
+const ipcMain = require('electron').ipcMain;
+const globalShortcut = require("electron").globalShortcut;
+let win;
 
-portfinder.getPort(function (err, port) {
+child = fork('client/js/torrent.js');
+
+child.on('message', (m) => {
+    if(m.type==="updatedMusic"){
+        win.webContents.send("updatedMusic",m.data);
+    }
+    if(m.type==="updatedVideo"){
+        win.webContents.send("updatedVideo",m.data);
+    }
+});
+
+ipcMain.on('updateMusic', function() {
+    child.send('updateMusic');
+});
+
+ipcMain.on('updateVideo', function() {
+    child.send('updateVideo');
+});
+
+portFinder.getPort(function (err, port) {
     process.env.PORT=port.toString();
 });
 
-// Mantiene la referenza globale dell'oggetto window, in caso contrario
-// la finestra verrà chiusa automaticamente quando l'oggetto JavaScript
-// verrà deallocato dal garbage collector.
-let win;
-
-
 function createWindow() {
-    // Creazione della GUI, non ancora visibile
     app.server = require(__dirname + '/routes.js');
     win = new BrowserWindow({
         backgroundColor: '#000000',
         width: 800,
         height: 600,
         show: false
-    })
+    });
 
     win.setMenu(null);
 
-    var globalShortcut = require("electron").globalShortcut;
-
     globalShortcut.register("CommandOrControl+D", () => {
         win.webContents.openDevTools();
-    })
+    });
     globalShortcut.register("CommandOrControl+R", () => {
         win.webContents.reload();
-    })
+    });
 
-    // Indichiamo quale file HTML deve essere renderizzato
     win.loadURL(url.format({
         pathname: path.join(__dirname,'client/index.html'),
         protocol: 'file',
         slashes: true
 
-    }))
+    }));
 
-    // Quando la GUI è pronta allora mostriamo la finestra
     win.once("ready-to-show", () => {
         win.show();
-    })
+    });
 
-    // Evento di chiusura dell'applicazione
     win.on("closed", () => {
-        // Deferenziamo l'oggetto window
         win = null
-    })
+    });
 }
 
-// Questo evento viene scatenato quanto Electron ha terminato il caricamento,
-// alcune API possono essere chiamate ad inizializzazione avvenuta
-app.on("ready", createWindow)
+app.on("ready", () =>{
+    createWindow();
+});
 
-// Evento scatenato alla chiusura di tutte le finestre
 app.on("window-all-closed", () => {
     // Su macOS le applicazioni e la loro barra dei menu rimangono attive
     // finché l'utente non forza la chiusara con Cmd + Q
     if (process.platform !== "darwin") {
-    app.quit()
-}
-})
+     app.quit();
+    }
+});
 
-// Su macOS è una pratica comune ricreare la finestra quando
-// viene cliccata l'icona sulla dock e non ci sono altre finestre aperte
 app.on("activate", () => {
     if (win === null) {
-    createWindow()
-}
-})
+        createWindow();
+    }
+});

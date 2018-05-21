@@ -1,68 +1,29 @@
-var fs = require('fs');
-var xml2js = require('xml2js');
-var os = require('os');
-var path = require('path');
-var currFolder="/";
-var port =process.env.PORT;
-var fileList = {
+let currFolder="/";
+
+let videoList = {
     users: []
 };
 
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
-function updateSharedFiles(){
-        var myUsr={
-            ip: "localhost",
-            name: os.userInfo().username,
-            active: 1,
-            videos: [ ]
-        };
-        myUsr.videos=findVideos();
-        if (fileList.users.length != 0) {
-            for (j in fileList.users) {
-                if(fileList.users[j].ip=="localhost"){
-                    delete fileList.users[j];
-                    break;
-                }
+ipcRenderer.send('updateVideo');
 
+ipcRenderer.on('updatedVideo', function(event,arg) {
+    if (videoList.users.length !== 0) {
+        for (let j in videoList.users) {
+            if(videoList.users[j].ip==="localhost"){
+                delete videoList.users[j];
+                break;
             }
-        }
-        fileList.users.push(myUsr);
-        updateFolderList();
-}
 
-function findVideos() {
-    var xml = fs.readFileSync('client/xml/paths.xml');
-    var parser = new xml2js.Parser();
-    var res =[];
-    parser.parseString(xml, function (err, result) {
-        for (k in result.pathlist.path) {
-            fromDir(result.pathlist.path[k].folder.toString(),res);
         }
-    });
-    return res;
-}
-
-function fromDir(startPath,res){
-    var files=fs.readdirSync(startPath);
-    for(var i=0;i<files.length;i++){
-        var filename=path.join(startPath,files[i]);
-        try {
-            var stat = fs.lstatSync(filename);
-            if (stat.isDirectory()) {
-                fromDir(filename, res);
-            }
-            else if (filename.indexOf(".mp4") >= 0) {
-                res.push(filename);
-            }
-        }
-        catch (err){ console.log("Errore navigazione path: "+err);}
     }
-}
-
+    videoList.users.push(arg);
+    updateFolderList();
+});
 
 function updateFolderList(folder) {
-    if(folder!=undefined){
+    if(folder!== undefined){
         currFolder=folder.replace(/\s/g, ' ');
     }
     document.getElementById("folderList").innerHTML = "";
@@ -71,62 +32,62 @@ function updateFolderList(folder) {
     }
     else {
         document.getElementById("videoContent").innerHTML = "";
-        var path = currFolder.split("/").filter(function (entry) {
+        let path = currFolder.split("/").filter(function (entry) {
             return /\S/.test(entry);
         });
-        var folderPath = "";
-        var nav = "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
-        for (i in path) {
-            folderPath += path[i] + "/";
-            var clickFolder = JSON.stringify(folderPath).replace(/ /g, '&nbsp;');
-            nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList("+clickFolder+")>" + (function () {
-                if (path[i] == "localhost") {
+        let folderPath = "";
+        let nav = "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
+        for (let i in path) {
+            let user =(function () {
+                if (path[i] === "localhost") {
                     return "This PC";
                 } else {
                     return path[i];
                 }
             }());
-            +"</a></li>";
+            folderPath += path[i] + "/";
+            let clickFolder = JSON.stringify(folderPath).replace(/ /g, '&nbsp;');
+            nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList("+clickFolder+")>" + user +"</a></li>";
         }
         document.getElementById("navBar").innerHTML = nav;
 
-        if (currFolder == "/") {
-            for (k in fileList.users) {
+        if (currFolder === "/") {
+            for (let k in videoList.users) {
+                let user = (function () {
+                    if (videoList.users[k].ip === "localhost") {
+                        return "This PC";
+                    } else {
+                        return videoList.users[k].ip;
+                    }
+                }());
                 document.getElementById("folderList").innerHTML +=
-                    "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
+                    "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
                     "<div class=\"contacts__item\">" +
-                    "<a href=\"#\" ><img src=\"img/user.jpg\" id=\"proPic2\" onerror=\"if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>" +
+                    "<a href=\"#\" ><img src=\"img/user.jpg\" id=\"proPic2\" onerror=\"if (this.src !== 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>" +
                     "<div class=\"contacts__info\">" +
-                    "<strong>" + fileList.users[k].name + "</strong>" +
-                    "<small>" + (function () {
-                        if (fileList.users[k].ip == "localhost") {
-                            return "This PC";
-                        } else {
-                            return fileList.users[k].ip;
-                        }
-                    }());
-                +"</small></div></div></div>";
+                    "<strong>" + videoList.users[k].name + "</strong>" +
+                    "<small>" + user + "</small></div></div></div>";
             }
         }
         else {
-            for (k in fileList.users) {
-                if (fileList.users[k].ip == path[0]) {
-                    var element = "";
-                    var addedFolder = [];
-                    for (j in fileList.users[k].videos) {
-                        var videoPath = fileList.users[k].videos[j].split("/").filter(function (entry) {
+            for (let k in videoList.users) {
+                if (videoList.users[k].ip === path[0]) {
+                    let element = "";
+                    let addedFolder = [];
+                    for (let j in videoList.users[k].files) {
+                        let videoPath = videoList.users[k].files[j].split("/").filter(function (entry) {
                             return /\S/.test(entry);
                         });
-                        if ($.inArray(videoPath[path.length - 1], addedFolder) == -1 && fileList.users[k].videos[j].toString().startsWith(folderPath.replace(fileList.users[k].ip, ""))) {
-                            if (videoPath[path.length] != undefined) {
-                                clickFolder = JSON.stringify(folderPath + videoPath[path.length - 1]).replace(/ /g, '&nbsp;');
+                        if ($.inArray(videoPath[path.length - 1], addedFolder) === -1 && videoList.users[k].files[j].toString().startsWith(folderPath.replace(videoList.users[k].ip, ""))) {
+                            if (videoPath[path.length] !== undefined) {
+                                let clickFolder = JSON.stringify(folderPath + videoPath[path.length - 1]).replace(/ /g, '&nbsp;');
                                 element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList("+clickFolder+")>" +
                                     "<div class=\"contacts__item\">" +
                                     "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>";
                             }
                             else {
-                                clickFolder = JSON.stringify(fileList.users[k].videos[j]).replace(/ /g, '&nbsp;');
-                                clickIP = JSON.stringify(fileList.users[k].ip).replace(/ /g, '&nbsp;');
+                                let clickFolder = JSON.stringify(videoList.users[k].files[j]).replace(/ /g, '&nbsp;');
+                                let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
                                 element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ")>" +
                                     "<div class=\"contacts__item\">" +
                                     "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>";
@@ -145,27 +106,27 @@ function updateFolderList(folder) {
 
 function searchFolder() {
     document.getElementById("videoContent").style.display="none";
-    for (k in fileList.users) {
-        var element = "";
-        for (j in fileList.users[k].videos) {
-            var file =fileList.users[k].videos[j].split("/");
-            if(document.getElementById("searchInput").value!=""&&document.getElementById("searchInput").value!=undefined&&document.getElementById("searchInput").value!=null) {
+    let element = "";
+    for (let k in videoList.users) {
+        for (let j in videoList.users[k].files) {
+            let file =videoList.users[k].files[j].split("/");
+            if(document.getElementById("searchInput").value!==""&&document.getElementById("searchInput").value!==undefined&&document.getElementById("searchInput").value!=null) {
                 if (file[file.length - 1].toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
-                    element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\")>" +
-                        "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(fileList.users[k].videos[j]).replace(/"/g, "&quot;") + ")>" +
+                    element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
+                        "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(videoList.users[k].files[j]).replace(/"/g, "&quot;") + ")>" +
                         "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
                         "<div class=\"contacts__info\">" +
                         "<strong>" + file[file.length - 1] + "</strong>" +
-                        "<small>" + fileList.users[k].ip + "</small></div></div></div>";
+                        "<small>" + videoList.users[k].ip + "</small></div></div></div>";
                 }
             }
             else{
-                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\")>" +
-                    "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(fileList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(fileList.users[k].videos[j]).replace(/"/g, "&quot;") + ")>" +
+                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
+                    "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(videoList.users[k].files[j]).replace(/"/g, "&quot;") + ")>" +
                     "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
                     "<div class=\"contacts__info\">" +
                     "<strong>" + file[file.length - 1] + "</strong>" +
-                    "<small>" + fileList.users[k].ip + "</small></div></div></div>";
+                    "<small>" + videoList.users[k].ip + "</small></div></div></div>";
             }
         }
     }
@@ -173,26 +134,26 @@ function searchFolder() {
 }
 
 function videoPlayer(ip,source) {
-    if(ip!=undefined&&source!=undefined){
+    if(ip!==undefined && source!==undefined){
         currFolder=ip+source.replace(/\s/g, ' ');
     }
     document.getElementById("videoContent").style.display="block";
     document.getElementById("folderList").innerHTML="";
     document.getElementById("videoContent").innerHTML="";
-    var path = currFolder.split("/").filter(function(entry) { return /\S/.test(entry); });
-    var title =path.pop();
-    var folderPath="";
-    var nav ="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
-    for (i in path) {
+    let path = currFolder.split("/").filter(function(entry) { return /\S/.test(entry); });
+    let title =path.pop();
+    let folderPath="";
+    let nav ="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
+    for (let i in path) {
         folderPath+=path[i]+"/";
-        clickFolder = JSON.stringify(folderPath);
-        nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function(){if(path[i]=="localhost"){return "This PC";} else{return path[i];}}()); + "</a></li>";
+        let clickFolder = JSON.stringify(folderPath);
+        nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function(){if(path[i]==="localhost"){return "This PC";} else{return path[i];}}()); + "</a></li>";
     }
-    var encodeText = encodeURIComponent(source);
-    var url ="http://"+ip+":"+port+"/stream?source="+encodeText;
-    var xhr = new XMLHttpRequest();
+    let encodeText = encodeURIComponent(source);
+    let url ="http://"+ip+":"+port+"/stream?source="+encodeText;
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', "http://"+ip+":"+port+"/available?source="+encodeText, false);
-    xhr.onload = function (e) {
+    xhr.onload = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 if (xhr.responseText==="true") {
