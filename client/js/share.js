@@ -115,7 +115,7 @@ function addPath(){
 }
 
 function deletePathMessage(e) {
-    var trovato;
+    var found;
     swal({
         title: 'Warning',
         text: 'You are sure you want to stop sharing the folder: ' + e.getAttribute("folder") + ' ?',
@@ -128,8 +128,8 @@ function deletePathMessage(e) {
         cancelButtonClass: 'btn btn-light',
         background: 'rgba(0, 0, 0, 0.96)'
     }).then(function () {
-        trovato=deletePath(e.getAttribute("idPath"));
-        if (trovato === "1") {
+        found=deletePath(e.getAttribute("idPath"));
+        if (found === "1") {
             swal({
                 title: 'Success',
                 text: 'The folder has been deleted.',
@@ -155,11 +155,11 @@ function deletePathMessage(e) {
 function deletePath(idPath){
     var xml = fs.readFileSync('client/xml/paths.xml');
     var parser = new xml2js.Parser();
-    var trovato = "0";
+    var found = "0";
     parser.parseString(xml, function (err, result) {
         for (j in result.pathlist.path) {
             if (result.pathlist.path[j].idPath == idPath) {
-                trovato = "1";
+                found = "1";
                 delete result.pathlist.path[j];
                 var builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
@@ -169,7 +169,7 @@ function deletePath(idPath){
         }
     });
     updateFolderTable();
-    return trovato;
+    return found;
 }
 
 function updateFolderTable() {

@@ -2,256 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46575ed0-a898-48f6-9d6f-a8f6c0b14e1f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Electron.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/js/torrent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/PeMuS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PeMuS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/js/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/load.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/js/music.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/music.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/js/remote.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/remote.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/js/share.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/share.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/torrent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/torrent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/video.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/musicPlayer.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/musicPlayer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/videoPlayer.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/videoPlayer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/xml/pending.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/xml/pending.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/xml/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/xml/settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/index.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/index.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/@types/node/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/@types/node/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/accepts/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/accepts/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/accepts/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bencode/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/bencode/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bittorrent-protocol/node_modules/speedometer/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bittorrent-protocol/node_modules/speedometer/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bittorrent-protocol/node_modules/speedometer/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/bittorrent-protocol/node_modules/speedometer/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/boom/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/core-util-is/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/core-util-is/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/node_modules/boom/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/node_modules/boom/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/node_modules/boom/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/node_modules/boom/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/cryptiles/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/decompress-response/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/decompress-response/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libnode.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libnode.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/MainMenu.nib" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/MainMenu.nib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/am.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/am.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ar.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ar.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/bg.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/bg.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/bn.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/bn.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ca.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ca.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/content_shell.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/content_shell.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/crashpad_handler" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/crashpad_handler" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/cs.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/cs.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/da.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/da.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/de.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/de.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/el.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/el.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/en.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/en.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/en_GB.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/en_GB.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/es.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/es.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/es_419.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/es_419.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/et.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/et.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fa.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fa.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fi.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fi.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fil.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fil.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fr.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fr.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/gu.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/gu.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/he.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/he.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hi.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hi.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hr.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hr.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hu.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hu.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/icudtl.dat" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/icudtl.dat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/id.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/id.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/it.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/it.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ja.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ja.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/kn.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/kn.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ko.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ko.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/lt.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/lt.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/lv.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/lv.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ml.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ml.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/mr.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/mr.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ms.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ms.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/natives_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/natives_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/nb.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/nb.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/nl.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/nl.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pdf_viewer_resources.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pdf_viewer_resources.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pl.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pl.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pt_BR.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pt_BR.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pt_PT.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pt_PT.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ro.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ro.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ru.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ru.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sk.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sk.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sl.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sl.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/snapshot_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/snapshot_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sr.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sr.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sv.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sv.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sw.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sw.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ta.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ta.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/te.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/te.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/th.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/th.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/tr.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/tr.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/uk.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/uk.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/vi.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/vi.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/zh_CN.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/zh_CN.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/zh_TW.lproj/locale.pak" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/zh_TW.lproj/locale.pak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper EH.app/Contents/MacOS/Electron Helper EH" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper EH.app/Contents/MacOS/Electron Helper EH" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper NP.app/Contents/MacOS/Electron Helper NP" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper NP.app/Contents/MacOS/Electron Helper NP" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper.app/Contents/MacOS/Electron Helper" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Helper.app/Contents/MacOS/Electron Helper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Squirrel.framework/Versions/A/Headers/SQRLUpdater.h" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Squirrel.framework/Versions/A/Headers/SQRLUpdater.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Squirrel.framework/Versions/A/Resources/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Squirrel.framework/Versions/A/Resources/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Squirrel.framework/Versions/A/Resources/ShipIt" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Squirrel.framework/Versions/A/Resources/ShipIt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Squirrel.framework/Versions/A/Squirrel" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Frameworks/Squirrel.framework/Versions/A/Squirrel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Resources/default_app.asar" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Resources/default_app.asar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Resources/electron.asar" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Resources/electron.asar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Resources/electron.icns" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/Electron.app/Contents/Resources/electron.icns" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/LICENSES.chromium.html" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/LICENSES.chromium.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/dist/version" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/dist/version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/electron.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/electron.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/electron/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/electron/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/encodeurl/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/encodeurl/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/encodeurl/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/encodeurl/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/encodeurl/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/encodeurl/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/encodeurl/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/encodeurl/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/express/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/History.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/express/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/express/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/express/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/finalhandler/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/finalhandler/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/finalhandler/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/finalhandler/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/finalhandler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/finalhandler/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/get-browser-rtc/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/get-browser-rtc/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/get-stdin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/get-stdin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/get-stdin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/get-stdin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/get-stdin/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/get-stdin/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/client.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/dist/browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/client.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/crypto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/server.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/lib/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hawk/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hoek/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hoek/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hoek/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hoek/lib/escape.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hoek/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/hoek/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-errors/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/History.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/Readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/lib/browser/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/lib/compat/callsite-tostring.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/lib/compat/event-listener-count.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/lib/compat/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/depd/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/node_modules/setprototypeof/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/http-errors/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/http-errors/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/ip/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/ip/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/is-typedarray/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/is-typedarray/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magnet-uri/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magnet-uri/.zuul.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magnet-uri/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/magnet-uri/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magnet-uri/test/decode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/magnet-uri/test/encode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime-db/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-db/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime-db/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-db/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime-db/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-db/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime-db/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-db/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime-types/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-types/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime-types/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-types/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mime-types/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mime-types/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/chmod.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/chmod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/clobber.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/clobber.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/mkdirp.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/mkdirp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/opts_fs.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/opts_fs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/opts_fs_sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/opts_fs_sync.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/perm.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/perm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/perm_sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/perm_sync.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/race.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/race.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/rel.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/rel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/root.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/root.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/sync.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/umask.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/umask.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/mkdirp/test/umask_sync.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/mkdirp/test/umask_sync.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/number-is-nan/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/number-is-nan/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/parse-torrent/node_modules/get-stdin/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/parse-torrent/node_modules/get-stdin/license" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/parse-torrent/node_modules/get-stdin/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/parse-torrent/node_modules/get-stdin/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/proxy-addr/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/proxy-addr/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/proxy-addr/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/proxy-addr/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/proxy-addr/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/proxy-addr/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/record-cache/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/record-cache/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/record-cache/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/record-cache/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/record-cache/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/record-cache/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/request/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/request/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/request/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/request/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/request/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/request/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/send/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/send/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/send/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/send/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/send/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/serve-static/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-static/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/serve-static/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-static/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/serve-static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-static/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/serve-static/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/serve-static/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/simple-sha1/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/simple-sha1/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/simple-sha1/.zuul.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/simple-sha1/benchmark.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/simple-sha1/example.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/simple-sha1/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/simple-sha1/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/simple-sha1/test/basic.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/lib/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/sntp/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/speedometer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/speedometer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/speedometer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/speedometer/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/statuses/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/statuses/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/statuses/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/statuses/codes.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/codes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/statuses/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/statuses/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/statuses/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/type-is/HISTORY.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/type-is/HISTORY.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/type-is/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/type-is/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webtorrent/node_modules/speedometer/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webtorrent/node_modules/speedometer/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webtorrent/node_modules/speedometer/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/webtorrent/node_modules/speedometer/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/music.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/music.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/video.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -268,11 +26,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="torrent.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/js/torrent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/share.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="168" column="9" lean-forward="true" selection-start-line="159" selection-start-column="8" selection-end-line="168" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+            <state relative-caret-position="264">
+              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -280,17 +56,21 @@
       <file leaf-file-name="remote.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/remote.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="52" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+            <state relative-caret-position="-83">
+              <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="torrent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/torrent.js">
+      <file leaf-file-name="music.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/music.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+            <state relative-caret-position="-224">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding>
+                <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -298,7 +78,8 @@
       <file leaf-file-name="video.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/video.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="1080">
+              <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="61" />
               <folding>
                 <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
               </folding>
@@ -306,23 +87,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="music.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/js/music.js">
+      <file leaf-file-name="musicPlayer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/musicPlayer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1970">
+              <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="load.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/js/load.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="1" selection-end-column="33" />
+            <state relative-caret-position="430">
+              <caret line="202" selection-start-line="202" selection-end-line="202" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -341,9 +119,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>oncli</find>
-      <find>ip</find>
-      <find>user</find>
       <find>not</find>
       <find>notifi</find>
       <find>noti</find>
@@ -371,6 +146,9 @@
       <find>vi</find>
       <find>filel</find>
       <find>video</find>
+      <find>xml</find>
+      <find>trov</find>
+      <find>mp3</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -379,8 +157,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/js/index.js" />
-        <option value="$PROJECT_DIR$/config/routes.js" />
         <option value="$PROJECT_DIR$/main.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/pages/xml/paths.xml" />
@@ -415,21 +191,23 @@
         <option value="$PROJECT_DIR$/routes.js" />
         <option value="$PROJECT_DIR$/public/js/load.js" />
         <option value="$PROJECT_DIR$/client/xml/pending.xml" />
-        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/shareFolder.html" />
         <option value="$PROJECT_DIR$/client/xml/servers.xml" />
         <option value="$PROJECT_DIR$/main.html" />
         <option value="$PROJECT_DIR$/client/main.html" />
-        <option value="$PROJECT_DIR$/client/js/share.js" />
         <option value="$PROJECT_DIR$/client/js/main.js" />
         <option value="$PROJECT_DIR$/client/js/load.js" />
         <option value="$PROJECT_DIR$/client/musicPlayer.html" />
         <option value="$PROJECT_DIR$/client/videoPlayer.html" />
-        <option value="$PROJECT_DIR$/client/js/torrent.js" />
-        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/client/download.html" />
+        <option value="$PROJECT_DIR$/client/js/download.js" />
+        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/js/remote.js" />
+        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/client/js/video.js" />
         <option value="$PROJECT_DIR$/client/js/music.js" />
+        <option value="$PROJECT_DIR$/client/js/share.js" />
+        <option value="$PROJECT_DIR$/client/js/torrent.js" />
       </list>
     </option>
   </component>
@@ -509,18 +287,18 @@
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/pages" />
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/js" />
       <recent name="$PROJECT_DIR$/client/xml" />
       <recent name="$PROJECT_DIR$/public/js" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/img" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/pages" />
-      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -609,26 +387,29 @@
       <workItem from="1526832378053" duration="409000" />
       <workItem from="1526833931039" duration="2150000" />
       <workItem from="1526837689956" duration="15638000" />
+      <workItem from="1526912438380" duration="1458000" />
+      <workItem from="1526915386283" duration="377000" />
+      <workItem from="1526929433519" duration="1226000" />
+      <workItem from="1526979494762" duration="6030000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="297564000" />
+    <option name="totallyTimeSpent" value="306655000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.661882" visible="true" weight="0.19609375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6555024" visible="true" weight="0.19609375" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3290938" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32695374" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info id="Favorites" order="2" sideWeight="0.33811802" side_tool="true" visible="true" weight="0.19609375" />
+      <window_info id="Favorites" order="2" sideWeight="0.34449762" side_tool="true" visible="true" weight="0.19609375" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -636,6 +417,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32695374" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -659,8 +441,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pages/toolbars.html" />
-    <entry file="file://$PROJECT_DIR$/pages/video.html" />
     <entry file="file://$PROJECT_DIR$/pages/breadcrumbs.html" />
     <entry file="file://$PROJECT_DIR$/pages/contacts.html" />
     <entry file="file://$PROJECT_DIR$/client/demo/css/demo.css">
@@ -791,13 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/xml/pending.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -823,35 +596,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/share.js">
+    <entry file="file://$PROJECT_DIR$/client/videoPlayer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2625">
-          <caret line="175" column="44" selection-start-line="175" selection-start-column="44" selection-end-line="175" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/musicPlayer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="-1970">
           <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/torrent.js">
+    <entry file="file://$PROJECT_DIR$/client/download.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
+        <state relative-caret-position="105">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/client/js/download.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        <state relative-caret-position="375">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/videoPlayer.html">
+    <entry file="file://$PROJECT_DIR$/client/musicPlayer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1970">
           <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
@@ -865,29 +631,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="202" selection-start-line="202" selection-end-line="202" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/remote.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="52" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+        <state relative-caret-position="-83">
+          <caret line="27" column="36" selection-start-line="27" selection-start-column="36" selection-end-line="27" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="168" column="9" lean-forward="true" selection-start-line="159" selection-start-column="8" selection-end-line="168" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/music.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-224">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/video.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="1080">
+          <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/music.js">
+    <entry file="file://$PROJECT_DIR$/client/js/torrent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="294">
+          <caret line="133" column="21" selection-start-line="133" selection-start-column="21" selection-end-line="133" selection-end-column="21" />
         </state>
       </provider>
     </entry>

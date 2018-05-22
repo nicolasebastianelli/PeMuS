@@ -1,14 +1,10 @@
 let currFolder="/";
 
-let videoList = {
-    users: []
-};
-
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
-ipcRenderer.send('updateVideo');
+ipcRenderer.send('updateData');
 
-ipcRenderer.on('updatedVideo', function(event,arg) {
+ipcRenderer.on('updateData', function(event,arg) {
     if (videoList.users.length !== 0) {
         for (let j in videoList.users) {
             if(videoList.users[j].ip==="localhost"){
@@ -18,7 +14,7 @@ ipcRenderer.on('updatedVideo', function(event,arg) {
 
         }
     }
-    videoList.users.push(arg);
+    videoList.users.push(arg.video);
     updateFolderList();
 });
 

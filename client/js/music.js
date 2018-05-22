@@ -1,13 +1,10 @@
 let currFolder="/";
-let musicList = {
-    users: []
-};
 
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
-ipcRenderer.send('updateMusic');
+ipcRenderer.send('updateData');
 
-ipcRenderer.on('updatedMusic', function(event,arg) {
+ipcRenderer.on('updateData', function(event,arg) {
     if (musicList.users.length !== 0) {
         for (let j in musicList.users) {
             if(musicList.users[j].ip==="localhost"){
@@ -16,7 +13,7 @@ ipcRenderer.on('updatedMusic', function(event,arg) {
             }
         }
     }
-    musicList.users.push(arg);
+    musicList.users.push(arg.music);
     updateFolderList();
 });
 

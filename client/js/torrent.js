@@ -17,20 +17,31 @@ let localMusic = {
     files: [ ]
 };
 
+let seeding = {
+    video: [],
+    music: []
+};
+
+
+
 process.on('message', (m) => {
-    if(m==='updateMusic'){
+    if(m==='updateData'){
+        updateSharedFiles(localVideo,".mp4");
         updateSharedFiles(localMusic,".mp3");
         process.send(
-            {   type: 'updatedMusic',
-                data: localMusic
+            {   type: 'updateData',
+                data: { video: localVideo,
+                        music: localMusic
+                }
             }
         );
     }
-    if(m==='updateVideo'){
-        updateSharedFiles(localVideo,".mp4");
+    if(m==='getData'){
         process.send(
-            {   type: 'updatedVideo',
-                data: localVideo
+            {   type: 'getData',
+                data: { video: localVideo,
+                        music: localMusic
+                }
             }
         );
     }
@@ -38,6 +49,7 @@ process.on('message', (m) => {
 
 function updateSharedFiles(obj,ext){
     obj.files=findVideos(ext);
+    refreshSeed();
 }
 
 function findVideos(ext) {
@@ -69,13 +81,83 @@ function fromDir(startPath,res,ext){
     }
 }
 
+function refreshSeed(){
+    let found = "0" ;
+
+    for (let j in seeding.video) {
+        for (let k in localVideo.files) {
+            if (seeding.video[j]===localVideo.files[k]){
+                found="1";
+            }
+        }
+        if(found==="0"){
+            console.log("remove video seed "+seeding.video[j]);
+            delete seeding.video[j];
+        }
+        found = "0" ;
+    }
+
+    for (let k in localVideo.files) {
+        for (let j in seeding.video) {
+            if (seeding.video[j]===localVideo.files[k]){
+                found="1";
+            }
+        }
+        if(found==="0"){
+            seeding.video.push(localVideo.files[k]);
+            console.log("added video seed "+localVideo.files[k]);
+        }
+        found = "0" ;
+    }
+
+
+
+    for (let j in seeding.music) {
+        for (let k in localMusic.files) {
+            if (seeding.music[j]===localMusic.files[k]){
+                found="1";
+            }
+        }
+        if(found==="0"){
+            console.log("remove music seed "+seeding.music[j]);
+            delete seeding.music[j];
+        }
+        found = "0" ;
+    }
+
+    for (let k in localMusic.files) {
+        for (let j in seeding.music) {
+            if (seeding.music[j]===localMusic.files[k]){
+                found="1";
+            }
+        }
+        if(found==="0"){
+            seeding.music.push(localMusic.files[k]);
+            console.log("added music seed "+localMusic.files[k]);
+        }
+        found = "0" ;
+    }
+
+}
+
+function initialSeeding(){
+    for (let k in localVideo.files) {
+        seeding.video.push(localVideo.files[k]);
+        console.log("initial add video seed "+seeding.video[k]);
+    }
+    for (let k in localMusic.files) {
+        seeding.music.push(localMusic.files[k]);
+        console.log("initial add music seed "+seeding.music[k]);
+    }
+}
+
 updateSharedFiles(localMusic,".mp3");
 updateSharedFiles(localVideo,".mp4");
+initialSeeding();
 
 /*
-
-client.seed("/Users/Nicola/Downloads/Media/New Girl/4.mp4", function (torrent) {
-    console.log('Client is seeding ' + torrent.infoHash);
+client.seed("/Users/Nicola/Downloads/Media/prova/Voldemort.mp4", function (torrent) {
+    console.log('Client is seeding ' + torrent.magnetURI);
     console.log('Client is seeding ' + torrent.path);
 });
 */

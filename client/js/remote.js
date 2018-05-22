@@ -5,15 +5,30 @@ const hostServer ='localhost';
 let ID;
 let localName =os.userInfo().username;
 
+let videoList = {
+    users: []
+};
+
+let musicList = {
+    users: []
+};
+
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
-var xml = fs.readFileSync('client/xml/settings.xml');
-var parser = new xml2js.Parser();
+let xml = fs.readFileSync('client/xml/settings.xml');
+let parser = new xml2js.Parser();
 parser.parseString(xml, function (err, result) {
     ID=result.settings.id;
 });
 
-var peer = new Peer(ID, {
+ipcRenderer.send('getData');
+
+ipcRenderer.on('getData', function(event,arg) {
+    videoList.users.push(arg.video);
+    musicList.users.push(arg.music);
+});
+
+let peer = new Peer(ID, {
     host: hostServer,
     port: portServer,
     path: '/peerjs'
@@ -34,11 +49,11 @@ peer.on('error', function(err){
             confirmButtonClass: 'btn btn-sm btn-light',
             background: 'rgba(0, 0, 0, 0.96)'
         });
-        var xml = fs.readFileSync('client/xml/settings.xml');
-        var parser = new xml2js.Parser();
+        xml = fs.readFileSync('client/xml/settings.xml');
+        parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
             result.settings.id = uniqid();
-            var builder = new xml2js.Builder();
+            let builder = new xml2js.Builder();
             xml = builder.buildObject(result);
             fs.writeFileSync('client/xml/settings.xml', xml);
             try{
@@ -71,13 +86,13 @@ peer.on('error', function(err){
 
 peer.on('connection', function(conn) {
 
-    if(conn.metadata.type=='conn-req') {
-        var xml = fs.readFileSync('client/xml/pending.xml');
-        var parser = new xml2js.Parser();
+    if(conn.metadata.type==='conn-req') {
+        xml = fs.readFileSync('client/xml/pending.xml');
+        parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
-            var exist = "0";
+            let exist = "0";
             for (k in result.servers.server) {
-                if (result.servers.server[k].id.toString() == conn.metadata.id.toString()) {
+                if (result.servers.server[k].id.toString() === conn.metadata.id.toString()) {
                     exist = "1";
                     break;
                 }
@@ -86,8 +101,8 @@ peer.on('connection', function(conn) {
                 updateNotification();
                 return;
             }
-            var newServer;
-            if (result.servers.length == 0) {
+            let newServer;
+            if (result.servers.length === 0) {
                 newServer = {
                     server: [{
                         id: conn.metadata.id,
@@ -102,7 +117,7 @@ peer.on('connection', function(conn) {
                 };
                 result.servers.server.push(newServer);
             }
-            var builder = new xml2js.Builder();
+            let builder = new xml2js.Builder();
             xml = builder.buildObject(result);
             fs.writeFileSync('client/xml/pending.xml', xml);
             updateNotification();
@@ -154,7 +169,7 @@ peer.on('connection', function(conn) {
 
 function sendRequest(){
     remoteID=document.getElementById('remoteID').value;
-    var exist = "0";
+    let exist = "0";
     if(remoteID.toString()==ID.toString()){
         swal({
             title: 'Warning',
@@ -166,8 +181,8 @@ function sendRequest(){
         });
         return;
     }
-    var xml = fs.readFileSync('client/xml/servers.xml');
-    var parser = new xml2js.Parser();
+    xml = fs.readFileSync('client/xml/servers.xml');
+    parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
         for (k in result.servers.server) {
             if (result.servers.server[k].id == remoteID) {

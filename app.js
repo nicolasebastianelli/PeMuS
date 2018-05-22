@@ -10,21 +10,23 @@ let win;
 child = fork('client/js/torrent.js');
 
 child.on('message', (m) => {
-    if(m.type==="updatedMusic"){
-        win.webContents.send("updatedMusic",m.data);
+    if(m.type==="updateData"){
+        win.webContents.send("updateData",m.data);
     }
-    if(m.type==="updatedVideo"){
-        win.webContents.send("updatedVideo",m.data);
+    if(m.type==="getData"){
+        win.webContents.send("getData",m.data);
     }
 });
 
-ipcMain.on('updateMusic', function() {
-    child.send('updateMusic');
+ipcMain.on('updateData', function() {
+    child.send('updateData');
 });
 
-ipcMain.on('updateVideo', function() {
-    child.send('updateVideo');
+ipcMain.on('getData', function() {
+    child.send('getData');
 });
+
+
 
 portFinder.getPort(function (err, port) {
     process.env.PORT=port.toString();
