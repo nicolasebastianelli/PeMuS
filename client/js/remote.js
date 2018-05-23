@@ -1,8 +1,10 @@
 const Peer = require('peerjs');
+const WebTorrent = require('webtorrent');
 const ipcRenderer = require('electron').ipcRenderer;
 const portServer =3000;
 const hostServer ='localhost';
 let ID;
+let client = new WebTorrent();
 let localName =os.userInfo().username;
 
 let videoList = {
@@ -12,6 +14,8 @@ let videoList = {
 let musicList = {
     users: []
 };
+
+let imgMagnetUri;
 
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
@@ -26,6 +30,7 @@ ipcRenderer.send('getData');
 ipcRenderer.on('getData', function(event,arg) {
     videoList.users.push(arg.video);
     musicList.users.push(arg.music);
+    imgMagnetUri = arg.imgUri;
 });
 
 let peer = new Peer(ID, {
@@ -56,8 +61,9 @@ peer.on('error', function(err){
             let builder = new xml2js.Builder();
             xml = builder.buildObject(result);
             fs.writeFileSync('client/xml/settings.xml', xml);
+            ID = result.settings.id;
             try{
-                document.getElementById("remoteMsg").innerHTML="ID:&emsp;\""+result.settings.id+"\"";
+                document.getElementById("remoteMsg").innerHTML="ID:&emsp;\""+ID+"\"";
             }
             catch(err){}
         });
@@ -87,6 +93,11 @@ peer.on('error', function(err){
 peer.on('connection', function(conn) {
 
     if(conn.metadata.type==='conn-req') {
+        client.add(conn.metadata.imgMagnetUri, function (torrent) {
+            torrent.files[0].getBlobURL(function (err, url) {
+                
+            });
+        });
         xml = fs.readFileSync('client/xml/pending.xml');
         parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
@@ -128,6 +139,17 @@ peer.on('connection', function(conn) {
         var xml = fs.readFileSync('client/xml/servers.xml');
         var parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
+            let exist = "0";
+            for (k in result.servers.server) {
+                if (result.servers.server[k].id.toString() === conn.metadata.id.toString()) {
+                    exist = "1";
+                    break;
+                }
+            }
+            if (exist !== "0") {
+                updateNotification();
+                return;
+            }
             var newServer;
             if (result.servers.length == 0) {
                 newServer = {
@@ -206,6 +228,7 @@ function sendRequest(){
             metadata: {
                 name: localName,
                 id: ID,
+                imgMagnetUri: imgMagnetUri,
                 type: 'conn-req'
             }
         });
@@ -254,7 +277,7 @@ function updateNotification(){
             document.getElementById("notificationTwink").className = "top-nav__notify";
             for (k in result.servers.server) {
                 document.getElementById("requestList").innerHTML += "<a href=\"#\" class=\"listview__item\">" +
-                    "<img src=\"demo/img/profile-pics/1.jpg\" class=\"listview__img\" alt=\"\">" +
+                    "<img src=\"img/"+result.servers.server[k].id+".jpg\" onerror=\"if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"listview__img\" alt=\"\">" +
                     "<div class=\"listview__content\">" +
                     "<div class=\"listview__heading\">"+result.servers.server[k].name+" - "+result.servers.server[k].id+"</div>" +
                     "<button type=\"button\" class=\"btn btn-success btn--icon-text\" onclick='confirmConn(this)' serverId='"+result.servers.server[k].id+"' serverName='"+result.servers.server[k].name+"' ><i class=\"zmdi zmdi-check\"></i> Confirm</button>" +

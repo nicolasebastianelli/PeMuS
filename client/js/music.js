@@ -75,10 +75,10 @@ function updateFolderList(folder) {
                 if (musicList.users[k].ip === path[0]) {
                     var element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
                     for (j in musicList.users[k].files) {
-                        var encodeText = encodeURIComponent(musicList.users[k].files[j]);
+                        var encodeText = encodeURIComponent(musicList.users[k].files[j].name);
                         var l = j;
                         l++;
-                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
                     }
                     element += "</tbody></table></div></div>";
                     document.getElementById("musicList").innerHTML = element;
@@ -160,14 +160,14 @@ function searchFolder() {
         for (j in musicList.users[k].files) {
             var l = j;
             l++;
-            var encodeText = encodeURIComponent(musicList.users[k].files[j]);
+            var encodeText = encodeURIComponent(musicList.users[k].files[j].name);
             if(document.getElementById("searchInput").value!=""&&document.getElementById("searchInput").value!=undefined&&document.getElementById("searchInput").value!=null) {
-                if (musicList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
-                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                if (musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
+                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
                 }
             }
             else{
-                element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
             }
         }
     }

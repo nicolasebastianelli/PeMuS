@@ -71,10 +71,10 @@ function updateFolderList(folder) {
                     let element = "";
                     let addedFolder = [];
                     for (let j in videoList.users[k].files) {
-                        let videoPath = videoList.users[k].files[j].split("/").filter(function (entry) {
+                        let videoPath = videoList.users[k].files[j].name.split("/").filter(function (entry) {
                             return /\S/.test(entry);
                         });
-                        if ($.inArray(videoPath[path.length - 1], addedFolder) === -1 && videoList.users[k].files[j].toString().startsWith(folderPath.replace(videoList.users[k].ip, ""))) {
+                        if ($.inArray(videoPath[path.length - 1], addedFolder) === -1 && videoList.users[k].files[j].name.toString().startsWith(folderPath.replace(videoList.users[k].ip, ""))) {
                             if (videoPath[path.length] !== undefined) {
                                 let clickFolder = JSON.stringify(folderPath + videoPath[path.length - 1]).replace(/ /g, '&nbsp;');
                                 element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList("+clickFolder+")>" +
@@ -82,7 +82,7 @@ function updateFolderList(folder) {
                                     "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>";
                             }
                             else {
-                                let clickFolder = JSON.stringify(videoList.users[k].files[j]).replace(/ /g, '&nbsp;');
+                                let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
                                 let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
                                 element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ")>" +
                                     "<div class=\"contacts__item\">" +
@@ -105,11 +105,11 @@ function searchFolder() {
     let element = "";
     for (let k in videoList.users) {
         for (let j in videoList.users[k].files) {
-            let file =videoList.users[k].files[j].split("/");
+            let file =videoList.users[k].files[j].name.split("/");
             if(document.getElementById("searchInput").value!==""&&document.getElementById("searchInput").value!==undefined&&document.getElementById("searchInput").value!=null) {
                 if (file[file.length - 1].toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
                     element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
-                        "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(videoList.users[k].files[j]).replace(/"/g, "&quot;") + ")>" +
+                        "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(videoList.users[k].files[j].name).replace(/"/g, "&quot;") + ")>" +
                         "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
                         "<div class=\"contacts__info\">" +
                         "<strong>" + file[file.length - 1] + "</strong>" +
@@ -118,7 +118,7 @@ function searchFolder() {
             }
             else{
                 element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
-                    "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(videoList.users[k].files[j]).replace(/"/g, "&quot;") + ")>" +
+                    "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(videoList.users[k].files[j].name).replace(/"/g, "&quot;") + ")>" +
                     "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
                     "<div class=\"contacts__info\">" +
                     "<strong>" + file[file.length - 1] + "</strong>" +
