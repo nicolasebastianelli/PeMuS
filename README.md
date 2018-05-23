@@ -1,4 +1,4 @@
-# PeMuS
+# PeMuS ![Node.js][Node.js] ![Release][release] ![License][license]
 
 ### Personal Multimedia Server
 
