@@ -93,9 +93,9 @@ peer.on('error', function(err){
 peer.on('connection', function(conn) {
 
     if(conn.metadata.type==='conn-req') {
-        client.add(conn.metadata.imgMagnetUri, function (torrent) {
-            torrent.files[0].getBlobURL(function (err, url) {
-                
+        client.add(conn.metadata.imgMagnetUri,{ path: 'client/img' } ,function (torrent) {
+            torrent.on('done', function () {
+                fs.writeFileSync("client/img", torrent);
             });
         });
         xml = fs.readFileSync('client/xml/pending.xml');
@@ -183,10 +183,53 @@ peer.on('connection', function(conn) {
             catch(err){}
         });
     }
-    //close connection
-    conn.on('close', function(data) {
-        console.log('Connection closed');
-    });
+
+    if(conn.metadata.type==='fileList-req') {
+        let localVideo;
+        let localMusic;
+        let temp;
+        for (let k in videoList.users) {
+            if(videoList.users[k].ip==='localhost'){
+                temp=videoList.users[k].files;
+                break;
+            }
+        }
+        for (let k in temp) {
+            temp[k].name="/"+temp[k].name.split('/').pop();
+        }
+        localVideo=temp;
+        for (let k in musicList.users) {
+            if(musicList.users[k].ip==='localhost'){
+                temp=musicList.users[k].files;
+                break;
+            }
+        }
+        for (let k in temp) {
+            temp[k].name="/"+temp[k].name.split('/').pop();
+        }
+        localMusic=temp;
+        let connection = peer.connect(conn.metadata.id, {
+            metadata: {
+                name: localName,
+                id: ID,
+                type: 'fileList-answ',
+                video: localVideo,
+                music: localMusic
+            }
+        });
+        connection.on('error', function(err) {
+            console.log(err);
+        });
+        connection.on('close', function() {
+            console.log("Connection with "+connection.metadata.id+" done");
+        });
+
+        connection.on('open', function() {
+            // Send messages
+            connection.send('msg');
+            connection.close();
+        });
+    }
 });
 
 function sendRequest(){
