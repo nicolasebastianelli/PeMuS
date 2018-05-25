@@ -79,14 +79,16 @@ peer.on('error', function(err){
         })
     }
     if(err.type==="peer-unavailable"){
-        swal({
-            title: 'Ops',
-            text: 'It seems that the user you are trying to contact is offline, ask him to launch the application.',
-            type: 'error',
-            buttonsStyling: false,
-            confirmButtonClass: 'btn btn-sm btn-light',
-            background: 'rgba(0, 0, 0, 0.96)'
-        })
+        if(document.title==="PeMuS - Index") {
+            swal({
+                title: 'Ops',
+                text: 'It seems that the user you are trying to contact is offline, ask him to launch the application.',
+                type: 'error',
+                buttonsStyling: false,
+                confirmButtonClass: 'btn btn-sm btn-light',
+                background: 'rgba(0, 0, 0, 0.96)'
+            })
+        }
     }
 });
 
@@ -235,7 +237,7 @@ peer.on('connection', function(conn) {
 function sendRequest(){
     remoteID=document.getElementById('remoteID').value;
     let exist = "0";
-    if(remoteID.toString()==ID.toString()){
+    if(remoteID.toString()===ID.toString()){
         swal({
             title: 'Warning',
             text: 'You cannot connect to yourself.',
@@ -250,7 +252,7 @@ function sendRequest(){
     parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
         for (k in result.servers.server) {
-            if (result.servers.server[k].id == remoteID) {
+            if (result.servers.server[k].id === remoteID) {
                 exist = "1";
                 break;
             }
@@ -267,7 +269,7 @@ function sendRequest(){
             return;
         }
 
-        var connection = peer.connect(remoteID,{
+        let connection = peer.connect(remoteID,{
             metadata: {
                 name: localName,
                 id: ID,

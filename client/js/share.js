@@ -1,5 +1,27 @@
 $.getScript("vendors/bower_components/sweetalert2/dist/sweetalert2.min.js", function() {});
 
+ipcRenderer.on('updateData', function(event,arg) {
+    if (videoList.users.length !== 0) {
+        for (let j in videoList.users) {
+            if(videoList.users[j].ip==="localhost"){
+                delete videoList.users[j];
+                break;
+            }
+        }
+    }
+    if (musicList.users.length !== 0) {
+        for (let j in musicList.users) {
+            if(musicList.users[j].ip==="localhost"){
+                delete musicList.users[j];
+                break;
+            }
+        }
+    }
+    videoList.users.push(arg.video);
+    musicList.users.push(arg.music);
+    updateFolderList();
+});
+
 function addPathMessage() {
     var xml = fs.readFileSync('client/xml/paths.xml');
     var parser = new xml2js.Parser();
@@ -111,6 +133,7 @@ function addPath(){
         fs.writeFileSync('client/xml/paths.xml', xml);
         document.getElementById("path").value = "";
         updateFolderTable();
+        ipcRenderer.send('updateData');
     });
 }
 
@@ -169,6 +192,7 @@ function deletePath(idPath){
         }
     });
     updateFolderTable();
+    ipcRenderer.send('updateData');
     return found;
 }
 

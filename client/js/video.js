@@ -11,10 +11,19 @@ ipcRenderer.on('updateData', function(event,arg) {
                 delete videoList.users[j];
                 break;
             }
-
+        }
+    }
+    if (musicList.users.length !== 0) {
+        for (let j in musicList.users) {
+            if(musicList.users[j].ip==="localhost"){
+                delete musicList.users[j];
+                break;
+            }
         }
     }
     videoList.users.push(arg.video);
+    musicList.users.push(arg.music);
+    updateFolderList();
 });
 
 peer.on('connection', function(conn) {
@@ -34,7 +43,7 @@ peer.on('connection', function(conn) {
             }
         }
         videoList.users.push(newUsr);
-        updateFolderList()
+        updateFolderList();
     }
 });
 
@@ -42,27 +51,30 @@ xml = fs.readFileSync('client/xml/servers.xml');
 parser = new xml2js.Parser();
 parser.parseString(xml, function (err, result) {
     for (let k in result.servers.server) {
-        let connection = peer.connect(result.servers.server[k].id, {
-            metadata: {
-                name: localName,
-                id: ID,
-                type: 'fileList-req',
-            }
-        });
-        connection.on('error', function(err) {
-            console.log(err);
-        });
-        connection.on('close', function() {
-            console.log("Connection with "+result.servers.server[k].id+" done");
-        });
+        try {
+            let connection = peer.connect(result.servers.server[k].id, {
+                metadata: {
+                    name: localName,
+                    id: ID,
+                    type: 'fileList-req',
+                }
+            });
+            connection.on('error', function (err) {
+                console.log(err);
+            });
+            connection.on('close', function () {
+                console.log("Connection with " + result.servers.server[k].id + " done");
+            });
 
-        connection.on('open', function() {
-            console.log('Connected to ', result.servers.server[k].id);
+            connection.on('open', function () {
+                console.log('Connected to ', result.servers.server[k].id);
 
-            // Send messages
-            connection.send('msg');
-            connection.close();
-        });
+                // Send messages
+                connection.send('msg');
+                connection.close();
+            });
+        }
+        catch(err){}
     }
 });
 
@@ -193,14 +205,16 @@ function videoPlayer(ip,source) {
     for (let i in path) {
         folderPath += path[i] + "/";
         let clickFolder = JSON.stringify(folderPath.replace(/ /g, '&nbsp;'));
-        nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function () {
+        console.log(clickFolder);
+        let userName = (function () {
             if (path[i] === "localhost") {
                 return "This PC";
             } else {
                 return path[i];
             }
         }());
-        +"</a></li>";
+        nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + userName +"</a></li>";
+        console.log(nav);
     }
     if (path[0] === "localhost") {
         let encodeText = encodeURIComponent(source);
@@ -224,7 +238,7 @@ function videoPlayer(ip,source) {
                             confirmButtonClass: 'btn btn-sm btn-light',
                             background: 'rgba(0, 0, 0, 0.96)'
                         }).then(function () {
-                            updateSharedFiles();
+                            ipcRenderer.send('updateData');
                             updateFolderList("/");
                         });
                     }
@@ -236,7 +250,8 @@ function videoPlayer(ip,source) {
         xhr.send();
     }
     else{
-
+        //remote host
+        document.getElementById("navBar").innerHTML = nav;
     }
 
 

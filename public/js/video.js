@@ -29,9 +29,10 @@ function updateSharedFiles(){
                     xhr2.onload = function (e) {
                         if (xhr2.readyState === 4) {
                             if (xhr2.status === 200) {
-                                myUsr.videos=JSON.parse(xhr2.responseText);
+                                myUsr.files=JSON.parse(xhr2.responseText);
                                 fileList.users.push(myUsr);
                                 updateFolderList();
+                                console.log(fileList);
                             } else {
                                 console.error(xhr2.statusText);
                             }
@@ -44,7 +45,6 @@ function updateSharedFiles(){
             }
         };
         xhr.send();
-
 }
 
 function updateFolderList(folder) {
@@ -163,7 +163,7 @@ function videoPlayer(ip,source) {
     var nav ="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList('/')>Home</a></li>";
     for (i in path) {
         folderPath+=path[i]+"/";
-        clickFolder = JSON.stringify(folderPath);
+        clickFolder = JSON.stringify(folderPath).replace(/ /g, '&nbsp;');
         nav+="<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + (function(){if(path[i]=="localhost"){return "This PC";} else{return path[i];}}()); + "</a></li>";
     }
     var encodeText = encodeURIComponent(source);

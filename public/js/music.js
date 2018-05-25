@@ -27,7 +27,7 @@ function updateSharedFiles(){
                 xhr2.onload = function (e) {
                     if (xhr2.readyState === 4) {
                         if (xhr2.status === 200) {
-                            myUsr.videos=JSON.parse(xhr2.responseText);
+                            myUsr.files=JSON.parse(xhr2.responseText);
                             fileList.users.push(myUsr);
                             updateFolderList();
                         } else {
@@ -42,35 +42,6 @@ function updateSharedFiles(){
         }
     };
     xhr.send();
-}
-
-function findVideos() {
-    var xml = fs.readFileSync('client/xml/paths.xml');
-    var parser = new xml2js.Parser();
-    var res =[];
-    parser.parseString(xml, function (err, result) {
-        for (k in result.pathlist.path) {
-            fromDir(result.pathlist.path[k].folder.toString(),res);
-        }
-    });
-    return res;
-}
-
-function fromDir(startPath,res){
-    var files=fs.readdirSync(startPath);
-    for(var i=0;i<files.length;i++){
-        var filename=path.join(startPath,files[i]);
-        try {
-            var stat = fs.lstatSync(filename);
-            if (stat.isDirectory()) {
-                fromDir(filename, res);
-            }
-            else if (filename.indexOf(".mp3") >= 0) {
-                res.push(filename);
-            }
-        }
-        catch (err){ console.log("Errore navigazione path: "+err);}
-    }
 }
 
 
@@ -95,7 +66,7 @@ function updateFolderList(folder) {
         for (i in path) {
             folderPath += path[i] + "/";
             var clickFolder = JSON.stringify(folderPath).replace(/ /g, '&nbsp;');
-            nav += "<li class=\"breadcrumb-item\"><a href='#'>" + (function () {
+            nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList("+clickFolder+")>" + (function () {
                 if (path[i] == "localhost") {
                     return "This PC";
                 } else {
