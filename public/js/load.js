@@ -1,11 +1,11 @@
-var hostname=window.location.hostname.toString();
-var port=window.location.port.toString();
+let hostname=window.location.hostname.toString();
+let port=window.location.port.toString();
 
 
 function updateTheme() {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', "http://"+hostname+":"+port+"/getCurrentTheme", true);
-    xhr.onload = function (e) {
+    xhr.onload = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 document.getElementsByTagName("body")[0].setAttribute("data-sa-theme", xhr.responseText);
@@ -20,9 +20,9 @@ function updateTheme() {
 }
 
 function updateUser() {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', "http://"+hostname+":"+port+"/getUser", true);
-    xhr.onload = function (e) {
+    xhr.onload = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 document.getElementById("ip").innerHTML=hostname+":"+port;
@@ -36,9 +36,9 @@ function updateUser() {
 }
 
 function updateUserMessage() {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', "http://"+hostname+":"+port+"/getUser", true);
-    xhr.onload = function (e) {
+    xhr.onload = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 document.getElementById("ipMsg").innerHTML="IP:&emsp;\""+hostname+":"+port+"\"";
