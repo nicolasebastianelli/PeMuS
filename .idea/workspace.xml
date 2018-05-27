@@ -3,9 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="46575ed0-a898-48f6-9d6f-a8f6c0b14e1f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/load.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/load.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/music.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/music.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/video.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/download.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/download.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/music.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/music.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/share.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/share.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/torrent.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/torrent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/js/video.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/js/video.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoPlayer.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/videoPlayer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/xml/paths.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/xml/paths.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/xml/servers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/xml/servers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/xml/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/xml/settings.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,36 +30,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="music.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/music.js">
+      <file leaf-file-name="torrent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/torrent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="71" column="117" selection-start-line="71" selection-start-column="117" selection-end-line="71" selection-end-column="117" />
-              <folding>
-                <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="254">
+              <caret line="161" column="74" selection-start-line="161" selection-start-column="74" selection-end-line="161" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="load.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/load.js">
+        <entry file="file://$PROJECT_DIR$/client/js/load.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="184">
+              <caret line="105" column="9" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/js/video.js">
+      <file leaf-file-name="music.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/js/music.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="113" column="98" selection-start-line="113" selection-start-column="98" selection-end-line="113" selection-end-column="98" />
+            <state relative-caret-position="-3294">
+              <caret line="4" column="24" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="24" />
               <folding>
-                <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="remote.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/js/remote.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2509">
+              <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -70,36 +84,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>spl</find>
-      <find>split</find>
-      <find>mp4</find>
-      <find>temp</find>
-      <find>replac</find>
-      <find>title</find>
-      <find>consol</find>
-      <find>xh</find>
-      <find>path</find>
-      <find>console.lo</find>
-      <find>updatesha</find>
-      <find>update</find>
-      <find>curr</find>
-      <find>currus</find>
-      <find>next</find>
-      <find>render</find>
-      <find>updates</find>
-      <find>remo</find>
-      <find>Up</find>
-      <find>video</find>
       <find>repl</find>
       <find>videos</find>
       <find>re</find>
       <find>brea</find>
       <find>bre</find>
       <find>user</find>
-      <find>fileli</find>
       <find>fil</find>
       <find>filel</find>
       <find>.ip</find>
+      <find>videoco</find>
+      <find>displ</find>
+      <find>visi</find>
+      <find>se</find>
+      <find>oncli</find>
+      <find>&amp;</find>
+      <find>video</find>
+      <find>videoPl</find>
+      <find>console.</find>
+      <find>h2</find>
+      <find>title</find>
+      <find>card</find>
+      <find>car</find>
+      <find>videopl</find>
+      <find>folde</find>
+      <find>update</find>
+      <find>folderli</find>
+      <find>videoconte</find>
+      <find>console.lo</find>
+      <find>fileli</find>
+      <find>.on</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -147,18 +161,18 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/client/download.html" />
         <option value="$PROJECT_DIR$/client/js/download.js" />
-        <option value="$PROJECT_DIR$/client/js/torrent.js" />
         <option value="$PROJECT_DIR$/client/js/remote.js" />
         <option value="$PROJECT_DIR$/client/musicPlayer.html" />
-        <option value="$PROJECT_DIR$/client/index.html" />
         <option value="$PROJECT_DIR$/client/shareFolder.html" />
-        <option value="$PROJECT_DIR$/client/videoPlayer.html" />
-        <option value="$PROJECT_DIR$/client/js/share.js" />
-        <option value="$PROJECT_DIR$/client/js/music.js" />
-        <option value="$PROJECT_DIR$/client/js/video.js" />
         <option value="$PROJECT_DIR$/public/js/load.js" />
         <option value="$PROJECT_DIR$/public/js/music.js" />
         <option value="$PROJECT_DIR$/public/js/video.js" />
+        <option value="$PROJECT_DIR$/client/js/music.js" />
+        <option value="$PROJECT_DIR$/client/videoPlayer.html" />
+        <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/client/js/share.js" />
+        <option value="$PROJECT_DIR$/client/js/video.js" />
+        <option value="$PROJECT_DIR$/client/js/torrent.js" />
       </list>
     </option>
   </component>
@@ -223,17 +237,6 @@
               <item name="PeMuS" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="xml" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PeMuS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PeMuS" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PeMuS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PeMuS" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -366,17 +369,18 @@
       <workItem from="1527237716344" duration="4596000" />
       <workItem from="1527253512704" duration="9942000" />
       <workItem from="1527266480732" duration="2714000" />
+      <workItem from="1527424607510" duration="9396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="349496000" />
+    <option name="totallyTimeSpent" value="358892000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="701" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.64433813" visible="true" weight="0.19609375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.64274323" visible="true" weight="0.19609375" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3290938" />
@@ -384,7 +388,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info id="Favorites" order="2" sideWeight="0.35566187" side_tool="true" visible="true" weight="0.19609375" />
+      <window_info id="Favorites" order="2" sideWeight="0.35725677" side_tool="true" visible="true" weight="0.19609375" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -501,27 +505,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/peercall.html" />
     <entry file="file://$PROJECT_DIR$/client/js/peercall.js" />
-    <entry file="file://$PROJECT_DIR$/client/download.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/download.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/load.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="105" column="8" lean-forward="true" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/xml/servers.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -537,21 +520,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/videoPlayer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/shareFolder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
@@ -562,37 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-682">
           <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/video.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="252" column="21" selection-start-line="252" selection-start-column="21" selection-end-line="252" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/share.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="33" selection-end-line="212" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/torrent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/remote.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -624,32 +562,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/music.js">
+    <entry file="file://$PROJECT_DIR$/public/js/music.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2924">
-          <caret line="201" column="75" lean-forward="true" selection-start-line="201" selection-start-column="75" selection-end-line="201" selection-end-column="75" />
-          <folding>
-            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="71" column="117" selection-start-line="71" selection-start-column="117" selection-end-line="71" selection-end-column="117" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/load.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/music.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="71" column="117" selection-start-line="71" selection-start-column="117" selection-end-line="71" selection-end-column="117" />
-          <folding>
-            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -660,6 +583,88 @@
           <folding>
             <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/download.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="27" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/download.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="117" column="121" selection-start-line="117" selection-start-column="121" selection-end-line="117" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/videoPlayer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="149" column="39" selection-start-line="149" selection-start-column="30" selection-end-line="149" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/load.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="105" column="9" selection-start-line="105" selection-start-column="8" selection-end-line="105" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/music.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3294">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#audio#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/torrent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="161" column="74" selection-start-line="161" selection-start-column="74" selection-end-line="161" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="35" />
+          <folding>
+            <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#h2#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#video#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/js/remote.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2509">
+          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
         </state>
       </provider>
     </entry>

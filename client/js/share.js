@@ -19,7 +19,6 @@ ipcRenderer.on('updateData', function(event,arg) {
     }
     videoList.users.push(arg.video);
     musicList.users.push(arg.music);
-    updateFolderList();
 });
 
 function addPathMessage() {

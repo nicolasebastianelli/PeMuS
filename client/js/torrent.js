@@ -3,6 +3,8 @@ const os = require('os');
 const fs = require('fs');
 const xml2js = require('xml2js');
 const path = require('path');
+const EventEmitter = require('events').EventEmitter;
+EventEmitter.defaultMaxListeners = 0;
 
 let client = new WebTorrent();
 
@@ -23,8 +25,6 @@ let seeding = {
     video: [],
     music: []
 };
-
-
 
 process.on('message', (m) => {
     if(m==='updateData'){
@@ -148,12 +148,19 @@ function refreshSeed(){
 
 function initialSeeding(){
     for (let k in localVideo.files) {
-        seeding.video.push(localVideo.files[k]);
-        console.log("initial add video seed "+seeding.video[k].name);
+        client.seed(localVideo.files[k].name, function (torrent) {
+             localVideo.files[k].seed=torrent.magnetURI;
+             seeding.video.push(localVideo.files[k]);
+            console.log("initial add video seed "+localVideo.files[k].name);
+        });
+
     }
     for (let k in localMusic.files) {
-        seeding.music.push(localMusic.files[k]);
-        console.log("initial add music seed "+seeding.music[k].name);
+        client.seed(localMusic.files[k].name, function (torrent) {
+            localMusic.files[k].seed=torrent.magnetURI;
+            seeding.music.push(localMusic.files[k]);
+            console.log("initial add music seed "+localMusic.files[k].name);
+        });
     }
 }
 

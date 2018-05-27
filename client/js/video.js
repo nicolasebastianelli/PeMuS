@@ -79,15 +79,16 @@ parser.parseString(xml, function (err, result) {
 });
 
 function updateFolderList(folder) {
+    document.getElementById("videoCard").style.visibility= "hidden";
+    document.getElementById("videoContent").innerHTML = "";
     if(folder!== undefined){
         currFolder=folder.toString().replace(/\s/g, ' ');
     }
     document.getElementById("folderList").innerHTML = "";
     if(currFolder.endsWith(".mp4")){
-        document.getElementById("videoContent").style.display="block";
+        document.getElementById("videoCard").style.visibility= "visible";
     }
     else {
-        document.getElementById("videoContent").innerHTML = "";
         let path = currFolder.split("/").filter(function (entry) {
             return /\S/.test(entry);
         });
@@ -144,7 +145,8 @@ function updateFolderList(folder) {
                             else {
                                 let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
                                 let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
-                                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ")>" +
+                                let megnetUri = JSON.stringify(videoList.users[k].files[j].seed).replace(/ /g, '&nbsp;');
+                                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ","+megnetUri+")>" +
                                     "<div class=\"contacts__item\">" +
                                     "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>";
                             }
@@ -161,15 +163,18 @@ function updateFolderList(folder) {
 }
 
 function searchFolder() {
-    document.getElementById("videoContent").style.display="none";
+    document.getElementById("videoCard").style.visibility= "hidden";
     let element = "";
     for (let k in videoList.users) {
         for (let j in videoList.users[k].files) {
             let file =videoList.users[k].files[j].name.toString().split("/");
+            let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
+            let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
+            let megnetUri = JSON.stringify(videoList.users[k].files[j].seed).replace(/ /g, '&nbsp;');
             if(document.getElementById("searchInput").value!==""&&document.getElementById("searchInput").value!==undefined&&document.getElementById("searchInput").value!=null) {
                 if (file[file.length - 1].toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
                     element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
-                        "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(videoList.users[k].files[j].name).replace(/"/g, "&quot;") + ")>" +
+                        "<div class=\"contacts__item\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ","+megnetUri+")>" +
                         "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
                         "<div class=\"contacts__info\">" +
                         "<strong>" + file[file.length - 1] + "</strong>" +
@@ -178,7 +183,7 @@ function searchFolder() {
             }
             else{
                 element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
-                    "<div class=\"contacts__item\" onclick=videoPlayer(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + "," + JSON.stringify(videoList.users[k].files[j].name).replace(/"/g, "&quot;") + ")>" +
+                    "<div class=\"contacts__item\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ","+megnetUri+")>" +
                     "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
                     "<div class=\"contacts__info\">" +
                     "<strong>" + file[file.length - 1] + "</strong>" +
@@ -189,13 +194,12 @@ function searchFolder() {
     document.getElementById("folderList").innerHTML = element;
 }
 
-function videoPlayer(ip,source) {
-    if (ip !== undefined && source !== undefined) {
-        currFolder = ip + source.replace(/\s/g, ' ');
-    }
-    document.getElementById("videoContent").style.display = "block";
+function videoPlayer(id,source,magnetUri) {
+    currFolder = id + source.replace(/\s/g, ' ');
+    document.getElementById("videoCard").style.visibility= "visible";
     document.getElementById("folderList").innerHTML = "";
     document.getElementById("videoContent").innerHTML = "";
+    let videoPath=currFolder;
     let path = currFolder.split("/").filter(function (entry) {
         return /\S/.test(entry);
     });
@@ -205,7 +209,6 @@ function videoPlayer(ip,source) {
     for (let i in path) {
         folderPath += path[i] + "/";
         let clickFolder = JSON.stringify(folderPath.replace(/ /g, '&nbsp;'));
-        console.log(clickFolder);
         let userName = (function () {
             if (path[i] === "localhost") {
                 return "This PC";
@@ -214,18 +217,18 @@ function videoPlayer(ip,source) {
             }
         }());
         nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + userName +"</a></li>";
-        console.log(nav);
     }
-    if (path[0] === "localhost") {
+    if (id === "localhost") {
         let encodeText = encodeURIComponent(source);
-        let url = "http://" + ip + ":" + port + "/stream?source=" + encodeText;
+        let url = "http://" + id + ":" + port + "/stream?source=" + encodeText;
         let xhr = new XMLHttpRequest();
-        xhr.open('GET', "http://" + ip + ":" + port + "/available?source=" + encodeText, false);
+        xhr.open('GET', "http://" + id + ":" + port + "/available?source=" + encodeText, false);
         xhr.onload = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
                     if (xhr.responseText === "true") {
                         document.getElementById("navBar").innerHTML = nav;
+                        document.getElementById("videoCard").style.visibility= "visible";
                         document.getElementById("videoContent").innerHTML = "<h2>" + title + "</h2><br><video style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" name=\"media\">" +
                             "<source src=" + url + " type=\"video/mp4\"></video>";
                     }
@@ -252,7 +255,37 @@ function videoPlayer(ip,source) {
     else{
         //remote host
         document.getElementById("navBar").innerHTML = nav;
+        document.getElementById("videoCard").style.visibility= "visible";
+        document.getElementById("videoContent").innerHTML = "<h2>" + title + "</h1><br><img  src=\"img/loading.gif\">";
+
+        console.log(magnetUri);
+        let torrent = client.get(magnetUri);
+        if (torrent === null) {
+            client.add(magnetUri, function (torrent) {
+                console.log('Adding Torrent', torrent.infoHash);
+                loadTorrent(title,torrent,videoPath);
+            });
+        }
+        else{
+            console.log('Torrent already added', torrent.infoHash);
+            loadTorrent(title,torrent,videoPath);
+        }
     }
+}
 
+function loadTorrent(title,torrent, videoPath) {
+    if(currFolder ===videoPath) {
+        document.getElementById("videoContent").innerHTML = "<h2>" + title + "</h1><br><video id=\"myVideo\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" name=\"media\">"
+            + "<source src=\"\" type=\"video/mp4\"></video>";
+        torrent.files[0].getBlobURL(function (err, url) {
+            if (err) return util.error(err);
 
+            let video = document.getElementById("myVideo");
+            video.src = url;
+            video.load();
+            video.onloadeddata = function () {
+                video.play();
+            };
+        });
+    }
 }

@@ -130,26 +130,26 @@ function updateFolderList(folder) {
         }
         else {
             document.getElementById("searchBar").style.display="block";
-            var element = "";
+            let element = "";
             for (let k in musicList.users) {
                 if (musicList.users[k].ip.toString() === currUsr) {
-                    var element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
-                    for (j in musicList.users[k].files) {
-                        var encodeText = encodeURIComponent(musicList.users[k].files[j].name);
-                        var l = j;
+                    element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
+                    for (let j in musicList.users[k].files) {
+                        let encodeText = encodeURIComponent(musicList.users[k].files[j].name);
+                        let l = j;
                         l++;
                         element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodeText+"\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
                     }
                     element += "</tbody></table></div></div>";
                     document.getElementById("musicList").innerHTML = element;
-                    var table = document.getElementById("musicTable");
-                    var rows = table.getElementsByTagName("tr");
+                    let table = document.getElementById("musicTable");
+                    let rows = table.getElementsByTagName("tr");
                     for (let i = 0; i < rows.length; i++) {
-                        var currentRow = table.rows[i];
-                        var createClickHandler = function(table, index) {
+                        let currentRow = table.rows[i];
+                        let createClickHandler = function(table, index) {
                             return function() {
                                 if(musicList.users[k].ip==="localhost") {
-                                    var currentRow = table.rows[index];
+                                    let currentRow = table.rows[index];
                                     encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
                                     url = "http://" + musicList.users[k].ip + ":" + port + "/stream?source=" + encodeText;
                                     xhr = new XMLHttpRequest();
@@ -246,63 +246,68 @@ function searchFolder() {
         var currentRow = table.rows[i];
         var createClickHandler = function(table, index) {
             return function() {
-                var currentRow = table.rows[index];
-                encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
-                url ="http://"+currUsr+":"+port+"/stream?source="+encodeText;
-                xhr = new XMLHttpRequest();
-                xhr.open('GET', "http://" + currUsr + ":"+port+"/available?source=" + encodeText, false);
-                xhr.onload = function (e) {
-                    if (xhr.readyState === 4) {
-                        if (xhr.status === 200) {
-                            if (xhr.responseText === "true") {
-                                document.getElementById("videoContent").innerHTML = "<h5 id=\"songName\">"+decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "")+"</h5><audio id=\"audioPlayer\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" onloadstart=\"this.volume=0.5\" name=\"media\">" +
-                                    "<source src=" + url + " type=\"audio/mp3\"></audio>";
-                                var nextSong = function(table, index) {
-                                    return function() {
-                                        var music = document.getElementById("audioPlayer");
-                                        if (index === table.rows.length - 1) {
-                                            var nextIndex = 0;
+                if(musicList.users[k].ip==="localhost") {
+                    var currentRow = table.rows[index];
+                    encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
+                    url = "http://" + currUsr + ":" + port + "/stream?source=" + encodeText;
+                    xhr = new XMLHttpRequest();
+                    xhr.open('GET', "http://" + currUsr + ":" + port + "/available?source=" + encodeText, false);
+                    xhr.onload = function () {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 200) {
+                                if (xhr.responseText === "true") {
+                                    document.getElementById("videoContent").innerHTML = "<h5 id=\"songName\">" + decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "") + "</h5><audio id=\"audioPlayer\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" onloadstart=\"this.volume=0.5\" name=\"media\">" +
+                                        "<source src=" + url + " type=\"audio/mp3\"></audio>";
+                                    var nextSong = function (table, index) {
+                                        return function () {
+                                            var music = document.getElementById("audioPlayer");
+                                            if (index === table.rows.length - 1) {
+                                                var nextIndex = 0;
+                                            }
+                                            else {
+                                                var nextIndex = index + 1;
+                                            }
+                                            music.onended = nextSong(table, nextIndex);
+                                            music.pause();
+                                            var currentRow = table.rows[index];
+                                            var encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
+                                            document.getElementById("songName").innerText = decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "");
+                                            var url = "http://" + musicList.users[k].ip + ":" + port + "/stream?source=" + encodeText;
+                                            music.src = url;
+                                            music.load();
+                                            music.play();
                                         }
-                                        else {
-                                            var nextIndex = index + 1;
-                                        }
-                                        music.onended = nextSong(table, nextIndex);
-                                        music.pause();
-                                        var currentRow = table.rows[index];
-                                        var encodeText = currentRow.getElementsByTagName("td")[0].getAttribute("name");
-                                        document.getElementById("songName").innerText=decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "");
-                                        var url = "http://" + musicList.users[k].ip + ":"+port+"/stream?source=" + encodeText;
-                                        music.src = url;
-                                        music.load();
-                                        music.play();
+                                    };
+                                    var music = document.getElementById("audioPlayer");
+                                    if (index === table.rows.length - 1) {
+                                        var nextIndex = 0;
                                     }
-                                };
-                                var music = document.getElementById("audioPlayer");
-                                if (index === table.rows.length-1){
-                                    var nextIndex =0;
+                                    else {
+                                        var nextIndex = index + 1;
+                                    }
+                                    music.onended = nextSong(table, nextIndex);
                                 }
-                                else{
-                                    var nextIndex =index+1;
+                                else {
+                                    swal({
+                                        title: 'Warning',
+                                        text: 'The selected song seems to not be available at the moment.',
+                                        type: 'warning',
+                                        buttonsStyling: false,
+                                        confirmButtonClass: 'btn btn-sm btn-light',
+                                        background: 'rgba(0, 0, 0, 0.96)'
+                                    }).then(function () {
+                                        ipcRenderer.send('updateData');
+                                        updateFolderList("/");
+                                    });
                                 }
-                                music.onended = nextSong(table, nextIndex);
-                            }
-                            else {
-                                swal({
-                                    title: 'Warning',
-                                    text: 'The selected song seems to not be available at the moment.',
-                                    type: 'warning',
-                                    buttonsStyling: false,
-                                    confirmButtonClass: 'btn btn-sm btn-light',
-                                    background: 'rgba(0, 0, 0, 0.96)'
-                                }).then(function () {
-                                    ipcRenderer.send('updateData');
-                                    updateFolderList("/");
-                                });
                             }
                         }
-                    }
-                };
-                xhr.send();
+                    };
+                    xhr.send();
+                }
+                else{
+
+                }
             };
         };
         currentRow.onclick = createClickHandler(table,i);
