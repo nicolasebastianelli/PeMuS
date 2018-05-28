@@ -41,11 +41,11 @@ function updateFolderList(folder) {
     document.getElementById("folderList").innerHTML = "";
     document.getElementById("musicList").innerHTML = "";
     if(currFolder.toString() !== "/"){
-        document.getElementById("musicContent").style.display="block";
+        document.getElementById("musicCard").style.visibility= "visible";
     }
     else {
         document.getElementById("musicContent").innerHTML = "";
-        document.getElementById("musicContent").style.display="none";
+        document.getElementById("musicCard").style.visibility= "hidden";
     }
     let path = currFolder.split("/").filter(function (entry) {
         return /\S/.test(entry);

@@ -26,7 +26,7 @@ function updateSharedFiles(){
                     }
                 };
                 xhr2.send();
-            } else {s
+            } else {
                 console.error(xhr.statusText);
             }
         }
@@ -35,12 +35,13 @@ function updateSharedFiles(){
 }
 
 function updateFolderList(folder) {
+    document.getElementById("videoCard").style.visibility= "hidden";
     if(folder!==undefined){
         currFolder=folder.replace(/\s/g, ' ');
     }
     document.getElementById("folderList").innerHTML = "";
     if(currFolder.endsWith(".mp4")){
-        document.getElementById("videoContent").style.display="block";
+        document.getElementById("videoCard").style.visibility= "visible";
     }
     else {
         document.getElementById("videoContent").innerHTML = "";
@@ -104,7 +105,7 @@ function updateFolderList(folder) {
 }
 
 function searchFolder() {
-    document.getElementById("videoContent").style.display="none";
+    document.getElementById("videoCard").style.visibility= "hidden";
     let element = "";
     for (let j in user.files) {
         let file =user.files[j].split("/");
@@ -126,7 +127,7 @@ function videoPlayer(ip,source) {
     if(ip!==undefined&&source!==undefined){
         currFolder=ip+source.replace(/\s/g, ' ');
     }
-    document.getElementById("videoContent").style.display="block";
+    document.getElementById("videoCard").style.visibility= "visible";
     document.getElementById("folderList").innerHTML="";
     document.getElementById("videoContent").innerHTML="";
     let path = currFolder.split("/").filter(function(entry) { return /\S/.test(entry); });
@@ -147,6 +148,7 @@ function videoPlayer(ip,source) {
             if (xhr.status === 200) {
                 if (xhr.responseText==="true") {
                     document.getElementById("navBar").innerHTML=nav;
+                    document.getElementById("videoCard").style.visibility= "visible";
                     document.getElementById("videoContent").innerHTML="<h2>"+title+"</h2><br><video style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" name=\"media\">"+
                         "<source src="+url+" type=\"video/mp4\"></video>";
                 }
