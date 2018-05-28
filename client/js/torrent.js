@@ -33,7 +33,7 @@ process.on('message', (m) => {
         process.send(
             {   type: 'updateData',
                 data: { video: localVideo,
-                        music: localMusic
+                    music: localMusic
                 }
             }
         );
@@ -42,8 +42,8 @@ process.on('message', (m) => {
         process.send(
             {   type: 'getData',
                 data: { video: localVideo,
-                        music: localMusic,
-                        imgUri:imgMagnetUri
+                    music: localMusic,
+                    imgUri:imgMagnetUri
                 }
             }
         );
@@ -51,11 +51,11 @@ process.on('message', (m) => {
 });
 
 function updateSharedFiles(obj,ext){
-    obj.files=findVideos(ext);
+    obj.files=findFiles(ext);
     refreshSeed();
 }
 
-function findVideos(ext) {
+function findFiles(ext) {
     let xml = fs.readFileSync('client/xml/paths.xml');
     let parser = new xml2js.Parser();
     let res =[];
@@ -94,11 +94,14 @@ function refreshSeed(){
         for (let k in localVideo.files) {
             if (seeding.video[j].name===localVideo.files[k].name){
                 found="1";
+                localVideo.files[k].seed=seeding.video[j].seed;
             }
         }
         if(found==="0"){
-            console.log("remove video seed "+seeding.video[j].name);
-            delete seeding.video[j];
+            client.remove(seeding.video[j].seed, function () {
+                console.log("remove music seed "+seeding.video[j].name);
+                delete seeding.video[j];
+            });
         }
         found = "0" ;
     }
@@ -110,8 +113,11 @@ function refreshSeed(){
             }
         }
         if(found==="0"){
-            seeding.video.push(localVideo.files[k]);
-            console.log("added video seed "+localVideo.files[k].name);
+            client.seed(localVideo.files[k].name, function (torrent) {
+                localVideo.files[k].seed=torrent.magnetURI;
+                seeding.video.push(localVideo.files[k]);
+                console.log("added video seed "+localVideo.files[k].name);
+            });
         }
         found = "0" ;
     }
@@ -122,11 +128,14 @@ function refreshSeed(){
         for (let k in localMusic.files) {
             if (seeding.music[j].name===localMusic.files[k].name){
                 found="1";
+                localMusic.files[k].seed=seeding.music[j].seed;
             }
         }
         if(found==="0"){
-            console.log("remove music seed "+seeding.music[j].name);
-            delete seeding.music[j];
+            client.remove(seeding.music[j].seed, function () {
+                console.log("remove music seed "+seeding.music[j].name);
+                delete seeding.music[j];
+            });
         }
         found = "0" ;
     }
@@ -138,8 +147,11 @@ function refreshSeed(){
             }
         }
         if(found==="0"){
-            seeding.music.push(localMusic.files[k]);
-            console.log("added music seed "+localMusic.files[k].name);
+            client.seed(localMusic.files[k].name, function (torrent) {
+                localMusic.files[k].seed=torrent.magnetURI;
+                seeding.music.push(localMusic.files[k]);
+                console.log("added music seed "+localMusic.files[k].name);
+            });
         }
         found = "0" ;
     }
@@ -149,8 +161,8 @@ function refreshSeed(){
 function initialSeeding(){
     for (let k in localVideo.files) {
         client.seed(localVideo.files[k].name, function (torrent) {
-             localVideo.files[k].seed=torrent.magnetURI;
-             seeding.video.push(localVideo.files[k]);
+            localVideo.files[k].seed=torrent.magnetURI;
+            seeding.video.push(localVideo.files[k]);
             console.log("initial add video seed "+localVideo.files[k].name);
         });
 
@@ -164,8 +176,8 @@ function initialSeeding(){
     }
 }
 
-localMusic.files=findVideos(".mp3");
-localVideo.files=findVideos(".mp4");
+localMusic.files=findFiles(".mp3");
+localVideo.files=findFiles(".mp4");
 initialSeeding();
 
 

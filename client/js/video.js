@@ -80,7 +80,6 @@ parser.parseString(xml, function (err, result) {
 
 function updateFolderList(folder) {
     document.getElementById("videoCard").style.visibility= "hidden";
-    document.getElementById("videoContent").innerHTML = "";
     if(folder!== undefined){
         currFolder=folder.toString().replace(/\s/g, ' ');
     }
@@ -89,6 +88,7 @@ function updateFolderList(folder) {
         document.getElementById("videoCard").style.visibility= "visible";
     }
     else {
+        document.getElementById("videoContent").innerHTML = "";
         let path = currFolder.split("/").filter(function (entry) {
             return /\S/.test(entry);
         });
@@ -127,6 +127,7 @@ function updateFolderList(folder) {
             }
         }
         else {
+            console.log(videoList);
             for (let k in videoList.users) {
                 if (videoList.users[k].ip.toString() === path[0].toString()) {
                     let element = "";
@@ -218,7 +219,7 @@ function videoPlayer(id,source,magnetUri) {
         }());
         nav += "<li class=\"breadcrumb-item\"><a href='#' onclick=updateFolderList(" + clickFolder + ")>" + userName +"</a></li>";
     }
-    if (id === "localhost") {
+    if (id.toString() === "localhost") {
         let encodeText = encodeURIComponent(source);
         let url = "http://" + id + ":" + port + "/stream?source=" + encodeText;
         let xhr = new XMLHttpRequest();
@@ -258,7 +259,6 @@ function videoPlayer(id,source,magnetUri) {
         document.getElementById("videoCard").style.visibility= "visible";
         document.getElementById("videoContent").innerHTML = "<h2>" + title + "</h1><br><img  src=\"img/loading.gif\">";
 
-        console.log(magnetUri);
         let torrent = client.get(magnetUri);
         if (torrent === null) {
             client.add(magnetUri, function (torrent) {

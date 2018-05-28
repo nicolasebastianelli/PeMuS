@@ -41,11 +41,11 @@ function updateFolderList(folder) {
     document.getElementById("folderList").innerHTML = "";
     document.getElementById("musicList").innerHTML = "";
     if(currFolder.toString() !== "/"){
-        document.getElementById("videoContent").style.display="block";
+        document.getElementById("musicContent").style.display="block";
     }
     else {
-        document.getElementById("videoContent").innerHTML = "";
-        document.getElementById("videoContent").style.display="none";
+        document.getElementById("musicContent").innerHTML = "";
+        document.getElementById("musicContent").style.display="none";
     }
     let path = currFolder.split("/").filter(function (entry) {
         return /\S/.test(entry);
@@ -102,7 +102,7 @@ function updateFolderList(folder) {
                                 if (xhr.readyState === 4) {
                                     if (xhr.status === 200) {
                                         if (xhr.responseText === "true") {
-                                            document.getElementById("videoContent").innerHTML = "<h5 id=\"songName\">"+decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "")+"</h5><audio id=\"audioPlayer\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" onloadstart=\"this.volume=0.5\" name=\"media\">" +
+                                            document.getElementById("musicContent").innerHTML = "<h5 id=\"songName\">"+decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "")+"</h5><audio id=\"audioPlayer\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" onloadstart=\"this.volume=0.5\" name=\"media\">" +
                                                 "<source src=" + url + " type=\"audio/mp3\"></audio>";
                                             let nextIndex;
                                             let nextSong = function(table, index) {
@@ -190,7 +190,7 @@ function searchFolder() {
                     if (xhr.readyState === 4) {
                         if (xhr.status === 200) {
                             if (xhr.responseText === "true") {
-                                document.getElementById("videoContent").innerHTML = "<h5 id=\"songName\">"+decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "")+"</h5><audio id=\"audioPlayer\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" onloadstart=\"this.volume=0.5\" name=\"media\">" +
+                                document.getElementById("musicContent").innerHTML = "<h5 id=\"songName\">"+decodeURIComponent(encodeText).split("/").pop().replace(/\.[^/.]+$/, "")+"</h5><audio id=\"audioPlayer\" style=\"display: block;width: 100%;margin: 0 auto; \" controls autoplay controlsList=\"nodownload\" onloadstart=\"this.volume=0.5\" name=\"media\">" +
                                     "<source src=" + url + " type=\"audio/mp3\"></audio>";
                                 let nextIndex;
                                 let nextSong = function(table, index) {

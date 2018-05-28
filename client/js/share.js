@@ -22,15 +22,15 @@ ipcRenderer.on('updateData', function(event,arg) {
 });
 
 function addPathMessage() {
-    var xml = fs.readFileSync('client/xml/paths.xml');
-    var parser = new xml2js.Parser();
-    var exist = "0";
-    var subf = "0";
-    var fatherf = "0";
+    let xml = fs.readFileSync('client/xml/paths.xml');
+    let parser = new xml2js.Parser();
+    let exist = "0";
+    let subf = "0";
+    let fatherf = "0";
     parser.parseString(xml, function (err, result) {
         if (fs.existsSync(document.getElementById("path").value) && fs.lstatSync(document.getElementById("path").value).isDirectory()) {
-            for (k in result.pathlist.path) {
-                if (result.pathlist.path[k].folder == document.getElementById("path").value) {
+            for (let k in result.pathlist.path) {
+                if (result.pathlist.path[k].folder === document.getElementById("path").value) {
                     exist = "1";
                     break;
                 }
@@ -74,7 +74,7 @@ function addPathMessage() {
                     cancelButtonClass: 'btn btn-light',
                     background: 'rgba(0, 0, 0, 0.96)'
                 }).then(function () {
-                    for (k in result.pathlist.path) {
+                    for (let k in result.pathlist.path) {
                         if(result.pathlist.path[k].folder.toString().startsWith(document.getElementById("path").value.toString())){
                             deletePath(result.pathlist.path[k].idPath.toString());
                         }
@@ -108,11 +108,11 @@ function addPathMessage() {
 }
 
 function addPath(){
-    var xml = fs.readFileSync('client/xml/paths.xml');
-    var parser = new xml2js.Parser();
+    let xml = fs.readFileSync('client/xml/paths.xml');
+    let parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
-        var newPath;
-        if (result.pathlist.length == 0) {
+        let newPath;
+        if (result.pathlist.length === 0) {
             newPath = {
                 path: [{
                     idPath: uniqid('folder-'),
@@ -127,7 +127,7 @@ function addPath(){
             };
             result.pathlist.path.push(newPath);
         }
-        var builder = new xml2js.Builder();
+        let builder = new xml2js.Builder();
         xml = builder.buildObject(result);
         fs.writeFileSync('client/xml/paths.xml', xml);
         document.getElementById("path").value = "";
@@ -137,7 +137,7 @@ function addPath(){
 }
 
 function deletePathMessage(e) {
-    var found;
+    let found;
     swal({
         title: 'Warning',
         text: 'You are sure you want to stop sharing the folder: ' + e.getAttribute("folder") + ' ?',
@@ -175,15 +175,15 @@ function deletePathMessage(e) {
 }
 
 function deletePath(idPath){
-    var xml = fs.readFileSync('client/xml/paths.xml');
-    var parser = new xml2js.Parser();
-    var found = "0";
+    let xml = fs.readFileSync('client/xml/paths.xml');
+    let parser = new xml2js.Parser();
+    let found = "0";
     parser.parseString(xml, function (err, result) {
-        for (j in result.pathlist.path) {
-            if (result.pathlist.path[j].idPath == idPath) {
+        for (let j in result.pathlist.path) {
+            if (result.pathlist.path[j].idPath === idPath) {
                 found = "1";
                 delete result.pathlist.path[j];
-                var builder = new xml2js.Builder();
+                let builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
                 fs.writeFileSync('client/xml/paths.xml', xml);
                 break;
@@ -196,12 +196,12 @@ function deletePath(idPath){
 }
 
 function updateFolderTable() {
-    var table = $('#pathTable').DataTable();
-    var xml = fs.readFileSync('client/xml/paths.xml');
-    var parser = new xml2js.Parser();
+    let table = $('#pathTable').DataTable();
+    let xml = fs.readFileSync('client/xml/paths.xml');
+    let parser = new xml2js.Parser();
     table.clear().draw();
     parser.parseString(xml, function (err, result) {
-        if (result.pathlist.length != 0) {
+        if (result.pathlist.length !== 0) {
             result.pathlist.path.forEach(function (element) {
                 table.row.add([
                     element.folder.toString(),

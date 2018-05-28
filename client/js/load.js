@@ -6,8 +6,8 @@ const dialog = require('electron').remote.dialog;
 const port =process.env.PORT;
 
 function updateTheme() {
-    var xml = fs.readFileSync('client/xml/settings.xml');
-    var parser = new xml2js.Parser();
+    let xml = fs.readFileSync('client/xml/settings.xml');
+    let parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
         document.getElementsByTagName("body")[0].setAttribute("data-sa-theme", result.settings.currtheme);
         document.getElementById("label-theme-" + result.settings.currtheme).className += " active";
@@ -17,8 +17,8 @@ function updateTheme() {
 }
 
 function setTheme(id) {
-    var xml = fs.readFileSync('client/xml/settings.xml');
-    var parser = new xml2js.Parser();
+    let xml = fs.readFileSync('client/xml/settings.xml');
+    let parser = new xml2js.Parser();
     parser.parseString(xml, function(err,result) {
         if (document.getElementById(id).getAttribute("value")>0 && document.getElementById(id).getAttribute("value")<=10) {
             result.settings.currtheme = document.getElementById(id).getAttribute("value");
@@ -26,41 +26,41 @@ function setTheme(id) {
         else{
             result.settings.currtheme="1";
         }
-        var builder = new xml2js.Builder();
+        let builder = new xml2js.Builder();
         xml = builder.buildObject(result);
         fs.writeFileSync('client/xml/settings.xml', xml);
     });
 }
 
 function getUserInfo() {
-    var interfaces = os.networkInterfaces();
-    var addresses = [];
+    let interfaces = os.networkInterfaces();
+    let addresses = [];
     addresses.push(os.userInfo().username);
-    for (var k in interfaces) {
-        for (var k2 in interfaces[k]) {
-            var address = interfaces[k][k2];
+    for (let k in interfaces) {
+        for (let k2 in interfaces[k]) {
+            let address = interfaces[k][k2];
             if (address.family === 'IPv4' && !address.internal) {
                 addresses.push(address.address);
             }
         }
     }
-    if(addresses[1]==undefined)
+    if(addresses[1]===undefined)
         addresses.push("Not connected to internet");
     return addresses;
 }
 
 function updateUser() {
-    var addresses = getUserInfo();
+    let addresses = getUserInfo();
     document.getElementById("ip").innerHTML=addresses[1]+":"+port;
     document.getElementById("user").innerHTML=addresses[0];
 
 }
 
 function updateUserMessage() {
-    var addresses = getUserInfo();
+    let addresses = getUserInfo();
     document.getElementById("localMsg").innerHTML="IP:&emsp;\""+addresses[1]+":"+port+"\"";
-    var xml = fs.readFileSync('client/xml/settings.xml');
-    var parser = new xml2js.Parser();
+    let xml = fs.readFileSync('client/xml/settings.xml');
+    let parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
         document.getElementById("remoteMsg").innerHTML="ID:&emsp;\""+result.settings.id+"\"";
     });
@@ -69,12 +69,12 @@ function updateUserMessage() {
 
 function checkID() {
     try {
-        var xml = fs.readFileSync('client/xml/settings.xml');
-        var parser = new xml2js.Parser();
+        let xml = fs.readFileSync('client/xml/settings.xml');
+        let parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
-            if(result.settings.id == "" || result.settings.id === undefined || result.settings.id==null) {
+            if(result.settings.id === "" || result.settings.id === undefined || result.settings.id==null) {
                 result.settings.id = uniqid();
-                var builder = new xml2js.Builder();
+                let builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
                 fs.writeFileSync('client/xml/settings.xml', xml);
             }
@@ -88,32 +88,32 @@ function checkID() {
             "  <id>"+uniqid()+"</id>\n" +
             "</settings>",
             function (err) {
-            if (err) throw err;
-            console.log('Saved!');
-        });
+                if (err) throw err;
+                console.log('Saved!');
+            });
     }
 }
 
 function newProPic() {
     dialog.showOpenDialog({ filters: [{ name: 'image', extensions: ['jpg','jpeg','png'] }]},
-    (fileName) => {
-        // fileNames is an array that contains all the selected
-        if(fileName === undefined)
-        {
-            return;
-        }
-        var content = fs.readFileSync(fileName.toString());
-        fs.writeFileSync("client/img/user.jpg", content);
-        fs.writeFileSync("public/img/user.jpg", content);
-        document.getElementById("proPic").src="img/user.jpg?"+Math.random();
-    if (document.getElementById('proPic2') !==null) {
-        document.getElementById("proPic2").src="img/user.jpg?"+Math.random();
-    }
-    });
+        (fileName) => {
+            // fileNames is an array that contains all the selected
+            if(fileName === undefined)
+            {
+                return;
+            }
+            let content = fs.readFileSync(fileName.toString());
+            fs.writeFileSync("client/img/user.jpg", content);
+            fs.writeFileSync("public/img/user.jpg", content);
+            document.getElementById("proPic").src="img/user.jpg?"+Math.random();
+            if (document.getElementById('proPic2') !==null) {
+                document.getElementById("proPic2").src="img/user.jpg?"+Math.random();
+            }
+        });
 }
 
 function delProPic() {
-    fs.stat('client/img/user.jpg', function (err, stats) {
+    fs.stat('client/img/user.jpg', function (err) {
         if (err) {
             return console.error(err);
         }

@@ -28,6 +28,22 @@ parser.parseString(xml, function (err, result) {
 ipcRenderer.send('getData');
 
 ipcRenderer.on('getData', function(event,arg) {
+    if (videoList.users.length !== 0) {
+        for (let j in videoList.users) {
+            if(videoList.users[j].ip==="localhost"){
+                delete videoList.users[j];
+                break;
+            }
+        }
+    }
+    if (musicList.users.length !== 0) {
+        for (let j in musicList.users) {
+            if(musicList.users[j].ip==="localhost"){
+                delete musicList.users[j];
+                break;
+            }
+        }
+    }
     videoList.users.push(arg.video);
     musicList.users.push(arg.music);
     imgMagnetUri = arg.imgUri;
@@ -137,9 +153,9 @@ peer.on('connection', function(conn) {
         });
     }
 
-    if(conn.metadata.type=='conn-confirm') {
-        var xml = fs.readFileSync('client/xml/servers.xml');
-        var parser = new xml2js.Parser();
+    if(conn.metadata.type==='conn-confirm') {
+        let xml = fs.readFileSync('client/xml/servers.xml');
+        let parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
             let exist = "0";
             for (k in result.servers.server) {
@@ -152,8 +168,8 @@ peer.on('connection', function(conn) {
                 updateNotification();
                 return;
             }
-            var newServer;
-            if (result.servers.length == 0) {
+            let newServer;
+            if (result.servers.length === 0) {
                 newServer = {
                     server: [{
                         id: conn.metadata.id,
@@ -168,7 +184,7 @@ peer.on('connection', function(conn) {
                 };
                 result.servers.server.push(newServer);
             }
-            var builder = new xml2js.Builder();
+            let builder = new xml2js.Builder();
             xml = builder.buildObject(result);
             fs.writeFileSync('client/xml/servers.xml', xml);
             swal({
@@ -223,7 +239,7 @@ peer.on('connection', function(conn) {
             console.log(err);
         });
         connection.on('close', function() {
-            console.log("Connection with "+connection.metadata.id+" done");
+            console.log("Connection with "+conn.metadata.id+" done");
         });
 
         connection.on('open', function() {
@@ -235,7 +251,7 @@ peer.on('connection', function(conn) {
 });
 
 function sendRequest(){
-    remoteID=document.getElementById('remoteID').value;
+    let remoteID=document.getElementById('remoteID').value;
     let exist = "0";
     if(remoteID.toString()===ID.toString()){
         swal({
@@ -314,15 +330,15 @@ function sendRequest(){
 }
 
 function updateNotification(){
-    var xml = fs.readFileSync('client/xml/pending.xml');
+    let xml = fs.readFileSync('client/xml/pending.xml');
     document.getElementById("requestList").innerHTML ="";
-    var parser = new xml2js.Parser();
+    let parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
-        if (result.servers.length != 0) {
+        if (result.servers.length !== 0) {
             document.getElementById("notificationTwink").className = "top-nav__notify";
             for (k in result.servers.server) {
                 document.getElementById("requestList").innerHTML += "<a href=\"#\" class=\"listview__item\">" +
-                    "<img src=\"img/"+result.servers.server[k].id+".jpg\" onerror=\"if (this.src != 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"listview__img\" alt=\"\">" +
+                    "<img src=\"img/"+result.servers.server[k].id+".jpg\" onerror=\"if (this.src !== 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"listview__img\" alt=\"\">" +
                     "<div class=\"listview__content\">" +
                     "<div class=\"listview__heading\">"+result.servers.server[k].name+" - "+result.servers.server[k].id+"</div>" +
                     "<button type=\"button\" class=\"btn btn-success btn--icon-text\" onclick='confirmConn(this)' serverId='"+result.servers.server[k].id+"' serverName='"+result.servers.server[k].name+"' ><i class=\"zmdi zmdi-check\"></i> Confirm</button>" +
@@ -337,9 +353,9 @@ function updateNotification(){
 
 function confirmConn(e){
 
-    var remoteID =e.getAttribute("serverId");
+    let remoteID =e.getAttribute("serverId");
 
-    var connection = peer.connect(remoteID,{
+    let connection = peer.connect(remoteID,{
         metadata: {
             name: localName,
             id: ID,
@@ -360,12 +376,12 @@ function confirmConn(e){
     });
 
     connection.on('close', function() {
-        var xml = fs.readFileSync('client/xml/servers.xml');
-        var parser = new xml2js.Parser();
+        let xml = fs.readFileSync('client/xml/servers.xml');
+        let parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
-            var exist = "0";
-            for (k in result.servers.server) {
-                if (result.servers.server[k].id.toString() == remoteID) {
+            let exist = "0";
+            for (let k in result.servers.server) {
+                if (result.servers.server[k].id.toString() === remoteID) {
                     exist = "1";
                     break;
                 }
@@ -374,8 +390,8 @@ function confirmConn(e){
                 updateNotification();
                 return;
             }
-            var newServer;
-            if (result.servers.length == 0) {
+            let newServer;
+            if (result.servers.length === 0) {
                 newServer = {
                     server: [{
                         id: e.getAttribute("serverId"),
@@ -390,15 +406,15 @@ function confirmConn(e){
                 };
                 result.servers.server.push(newServer);
             }
-            var builder = new xml2js.Builder();
+            let builder = new xml2js.Builder();
             xml = builder.buildObject(result);
             fs.writeFileSync('client/xml/servers.xml', xml);
         });
-        var xml = fs.readFileSync('client/xml/pending.xml');
-        var parser = new xml2js.Parser();
+        xml = fs.readFileSync('client/xml/pending.xml');
+        parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
             for (j in result.servers.server) {
-                if (result.servers.server[j].id == e.getAttribute("serverId")) {
+                if (result.servers.server[j].id === e.getAttribute("serverId")) {
                     delete result.servers.server[j];
                     var builder = new xml2js.Builder();
                     xml = builder.buildObject(result);
@@ -432,11 +448,11 @@ function confirmConn(e){
 }
 
 function denyConn(e){
-    var xml = fs.readFileSync('client/xml/pending.xml');
-    var parser = new xml2js.Parser();
+    let xml = fs.readFileSync('client/xml/pending.xml');
+    let parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
         for (j in result.servers.server) {
-            if (result.servers.server[j].id == e.getAttribute("serverId")) {
+            if (result.servers.server[j].id === e.getAttribute("serverId")) {
                 delete result.servers.server[j];
                 var builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
@@ -453,12 +469,12 @@ function updateCode(){
 }
 
 function updateServerTable() {
-    var table = $('#serverTable').DataTable();
-    var xml = fs.readFileSync('client/xml/servers.xml');
-    var parser = new xml2js.Parser();
+    let table = $('#serverTable').DataTable();
+    let xml = fs.readFileSync('client/xml/servers.xml');
+    let parser = new xml2js.Parser();
     table.clear().draw();
     parser.parseString(xml, function (err, result) {
-        if (result.servers.length != 0) {
+        if (result.servers.length !== 0) {
             result.servers.server.forEach(function (element) {
                 table.row.add([
                     element.id.toString(),
@@ -470,7 +486,7 @@ function updateServerTable() {
 }
 
 function deleteServerMessage(e) {
-    var found;
+    let found;
     swal({
         title: 'Warning',
         text: 'You are sure you want to disconnect from the server: ' + e.getAttribute("serverID") + ' - '+e.getAttribute("serverName")+' ?',
@@ -508,15 +524,15 @@ function deleteServerMessage(e) {
 }
 
 function deleteServer(serverID){
-    var xml = fs.readFileSync('client/xml/servers.xml');
-    var parser = new xml2js.Parser();
-    var found = "0";
+    let xml = fs.readFileSync('client/xml/servers.xml');
+    let parser = new xml2js.Parser();
+    let found = "0";
     parser.parseString(xml, function (err, result) {
-        for (j in result.servers.server) {
-            if (result.servers.server[j].id == serverID) {
+        for (let j in result.servers.server) {
+            if (result.servers.server[j].id === serverID) {
                 found = "1";
                 delete result.servers.server[j];
-                var builder = new xml2js.Builder();
+                let builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
                 fs.writeFileSync('client/xml/servers.xml', xml);
                 break;

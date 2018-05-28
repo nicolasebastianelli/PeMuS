@@ -77,7 +77,7 @@ app.on("window-all-closed", () => {
     // Su macOS le applicazioni e la loro barra dei menu rimangono attive
     // finché l'utente non forza la chiusara con Cmd + Q
     if (process.platform !== "darwin") {
-     app.quit();
+        app.quit();
     }
 });
 
