@@ -5,6 +5,7 @@ const portServer =3000;
 const hostServer ='localhost';
 let ID;
 let client = new WebTorrent();
+client.on('error', function () {});
 let localName =os.userInfo().username;
 
 let videoList = {
@@ -111,16 +112,11 @@ peer.on('error', function(err){
 peer.on('connection', function(conn) {
 
     if(conn.metadata.type==='conn-req') {
-        client.add(conn.metadata.imgMagnetUri,{ path: 'client/img' } ,function (torrent) {
-            torrent.on('done', function () {
-                fs.writeFileSync("client/img", torrent);
-            });
-        });
         xml = fs.readFileSync('client/xml/pending.xml');
         parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
             let exist = "0";
-            for (k in result.servers.server) {
+            for (let k in result.servers.server) {
                 if (result.servers.server[k].id.toString() === conn.metadata.id.toString()) {
                     exist = "1";
                     break;
@@ -158,7 +154,7 @@ peer.on('connection', function(conn) {
         let parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
             let exist = "0";
-            for (k in result.servers.server) {
+            for (let k in result.servers.server) {
                 if (result.servers.server[k].id.toString() === conn.metadata.id.toString()) {
                     exist = "1";
                     break;
@@ -267,7 +263,7 @@ function sendRequest(){
     xml = fs.readFileSync('client/xml/servers.xml');
     parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
-        for (k in result.servers.server) {
+        for (let k in result.servers.server) {
             if (result.servers.server[k].id === remoteID) {
                 exist = "1";
                 break;
@@ -336,9 +332,9 @@ function updateNotification(){
     parser.parseString(xml, function (err, result) {
         if (result.servers.length !== 0) {
             document.getElementById("notificationTwink").className = "top-nav__notify";
-            for (k in result.servers.server) {
+            for (let k in result.servers.server) {
                 document.getElementById("requestList").innerHTML += "<a href=\"#\" class=\"listview__item\">" +
-                    "<img src=\"img/"+result.servers.server[k].id+".jpg\" onerror=\"if (this.src !== 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"listview__img\" alt=\"\">" +
+                    "<img id=\"imgNot-"+result.servers.server[k].id+"\" src=\"img/Default-user.png\" onerror=\"if (this.src !== 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"listview__img\" alt=\"\">" +
                     "<div class=\"listview__content\">" +
                     "<div class=\"listview__heading\">"+result.servers.server[k].name+" - "+result.servers.server[k].id+"</div>" +
                     "<button type=\"button\" class=\"btn btn-success btn--icon-text\" onclick='confirmConn(this)' serverId='"+result.servers.server[k].id+"' serverName='"+result.servers.server[k].name+"' ><i class=\"zmdi zmdi-check\"></i> Confirm</button>" +
@@ -413,8 +409,8 @@ function confirmConn(e){
         xml = fs.readFileSync('client/xml/pending.xml');
         parser = new xml2js.Parser();
         parser.parseString(xml, function (err, result) {
-            for (j in result.servers.server) {
-                if (result.servers.server[j].id === e.getAttribute("serverId")) {
+            for (let j in result.servers.server) {
+                if (result.servers.server[j].id.toString() === e.getAttribute("serverId")) {
                     delete result.servers.server[j];
                     var builder = new xml2js.Builder();
                     xml = builder.buildObject(result);
@@ -451,8 +447,8 @@ function denyConn(e){
     let xml = fs.readFileSync('client/xml/pending.xml');
     let parser = new xml2js.Parser();
     parser.parseString(xml, function (err, result) {
-        for (j in result.servers.server) {
-            if (result.servers.server[j].id === e.getAttribute("serverId")) {
+        for (let j in result.servers.server) {
+            if (result.servers.server[j].id.toString() === e.getAttribute("serverId")) {
                 delete result.servers.server[j];
                 var builder = new xml2js.Builder();
                 xml = builder.buildObject(result);
@@ -529,7 +525,7 @@ function deleteServer(serverID){
     let found = "0";
     parser.parseString(xml, function (err, result) {
         for (let j in result.servers.server) {
-            if (result.servers.server[j].id === serverID) {
+            if (result.servers.server[j].id.toString() === serverID) {
                 found = "1";
                 delete result.servers.server[j];
                 let builder = new xml2js.Builder();

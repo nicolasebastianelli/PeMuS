@@ -118,29 +118,44 @@ function updateFolderList(folder) {
                     return musicList.users[k].ip;
                 }
             }());
+            let img = (function () {
+                if (musicList.users[k].ip === "localhost") {
+                    return "<a href=\"#\" ><img src=\"img/user.jpg\" id=\"proPic2\" onerror=\"if (this.src !== 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>"
+                } else {
+                    return "<a href=\"#\" ><img src=\"img/Default-user.png\" id=\"proPic2\"class=\"folder__img\"></a>"
+                }
+            }());
             document.getElementById("folderList").innerHTML +=
                 "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(musicList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
                 "<div class=\"contacts__item\">" +
-                "<a href=\"#\" ><img src=\"img/user.jpg\" id=\"proPic2\" onerror=\"if (this.src !== 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>" +
+                img +
                 "<div class=\"contacts__info\">" +
                 "<strong>" + musicList.users[k].name + "</strong>" +
                 "<small>" + userName  +"</small></div></div></div>";
         }
     }
     else {
-        document.getElementById("searchBar").style.display="block";
         let element = "";
         for (let k in musicList.users) {
             if (musicList.users[k].ip.toString() === currUsr) {
-                element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
-                for (let j in musicList.users[k].files) {
-                    let encodedName = encodeURIComponent(musicList.users[k].files[j].name);
-                    let magnetUri = musicList.users[k].files[j].seed;
-                    let l = j;
-                    l++;
-                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\""+encodedName+"\" magnet=\""+magnetUri+"\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>"
+                if(musicList.users[k].files.length!==0) {
+                    document.getElementById("searchBar").style.display="block";
+                    element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
+                    for (let j in musicList.users[k].files) {
+                        if (musicList.users[k].files[j].seed !== "") {
+                            let encodedName = encodeURIComponent(musicList.users[k].files[j].name);
+                            let magnetUri = musicList.users[k].files[j].seed;
+                            let l = j;
+                            l++;
+                            element += "<tr><th scope=\"row\">" + l + "</th><td name=\"" + encodedName + "\" magnet=\"" + magnetUri + "\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>"
+                        }
+                    }
+                    element += "</tbody></table></div></div>";
                 }
-                element += "</tbody></table></div></div>";
+                else{
+                    document.getElementById("searchBar").style.display="none";
+                    element = "<div class=\"card\"><div class=\"card-body\"><h4 class=\"card-title\">The User "+musicList.users[k].ip.toString()+" - "+musicList.users[k].name+" has not shared anything yet</h4></div></div>";
+                }
                 document.getElementById("musicList").innerHTML = element;
                 let table = document.getElementById("musicTable");
                 let rows = table.getElementsByTagName("tr");
@@ -279,17 +294,19 @@ function searchFolder() {
     for (let k in musicList.users) {
         if (musicList.users[k].ip.toString() === currUsr) {
             for (let j in musicList.users[k].files) {
-                let l = j;
-                l++;
-                let encodeText = encodeURIComponent(musicList.users[k].files[j].name);
-                let magnetUri = musicList.users[k].files[j].seed;
-                if (document.getElementById("searchInput").value !== "" && document.getElementById("searchInput").value !== undefined && document.getElementById("searchInput").value != null) {
-                    if (musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
-                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\"" + encodeText + "\" magnet=\""+magnetUri+"\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                if(musicList.users[k].files[j].seed!=="") {
+                    let l = j;
+                    l++;
+                    let encodeText = encodeURIComponent(musicList.users[k].files[j].name);
+                    let magnetUri = musicList.users[k].files[j].seed;
+                    if (document.getElementById("searchInput").value !== "" && document.getElementById("searchInput").value !== undefined && document.getElementById("searchInput").value != null) {
+                        if (musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "").toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
+                            element += "<tr><th scope=\"row\">" + l + "</th><td name=\"" + encodeText + "\" magnet=\"" + magnetUri + "\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                        }
                     }
-                }
-                else {
-                    element += "<tr><th scope=\"row\">" + l + "</th><td name=\"" + encodeText + "\" magnet=\""+magnetUri+"\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                    else {
+                        element += "<tr><th scope=\"row\">" + l + "</th><td name=\"" + encodeText + "\" magnet=\"" + magnetUri + "\">" + musicList.users[k].files[j].name.split("/").pop().replace(/\.[^/.]+$/, "") + "</td></tr>\n"
+                    }
                 }
             }
         }

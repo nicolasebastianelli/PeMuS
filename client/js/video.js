@@ -79,6 +79,7 @@ parser.parseString(xml, function (err, result) {
 });
 
 function updateFolderList(folder) {
+    document.getElementById("folderList").className="contacts row";
     document.getElementById("videoCard").style.visibility= "hidden";
     if(folder!== undefined){
         currFolder=folder.toString().replace(/\s/g, ' ');
@@ -117,10 +118,17 @@ function updateFolderList(folder) {
                         return videoList.users[k].ip;
                     }
                 }());
+                let img = (function () {
+                    if (videoList.users[k].ip === "localhost") {
+                        return "<a href=\"#\" ><img src=\"img/user.jpg\" id=\"proPic2\" onerror=\"if (this.src !== 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>"
+                    } else {
+                        return "<a href=\"#\" ><img src=\"img/Default-user.png\" id=\"proPic2\"class=\"folder__img\"></a>"
+                    }
+                }());
                 document.getElementById("folderList").innerHTML +=
                     "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + JSON.stringify(videoList.users[k].ip).replace(/"/g, "&quot;") + ")>" +
                     "<div class=\"contacts__item\">" +
-                    "<a href=\"#\" ><img src=\"img/user.jpg\" id=\"proPic2\" onerror=\"if (this.src !== 'img/Default-user.png') this.src = 'img/Default-user.png';\" class=\"folder__img\"></a>" +
+                    img +
                     "<div class=\"contacts__info\">" +
                     "<strong>" + videoList.users[k].name + "</strong>" +
                     "<small>" + user + "</small></div></div></div>";
@@ -128,34 +136,43 @@ function updateFolderList(folder) {
         }
         else {
             console.log(videoList);
+            let element = "";
             for (let k in videoList.users) {
                 if (videoList.users[k].ip.toString() === path[0].toString()) {
-                    let element = "";
-                    let addedFolder = [];
-                    for (let j in videoList.users[k].files) {
-                        let videoPath = videoList.users[k].files[j].name.toString().split("/").filter(function (entry) {
-                            return /\S/.test(entry);
-                        });
-                        if ($.inArray(videoPath[path.length - 1], addedFolder) === -1 && videoList.users[k].files[j].name.toString().startsWith(folderPath.replace(videoList.users[k].ip.toString(), ""))) {
-                            if (videoPath[path.length] !== undefined) {
-                                let clickFolder = JSON.stringify(folderPath + videoPath[path.length - 1]).replace(/ /g, '&nbsp;');
-                                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList("+clickFolder+")>" +
-                                    "<div class=\"contacts__item\">" +
-                                    "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>";
+                    if(videoList.users[k].files.length!==0) {
+                        let addedFolder = [];
+                        for (let j in videoList.users[k].files) {
+                            let videoPath = videoList.users[k].files[j].name.toString().split("/").filter(function (entry) {
+                                return /\S/.test(entry);
+                            });
+                            if ($.inArray(videoPath[path.length - 1], addedFolder) === -1 && videoList.users[k].files[j].name.toString().startsWith(folderPath.replace(videoList.users[k].ip.toString(), ""))) {
+                                if (videoPath[path.length] !== undefined) {
+                                    let clickFolder = JSON.stringify(folderPath + videoPath[path.length - 1]).replace(/ /g, '&nbsp;');
+                                    element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + clickFolder + ")>" +
+                                        "<div class=\"contacts__item\">" +
+                                        "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>";
+                                }
+                                else {
+                                    if (videoList.users[k].files[j].seed !== "") {
+                                        let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
+                                        let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
+                                        let megnetUri = JSON.stringify(videoList.users[k].files[j].seed).replace(/ /g, '&nbsp;');
+                                        element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" + clickIP + "," + clickFolder + "," + megnetUri + ")>" +
+                                            "<div class=\"contacts__item\">" +
+                                            "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>";
+                                    }
+                                }
+                                element += "<div class=\"contacts__info\">" +
+                                    "<strong>" + videoPath[path.length - 1] + "</strong></div></div></div>";
+                                document.getElementById("folderList").innerHTML = element;
+                                addedFolder.push(videoPath[path.length - 1]);
                             }
-                            else {
-                                let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
-                                let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
-                                let megnetUri = JSON.stringify(videoList.users[k].files[j].seed).replace(/ /g, '&nbsp;');
-                                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ","+megnetUri+")>" +
-                                    "<div class=\"contacts__item\">" +
-                                    "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>";
-                            }
-                            element += "<div class=\"contacts__info\">" +
-                                "<strong>" + videoPath[path.length - 1] + "</strong></div></div></div>";
-                            document.getElementById("folderList").innerHTML = element;
-                            addedFolder.push(videoPath[path.length - 1]);
                         }
+                    }
+                    else{
+                        element = "<div class=\"card\"><div class=\"card-body\"><h4 class=\"card-title\">The User "+videoList.users[k].ip.toString()+" - "+videoList.users[k].name+" has not shared anything yet</h4></div></div>";
+                        document.getElementById("folderList").className="";
+                        document.getElementById("folderList").innerHTML = element;
                     }
                 }
             }
@@ -168,27 +185,29 @@ function searchFolder() {
     let element = "";
     for (let k in videoList.users) {
         for (let j in videoList.users[k].files) {
-            let file =videoList.users[k].files[j].name.toString().split("/");
-            let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
-            let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
-            let megnetUri = JSON.stringify(videoList.users[k].files[j].seed).replace(/ /g, '&nbsp;');
-            if(document.getElementById("searchInput").value!==""&&document.getElementById("searchInput").value!==undefined&&document.getElementById("searchInput").value!=null) {
-                if (file[file.length - 1].toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
+            if(videoList.users[k].files[j].seed!=="") {
+                let file = videoList.users[k].files[j].name.toString().split("/");
+                let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
+                let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
+                let megnetUri = JSON.stringify(videoList.users[k].files[j].seed).replace(/ /g, '&nbsp;');
+                if (document.getElementById("searchInput").value !== "" && document.getElementById("searchInput").value !== undefined && document.getElementById("searchInput").value != null) {
+                    if (file[file.length - 1].toLowerCase().indexOf(document.getElementById("searchInput").value.toLowerCase()) !== -1) {
+                        element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
+                            "<div class=\"contacts__item\" onclick=videoPlayer(" + clickIP + "," + clickFolder + "," + megnetUri + ")>" +
+                            "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
+                            "<div class=\"contacts__info\">" +
+                            "<strong>" + file[file.length - 1] + "</strong>" +
+                            "<small>" + videoList.users[k].ip + "</small></div></div></div>";
+                    }
+                }
+                else {
                     element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
-                        "<div class=\"contacts__item\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ","+megnetUri+")>" +
+                        "<div class=\"contacts__item\" onclick=videoPlayer(" + clickIP + "," + clickFolder + "," + megnetUri + ")>" +
                         "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
                         "<div class=\"contacts__info\">" +
                         "<strong>" + file[file.length - 1] + "</strong>" +
                         "<small>" + videoList.users[k].ip + "</small></div></div></div>";
                 }
-            }
-            else{
-                element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\">" +
-                    "<div class=\"contacts__item\" onclick=videoPlayer(" +clickIP+ "," +clickFolder + ","+megnetUri+")>" +
-                    "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
-                    "<div class=\"contacts__info\">" +
-                    "<strong>" + file[file.length - 1] + "</strong>" +
-                    "<small>" + videoList.users[k].ip + "</small></div></div></div>";
             }
         }
     }

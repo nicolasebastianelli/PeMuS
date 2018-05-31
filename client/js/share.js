@@ -180,7 +180,7 @@ function deletePath(idPath){
     let found = "0";
     parser.parseString(xml, function (err, result) {
         for (let j in result.pathlist.path) {
-            if (result.pathlist.path[j].idPath === idPath) {
+            if (result.pathlist.path[j].idPath.toString() === idPath.toString()) {
                 found = "1";
                 delete result.pathlist.path[j];
                 let builder = new xml2js.Builder();
