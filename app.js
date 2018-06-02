@@ -7,7 +7,7 @@ const ipcMain = require('electron').ipcMain;
 const globalShortcut = require("electron").globalShortcut;
 let win;
 
-child = fork('client/js/torrent.js');
+let child = fork('client/js/torrent.js');
 
 child.on('message', (m) => {
     if(m.type==="updateData"){
@@ -19,11 +19,21 @@ child.on('message', (m) => {
 });
 
 ipcMain.on('updateData', function() {
-    child.send('updateData');
+    try {
+        child.send('updateData');
+    }catch (e) {
+        child = fork('client/js/torrent.js');
+        child.send('updateData');
+    }
 });
 
 ipcMain.on('getData', function() {
-    child.send('getData');
+    try {
+        child.send('getData');
+    }catch (e) {
+        child = fork('client/js/torrent.js');
+        child.send('getData');
+    }
 });
 
 

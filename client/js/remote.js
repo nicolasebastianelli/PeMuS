@@ -7,6 +7,8 @@ let ID;
 let client = new WebTorrent();
 client.on('error', function () {});
 let localName =os.userInfo().username;
+const EventEmitter = require('events').EventEmitter;
+EventEmitter.defaultMaxListeners = 0;
 
 let videoList = {
     users: []
@@ -15,6 +17,8 @@ let videoList = {
 let musicList = {
     users: []
 };
+
+let userReq = [];
 
 let imgMagnetUri;
 
@@ -48,6 +52,11 @@ ipcRenderer.on('getData', function(event,arg) {
     videoList.users.push(arg.video);
     musicList.users.push(arg.music);
     imgMagnetUri = arg.imgUri;
+    for (let k in userReq){
+        respondeFilelist(userReq[k]);
+        delete userReq[k];
+    }
+    userReq = userReq.filter(Boolean);
 });
 
 let peer = new Peer(ID, {
@@ -199,52 +208,57 @@ peer.on('connection', function(conn) {
     }
 
     if(conn.metadata.type==='fileList-req') {
-        let localVideo;
-        let localMusic;
-        let temp;
-        for (let k in videoList.users) {
-            if(videoList.users[k].ip==='localhost'){
-                temp=videoList.users[k].files;
-                break;
-            }
-        }
-        for (let k in temp) {
-            temp[k].name="/"+temp[k].name.split('/').pop();
-        }
-        localVideo=temp;
-        for (let k in musicList.users) {
-            if(musicList.users[k].ip==='localhost'){
-                temp=musicList.users[k].files;
-                break;
-            }
-        }
-        for (let k in temp) {
-            temp[k].name="/"+temp[k].name.split('/').pop();
-        }
-        localMusic=temp;
-        let connection = peer.connect(conn.metadata.id, {
-            metadata: {
-                name: localName,
-                id: ID,
-                type: 'fileList-answ',
-                video: localVideo,
-                music: localMusic
-            }
-        });
-        connection.on('error', function(err) {
-            console.log(err);
-        });
-        connection.on('close', function() {
-            console.log("Connection with "+conn.metadata.id+" done");
-        });
-
-        connection.on('open', function() {
-            // Send messages
-            connection.send('msg');
-            connection.close();
-        });
+        userReq.push(conn.metadata.id);
+        ipcRenderer.send('getData');
     }
 });
+
+function respondeFilelist(remoteID){
+    let localVideo;
+    let localMusic;
+    let temp;
+    for (let k in videoList.users) {
+        if(videoList.users[k].ip==='localhost'){
+            temp=videoList.users[k].files;
+            break;
+        }
+    }
+    for (let k in temp) {
+        temp[k].name="/"+temp[k].name.split('/').pop();
+    }
+    localVideo=temp;
+    for (let k in musicList.users) {
+        if(musicList.users[k].ip==='localhost'){
+            temp=musicList.users[k].files;
+            break;
+        }
+    }
+    for (let k in temp) {
+        temp[k].name="/"+temp[k].name.split('/').pop();
+    }
+    localMusic=temp;
+    let connection = peer.connect(remoteID, {
+        metadata: {
+            name: localName,
+            id: ID,
+            type: 'fileList-answ',
+            video: localVideo,
+            music: localMusic
+        }
+    });
+    connection.on('error', function(err) {
+        console.log(err);
+    });
+    connection.on('close', function() {
+        console.log("Connection with "+remoteID+" done");
+    });
+
+    connection.on('open', function() {
+        // Send messages
+        connection.send('msg');
+        connection.close();
+    });
+}
 
 function sendRequest(){
     let remoteID=document.getElementById('remoteID').value;

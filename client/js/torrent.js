@@ -8,7 +8,7 @@ EventEmitter.defaultMaxListeners = 0;
 
 let client = new WebTorrent();
 
-client.on('error', function () {});
+client.on('error', function (err) {});
 
 let imgMagnetUri;
 
@@ -96,17 +96,21 @@ function refreshSeed(){
                 }
             }
             if (found === "0") {
-                client.remove(seeding.video[j].seed.toString(), function () {
-                    if(seeding.video[j]!==undefined) {
-                        console.log("remove video seed " + seeding.video[j].name);
-                        delete seeding.video[j];
-                    }else{
-                        reInitialize();
-                    }
-                });
+                if(client.get(seeding.music[j].seed)) {
+                    client.remove(seeding.video[j].seed.toString(), function () {
+                        if (seeding.video[j] !== undefined) {
+                            console.log("remove video seed " + seeding.video[j].name);
+                            delete seeding.video[j];
+                        } else {
+                            reInitialize();
+                        }
+                    });
+                }
             }
             found = "0";
         }
+
+        seeding.video = seeding.video.filter(Boolean);
 
         for (let k in localVideo.files) {
             for (let j in seeding.video) {
@@ -137,17 +141,21 @@ function refreshSeed(){
                 }
             }
             if (found === "0") {
-                client.remove(seeding.music[j].seed, function () {
-                    if(seeding.music[j]!==undefined) {
-                        console.log("remove music seed " + seeding.music[j].name);
-                        delete seeding.music[j];
-                    }else{
-                        reInitialize();
-                    }
-                });
+                if(client.get(seeding.music[j].seed)) {
+                    client.remove(seeding.music[j].seed, function () {
+                        if (seeding.music[j] !== undefined) {
+                            console.log("remove music seed " + seeding.music[j].name);
+                            delete seeding.music[j];
+                        } else {
+                            reInitialize();
+                        }
+                    });
+                }
             }
             found = "0";
         }
+
+        seeding.music = seeding.music.filter(Boolean);
 
         for (let k in localMusic.files) {
             for (let j in seeding.music) {

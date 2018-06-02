@@ -142,7 +142,7 @@ function updateFolderList(folder) {
                     document.getElementById("searchBar").style.display="block";
                     element = "<div class=\"card\"><div class=\"card-body\"><table id=\"musicTable\" class=\"table table-hover mb-0\"><tbody>";
                     for (let j in musicList.users[k].files) {
-                        if (musicList.users[k].files[j].seed !== "") {
+                        if (musicList.users[k].files[j].seed !== "" || musicList.users[k].ip.toString() ==="localhost") {
                             let encodedName = encodeURIComponent(musicList.users[k].files[j].name);
                             let magnetUri = musicList.users[k].files[j].seed;
                             let l = j;
@@ -294,7 +294,7 @@ function searchFolder() {
     for (let k in musicList.users) {
         if (musicList.users[k].ip.toString() === currUsr) {
             for (let j in musicList.users[k].files) {
-                if(musicList.users[k].files[j].seed!=="") {
+                if(musicList.users[k].files[j].seed!=="" || musicList.users[k].ip.toString() ==="localhost") {
                     let l = j;
                     l++;
                     let encodeText = encodeURIComponent(musicList.users[k].files[j].name);

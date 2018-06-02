@@ -150,20 +150,22 @@ function updateFolderList(folder) {
                                     let clickFolder = JSON.stringify(folderPath + videoPath[path.length - 1]).replace(/ /g, '&nbsp;');
                                     element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=updateFolderList(" + clickFolder + ")>" +
                                         "<div class=\"contacts__item\">" +
-                                        "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>";
+                                        "<a href=\"#\" ><img src=\"img/Folder-icon.png\"  class=\"folder__img\"></a>" +
+                                        "<div class=\"contacts__info\">" +
+                                        "<strong>" + videoPath[path.length - 1] + "</strong></div></div></div>";
                                 }
                                 else {
-                                    if (videoList.users[k].files[j].seed !== "") {
+                                    if (videoList.users[k].files[j].seed !== "" || videoList.users[k].ip.toString() === "localhost") {
                                         let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
                                         let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
                                         let megnetUri = JSON.stringify(videoList.users[k].files[j].seed).replace(/ /g, '&nbsp;');
                                         element += "<div class=\"col-xl-3 col-lg-4 col-sm-5 col-4\" onclick=videoPlayer(" + clickIP + "," + clickFolder + "," + megnetUri + ")>" +
                                             "<div class=\"contacts__item\">" +
-                                            "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>";
+                                            "<a href=\"#\" ><img src=\"img/Video-icon.png\"  class=\"folder__img\"></a>" +
+                                            "<div class=\"contacts__info\">" +
+                                            "<strong>" + videoPath[path.length - 1] + "</strong></div></div></div>";
                                     }
                                 }
-                                element += "<div class=\"contacts__info\">" +
-                                    "<strong>" + videoPath[path.length - 1] + "</strong></div></div></div>";
                                 document.getElementById("folderList").innerHTML = element;
                                 addedFolder.push(videoPath[path.length - 1]);
                             }
@@ -185,7 +187,7 @@ function searchFolder() {
     let element = "";
     for (let k in videoList.users) {
         for (let j in videoList.users[k].files) {
-            if(videoList.users[k].files[j].seed!=="") {
+            if(videoList.users[k].files[j].seed!=="" || videoList.users[k].ip.toString()==="localhost") {
                 let file = videoList.users[k].files[j].name.toString().split("/");
                 let clickFolder = JSON.stringify(videoList.users[k].files[j].name).replace(/ /g, '&nbsp;');
                 let clickIP = JSON.stringify(videoList.users[k].ip).replace(/ /g, '&nbsp;');
